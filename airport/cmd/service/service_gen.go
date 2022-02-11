@@ -4,6 +4,7 @@ package service
 import (
 	endpoint1 "github.com/go-kit/kit/endpoint"
 	log "github.com/go-kit/kit/log"
+	prometheus "github.com/go-kit/kit/metrics/prometheus"
 	opentracing "github.com/go-kit/kit/tracing/opentracing"
 	http "github.com/go-kit/kit/transport/http"
 	endpoint "github.com/niiniyare/ars/airport/pkg/endpoint"
@@ -24,6 +25,11 @@ func defaultHttpOptions(logger log.Logger, tracer opentracinggo.Tracer) map[stri
 		"GetListAirports": {http.ServerErrorEncoder(http1.ErrorEncoder), http.ServerErrorLogger(logger), http.ServerBefore(opentracing.HTTPToContext(tracer, "GetListAirports", logger))},
 	}
 	return options
+}
+func addDefaultEndpointMiddleware(logger log.Logger, duration *prometheus.Summary, mw map[string][]endpoint1.Middleware) {
+	mw["CreateAirports"] = []endpoint1.Middleware{endpoint.LoggingMiddleware(log.With(logger, "method", "CreateAirports")), endpoint.InstrumentingMiddleware(duration.With("method", "CreateAirports"))}
+	mw["DeleteAirports"] = []endpoint1.Middleware{endpoint.LoggingMiddleware(log.With(logger, "method", "DeleteAirports")), endpoint.InstrumentingMiddleware(duration.With("method", "DeleteAirports"))}
+	mw["GetListAirports"] = []endpoint1.Middleware{endpoint.LoggingMiddleware(log.With(logger, "method", "GetListAirports")), endpoint.InstrumentingMiddleware(duration.With("method", "GetListAirports"))}
 }
 func addEndpointMiddlewareToAllMethods(mw map[string][]endpoint1.Middleware, m endpoint1.Middleware) {
 	methods := []string{"CreateAirports", "DeleteAirports", "GetListAirports"}

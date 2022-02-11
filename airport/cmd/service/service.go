@@ -6,6 +6,7 @@ import (
 	"fmt"
 	endpoint1 "github.com/go-kit/kit/endpoint"
 	log "github.com/go-kit/kit/log"
+	prometheus "github.com/go-kit/kit/metrics/prometheus"
 	lightsteptracergo "github.com/lightstep/lightstep-tracer-go"
 	endpoint "github.com/niiniyare/ars/airport/pkg/endpoint"
 	http1 "github.com/niiniyare/ars/airport/pkg/http"
@@ -15,6 +16,7 @@ import (
 	zipkingoopentracing "github.com/openzipkin-contrib/zipkin-go-opentracing"
 	zipkingo "github.com/openzipkin/zipkin-go"
 	http "github.com/openzipkin/zipkin-go/reporter/http"
+	prometheus1 "github.com/prometheus/client_golang/prometheus"
 	promhttp "github.com/prometheus/client_golang/prometheus/promhttp"
 	"net"
 	http2 "net/http"
@@ -115,6 +117,13 @@ func getServiceMiddleware(logger log.Logger) (mw []service.Middleware) {
 }
 func getEndpointMiddleware(logger log.Logger) (mw map[string][]endpoint1.Middleware) {
 	mw = map[string][]endpoint1.Middleware{}
+	duration := prometheus.NewSummaryFrom(prometheus1.SummaryOpts{
+		Help:      "Request duration in seconds.",
+		Name:      "request_duration_seconds",
+		Namespace: "example",
+		Subsystem: "airport",
+	}, []string{"method", "success"})
+	addDefaultEndpointMiddleware(logger, duration, mw)
 	// Add you endpoint middleware here
 
 	return

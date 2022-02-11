@@ -3,7 +3,6 @@ package endpoint
 import (
 	"context"
 	endpoint "github.com/go-kit/kit/endpoint"
-	entity "github.com/niiniyare/ars/airport/entity"
 	service "github.com/niiniyare/ars/airport/pkg/service"
 )
 
@@ -14,17 +13,17 @@ type CreateAirportsRequest struct {
 
 // CreateAirportsResponse collects the response parameters for the CreateAirports method.
 type CreateAirportsResponse struct {
-	E0 entity.Airport `json:"e0"`
-	E1 error          `json:"e1"`
+	A0 service.Airport `json:"a0"`
+	E1 error           `json:"e1"`
 }
 
 // MakeCreateAirportsEndpoint returns an endpoint that invokes CreateAirports on the service.
 func MakeCreateAirportsEndpoint(s service.AirportService) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (interface{}, error) {
 		req := request.(CreateAirportsRequest)
-		e0, e1 := s.CreateAirports(ctx, req.Arg)
+		a0, e1 := s.CreateAirports(ctx, req.Arg)
 		return CreateAirportsResponse{
-			E0: e0,
+			A0: a0,
 			E1: e1,
 		}, nil
 	}
@@ -64,16 +63,16 @@ type GetListAirportsRequest struct{}
 
 // GetListAirportsResponse collects the response parameters for the GetListAirports method.
 type GetListAirportsResponse struct {
-	E0 []entity.Airport `json:"e0"`
-	E1 error            `json:"e1"`
+	A0 []service.Airport `json:"a0"`
+	E1 error     `json:"e1"`
 }
 
 // MakeGetListAirportsEndpoint returns an endpoint that invokes GetListAirports on the service.
 func MakeGetListAirportsEndpoint(s service.AirportService) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (interface{}, error) {
-		e0, e1 := s.GetListAirports(ctx)
+		a0, e1 := s.GetListAirports(ctx)
 		return GetListAirportsResponse{
-			E0: e0,
+			A0: a0,
 			E1: e1,
 		}, nil
 	}
@@ -92,13 +91,13 @@ type Failure interface {
 }
 
 // CreateAirports implements Service. Primarily useful in a client.
-func (e Endpoints) CreateAirports(ctx context.Context, arg service.CreateAirportsParams) (e0 entity.Airport, e1 error) {
+func (e Endpoints) CreateAirports(ctx context.Context, arg service.CreateAirportsParams) (a0 service.Airport, e1 error) {
 	request := CreateAirportsRequest{Arg: arg}
 	response, err := e.CreateAirportsEndpoint(ctx, request)
 	if err != nil {
 		return
 	}
-	return response.(CreateAirportsResponse).E0, response.(CreateAirportsResponse).E1
+	return response.(CreateAirportsResponse).A0, response.(CreateAirportsResponse).E1
 }
 
 // DeleteAirports implements Service. Primarily useful in a client.
@@ -112,11 +111,11 @@ func (e Endpoints) DeleteAirports(ctx context.Context, airportCode string) (e0 e
 }
 
 // GetListAirports implements Service. Primarily useful in a client.
-func (e Endpoints) GetListAirports(ctx context.Context) (e0 []entity.Airport, e1 error) {
+func (e Endpoints) GetListAirports(ctx context.Context) (a0 []service.Airport, e1 error) {
 	request := GetListAirportsRequest{}
 	response, err := e.GetListAirportsEndpoint(ctx, request)
 	if err != nil {
 		return
 	}
-	return response.(GetListAirportsResponse).E0, response.(GetListAirportsResponse).E1
+	return response.(GetListAirportsResponse).A0, response.(GetListAirportsResponse).E1
 }
