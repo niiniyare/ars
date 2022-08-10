@@ -28,3 +28,26 @@ The number of seats `(seats)` in the aircraft and their distribution between dif
  bookings | ticket_flights  | table | admin
  bookings | tickets         | table | admin
 ```
+```bash
+              List of relations
+  Schema |    Name|   Type   |  
+--------+-------------------------+----------+
+ public | aircrafts               | table    | 
+ public | aircrafts_id_seq        | sequence | 
+ public | airlines                | table    | 
+ public | airlines_id_seq         | sequence | 
+ public | airports                | table    | 
+ public | airports_id_seq         | sequence | 
+ public | boarding_passes         | table    | 
+ public | bookings                | table    | 
+ public | flights                 | table    | 
+ public | flights_aircraft_id_seq | sequence | 
+ public | flights_company_id_seq  | sequence | 
+ public | flights_flight_id_seq   | sequence | 
+ public | flights_v               | view     | 
+ public | routes                  | view     | 
+ public | seats                   | table    | 
+ public | seats_aircraft_id_seq   | sequence | 
+ public | ticket_flights          | table    | 
+ public | tickets
+```
