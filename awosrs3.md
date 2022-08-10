@@ -35,17 +35,17 @@
     
     
     
-    1  Product Perspective. 7
+    1.  Product Perspective. 7
 
-    2  Product Functions 7
+    2.  Product Functions 7
 
     3.  Use-case Diagram 8
 
     4.  User Classes and Characteristics 14
 
-    5  User Interests 14
+    5.  User Interests 14
 
-    6  Operating Environment. 14
+    6.  Operating Environment. 14
 
     7.  Design and Implementation Constraints. 14
 
