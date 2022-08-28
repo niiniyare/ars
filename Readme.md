@@ -70,7 +70,6 @@ Although the existing systems were performing the basic functions of the airline
  currentlly systems can make schedules, search availability, book flights, Ticketing, refund, change date and arrenge departure basic. 
 design of this  **ATRS** come to do this jobs easy and smooth plus add missing Features that are needed.
  
-- [ ] list current systems drawbacks. 
  
 The new system aims to overcome the above-mentioned drawbacks of the existing system. It will allow users to make reservations according their needs from different parts of the world without leaving their places. Furthermore, it will reduce the workload of the employees who are responsible to make reservations at the office.
 
