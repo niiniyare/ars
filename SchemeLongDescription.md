@@ -27,9 +27,32 @@ J.4.15. Function bookings. lang
 
 J.4.1. List of Relations
 
- 
+ ```bash
+              List of relations
+  Schema |    Name|   Type   |  
+--------+-------------------------+----------+
+ public | aircrafts               | table    | 
+ public | aircrafts_id_seq        | sequence | 
+ public | airlines                | table    | 
+ public | airlines_id_seq         | sequence | 
+ public | airports                | table    | 
+ public | airports_id_seq         | sequence | 
+ public | boarding_passes         | table    | 
+ public | bookings                | table    | 
+ public | flights                 | table    | 
+ public | flights_aircraft_id_seq | sequence | 
+ public | flights_company_id_seq  | sequence | 
+ public | flights_flight_id_seq   | sequence | 
+ public | flights_v               | view     | 
+ public | routes                  | view     | 
+ public | seats                   | table    | 
+ public | seats_aircraft_id_seq   | sequence | 
+ public | ticket_flights          | table    | 
+ public | tickets
+```
 
-Name | Type | Small | Medium | Big | Description
+ 
+ [] # (Name | Type | Small | Medium | Big | Description)
 aircrafts | view | | | | Aircraft
 aircrafts_data | table | 16 kB | 16 kB | 16 kB | Aircraft (translatio
 airports | view | | | | Airports

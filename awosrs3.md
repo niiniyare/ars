@@ -1,453 +1,101 @@
-**Software Requirements**
+## **Software Requirements** **Specification** **for** **Airline Ticket Reservation.**
 
-**Specification**
+| Version       | Date              | Prepared by       | Approved  |
+|---------------|-------------------|-------------------|-----------|
+| Version 1.0.1 | December 16, 2021 | Abdirahman Ahmed  | Pending   |
+|               |                   |                   |           |
 
-**for**
 
-**Airline Ticket Reservation**
+# 1. Introduction
 
-**Version 4.0 approved**
+### 1.1 Purpose
+This document lists the requirement specifications for an Airline Ticket Reservation System (**ATRS**). The document is subject the change as the project progresses. The given version of the document is the initial one. Further changes of the project will be recorded to the document.
 
-**Prepared by Abdirahman Ahmed**
-
- **December 16, 2021**
-
- **Table of Contents**
-
-**Document Version Control.
-
- **Requirements Version Control** 4
-
-1.  **Introduction.** 5
-
-    1.  Purpose. 5
-
-    2.  Document Conventions 5
-
-    3  Intended Audience 5
-
-    4.  Product Scope. 5
-
-    5.  Reference Documents 5
-
-    6.  Overview 5 **2 Overall Description** 7
-
-    
-    
-    
-    1.  Product Perspective. 7
-
-    2.  Product Functions 7
-
-    3.  Use-case Diagram 8
-
-    4.  User Classes and Characteristics 14
-
-    5.  User Interests 14
-
-    6.  Operating Environment. 14
-
-    7.  Design and Implementation Constraints. 14
-
-    8.  User Documentation. 14
-
-    9.  Assumptions and Dependencies 14
-
-
-
-
-1.  **Requirements and Goal Modelling** 15
-
-    1.  Goal Modelling. 15
-
-        1.  Strategic Dependency Model 15
-
-        2.  Model of software-intensive system 17
-
-        3.  Goal and Agent Responsibility Model 18
-
-    2.  Requirements Modelling. 21
-
-        1.  Scope. 21
-
-        2.  Booking a Flight 21
-
-        3.  State Models. 22
-
-        4.  Ticket Booking Process. 24
-
-2.  **Specific Requirements.** 25
-
-    1.  External Interface Requirements. 25
-
-        1.  User Interfaces. 25
-
-        2.  Hardware Interfaces. 25
-
-        3.  Software Interfaces. 25
-
-        4.  Communication Interfaces. 26
-
-    2.  Functional Requirements. 26
-
-    3.  Software System attributes. 27
-
-    4.  Non-functional Requirements 28
-
-        1.  Performance Requirements. 28
-
-        2.  Reliability Requirements 28
-
-        3.  Security Requirements. 28
-
-        4.  Maintainability Requirements. 28
-
-        5.  Portability Requirements. 28
-
-        6.  Safety Requirements. 28
-
-        7.  Other Requirements. 29
-
-    5.  Solution-oriented Requirements. 29
-
-        1.  Class diagram requirements 29
-
-        2.  State diagram requirements. 29
-
-        3.  Sequence diagram requirements. 29
-
-    6.  System Features. 30
-
-    7.  Requirements Prioritization. 31
-
-        1.  MoSCoW Method 31
-
-        2.  Prioritization According to Cost 32
-
-        3.  Prioritization According to Value. 33
-
-        4.  Plot ROI Graph. 35
-
-4.7.5 Hierarchical Prioritization. 36
-
-1.  Requirements Traceability. 37
-
-    1.  Traceability Matrix. 38
-
-    2.  Traceability Model. 38
-
-
-
-
-1.  **Prototype** . 40
-
-**Appendix A: Glossary**.. 41
-
-**Document Version Control:**
-
-<table>
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 14%" />
-<col style="width: 50%" />
-<col style="width: 11%" />
-<col style="width: 14%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p><strong>Full</strong></p>
-<blockquote>
-<p><strong>name</strong></p>
-</blockquote></th>
-<th><strong>Date</strong></th>
-<th><strong>Change comments</strong></th>
-<th><p><strong>New</strong></p>
-<blockquote>
-<p><strong>version</strong></p>
-</blockquote></th>
-<th><blockquote>
-<p><strong>Previous version</strong></p>
-</blockquote></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>11.10. 2021</td>
-<td>Initial version</td>
-<td>V1.0</td>
-<td>NA</td>
-</tr>
-<tr class="even">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>17.10. 2021</td>
-<td><p>Requirements prioritization according to value, ROI plot graph, prioritization attributes, traceability model, traceability</p>
-<p>attributes are added</p></td>
-<td>V1.1</td>
-<td>V1.0</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>10.11. 2021</td>
-<td><p>Non-functional requirements are upgraded, strategic dependency model is constructed,</p>
-<blockquote>
-<p>traceability model is upgraded, system goal</p>
-</blockquote>
-<p>modelling is performed</p></td>
-<td>V2.0</td>
-<td>V1.1</td>
-</tr>
-<tr class="even">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>19.11. 2021</td>
-<td><p>Non-functional requirements are traced, strategic dependency model and KAOS</p>
-<p>models are upgraded, software intensive</p>
-<p>system model is introduced, use case</p>
-<p>diagrams are upgraded</p></td>
-<td>V2.1</td>
-<td>V2.0</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>03.12. 2021</td>
-<td><p>Scope of the main problem is defined, class diagram, state models, solution-oriented</p>
-<blockquote>
-<p>requirements are extracted and documented by being grouped into system features, traceability model is upgraded</p>
-</blockquote></td>
-<td>V3.0</td>
-<td>V2.1</td>
-</tr>
-<tr class="even">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>09.12. 2021</td>
-<td><p>Class diagram is updated, scope is refined, state diagrams are updated, sequence</p>
-<p>diagram is constructed, solution-oriented</p>
-<p>requirements are updated</p></td>
-<td>V3.1</td>
-<td>V3.0</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>16.12. 2021</td>
-<td>Sequence diagram is updated, scope is refined, prototype is built</td>
-<td>V4.0</td>
-<td>V3.1</td>
-</tr>
-</tbody>
-</table>
-
-**Requirements Version Control:**
-
-<table>
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 14%" />
-<col style="width: 50%" />
-<col style="width: 11%" />
-<col style="width: 14%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p><strong>Full</strong></p>
-<blockquote>
-<p><strong>name</strong></p>
-</blockquote></th>
-<th><strong>Date</strong></th>
-<th><strong>Change comments</strong></th>
-<th><p><strong>New</strong></p>
-<blockquote>
-<p><strong>version</strong></p>
-</blockquote></th>
-<th><blockquote>
-<p><strong>Previous version</strong></p>
-</blockquote></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>11.10. 2021</td>
-<td>Initial specification of requirements</td>
-<td>V1.0</td>
-<td>NA</td>
-</tr>
-<tr class="even">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>17.10. 2021</td>
-<td><blockquote>
-<p>Refining initial requirements according to criteria of good requirements</p>
-</blockquote></td>
-<td>V1.1</td>
-<td>V1.0</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>10.11. 2021</td>
-<td>Non-functional requirements are upgraded</td>
-<td>V2.0</td>
-<td>V1.1</td>
-</tr>
-<tr class="even">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>19.11. 2021</td>
-<td>Non-functional requirements are traced, performance, reliability, security, portability, maintainability requirements are upgraded</td>
-<td>V2.1</td>
-<td>V2.0</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>03.12. 2021</td>
-<td><blockquote>
-<p>Solution-oriented requirements are extracted and documented by being grouped into</p>
-</blockquote>
-<p>system features</p></td>
-<td>V3.0</td>
-<td>V2.1</td>
-</tr>
-<tr class="even">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>09.12. 2021</td>
-<td>Solution-oriented requirements are updated</td>
-<td>V3.1</td>
-<td>V3.0</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
-<p>Team</p>
-</blockquote>
-<p>6</p></td>
-<td>16.12. 2021</td>
-<td>Solution-oriented requirements are refined according to criteria of good requirements</td>
-<td>V4.0</td>
-<td>V3.1</td>
-</tr>
-</tbody>
-</table>
-
-# Introduction 
-
-## 1.1 Purpose 
-
-This document lists the requirement specifications for an Airline Ticket Reservation System (ATRS). The document is subject the change as the project progresses. The given version of the document is the initial one. Further changes of the project will be recorded to the document.
-
-**1.2 Document Conventions**
+#### 1.2 Document Conventions
 
 The document is formatted according to IEEE standard.
 
-## 1.3 Intended Audience 
+#### 1.3 Intended Audience
 
 The intended audience for this document consists of requirements engineers, software developers, designers, testers and project manager.
 
-## 1.4 Product Scope 
+### 1.4 Product Scope
 
-*Subject facet:* User Interface, Searching one-way flights, Searching round trip flights, Searching multiple destinations, Flight reservations, Reservation cancellation, Online payment, Request and response for reservation cancellation, Displaying warning messages.
+**Subject facet:** User Interface, Searching one-way flights, Searching round trip flights, Searching multiple destinations, Flight reservations, Reservation cancellation, Online payment, Request and response for reservation cancellation, Displaying warning messages.
 
-*Usage facet:* Searching, Sorting of flights, Reservation of tickets, Managing existing reservation, Managing flight details, Keeping the flights up to date.
+**Usage facet:** Searching, Sorting of flights, Reservation of tickets, Managing existing reservation, Managing flight details, Keeping the flights up to date.
 
-*IT facet:* Database, Web-based software system, AAS for logins, Performance maintenance. *Development facet:* Internal policy and culture of the airlines company should be taken under consideration.
+**IT facet:** Database, Web-based software system, AAS for logins, Performance maintenance. *Development facet:* Internal policy and culture of the airlines company should be taken under consideration.
 
-## 1.5 Reference Documents 
+### 1.5 Reference Documents
 
-1\. Naveed Ali, Richard Lai, A method of software requirements specification and validation for global software development, June 2017, Volume 22, Issue 2, pp 191ì214 [(<u>https://link.springer.com/article/10.1007/s00766-015-0240-</u>](https://link.springer.com/article/10.1007/s00766-015-0240-4) [<u>4</u>](https://link.springer.com/article/10.1007/s00766-015-0240-4)) 2. Lecture slides.
+1. [Lecture slides.
+Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Software
+](https://pdfcoffee.com/download/software-requirements-specification-for-airline-flight-booking-system-software-requirements-specification-for-airline-flight-booking-system-pdf-free.html)
+1.  [Example of the final goal system](https://www.lemax.net/)
 
-1.  Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Software
+1.  [API functionalities AeroCRS](https://docs.aerocrs.com/reference/getairlines-1)
 
-Requirements Specification for Airline Flight Booking System, February 2009
+1. [ARS Overview ](https://fasrsmall634.weebly.com/disadvantages-of-manual-airline-reservation-system.html)
+ 
+1. [AirGateway‚Äôs NDC JSON API](https://dev-guides.airgateway.net/) 
 
-[(<u>http://www.academia.edu/23567842/Software_Requirements_Specification_for_Airline_Flight</u>](http://www.academia.edu/23567842/Software_Requirements_Specification_for_Airline_Flight_Booking_System_Software_Requirements_Specification_for_Airline_flight_booking_system) [<u>\_</u>](http://www.academia.edu/23567842/Software_Requirements_Specification_for_Airline_Flight_Booking_System_Software_Requirements_Specification_for_Airline_flight_booking_system)
+1. [Best Travelport Universal API wrapper](https://github.com/Travelport-Ukraine/uapi-json) 
 
-[<u>Booking_System_Software_Requirements_Specification_for_Airline_flight_booking_system</u>)](http://www.academia.edu/23567842/Software_Requirements_Specification_for_Airline_Flight_Booking_System_Software_Requirements_Specification_for_Airline_flight_booking_system)
 
-1.  <u>[www.wikipedia.co](http://www.wikipedia.com/) [m](http://www.wikipedia.com/)</u>
-
-2.  Example of the Final system <https://www.lemax.net/>
-
-3.  API functionalities \[AeroCRS\] <https://docs.aerocrs.com/reference/getairlines-1>
-
-## 1.6 Overview 
+### 1.6 Overview
 
 The remaining part of the specification document is organized as follows.
 
--   Section 2 defines overall description of the system which defines product perspectives and functions, use-case diagrams, classes and characteristics of involved users, the environment that the system is going to be deployed, constraints on design and implementation of the system, user documentation, assumptions and dependencies.
+-  **Section 2** defines overall description of the system which defines product perspectives and functions, use-case diagrams, classes and characteristics of involved users, the environment that the system is going to be deployed, constraints on design and implementation of the system, user documentation, assumptions and dependencies.
 
--   Section 3 focuses on requirements and goal modelling. Strategic dependency model, model of software-intensive system, goal and agent responsibility model are used to model goals, while class diagram, state models and sequence diagram are constructed to model requirements.
+-   **Section 3** focuses on requirements and goal modelling. Strategic dependency model, model of software-intensive system, goal and agent responsibility model are used to model goals, while class diagram, state models and sequence diagram are constructed to model requirements.
 
--   Section 4 contains all the specific requirements such as functional requirements, performance requirements and external interface requirements, which in turn includes user, software, hardware and communication interface requirements. Attributes of the software system and non-functional requirements are also specified in this section. Solution-oriented requirements extracted from requirements modelling part are documented in this section.
+-   **Section 4** contains all the specific requirements such as functional requirements, performance requirements and external interface requirements, which in turn includes user, software, hardware and communication interface requirements. Attributes of the software system and non-functional requirements are also specified in this section. Solution-oriented requirements extracted from requirements modelling part are documented in this section.
+   Prioritization and traceability of requirements are also included in **Section 4**.
 
-Prioritization and traceability of requirements are also included in Section 4.
+# 2. Overall Description
 
-# 2. Overall Description 
+### 2.1 Product Perspective
 
-## 2.1 Product Perspective 
 
-ATRS is the digitized version of the traditional reservation system at the airline office. Existing manual system requires every customer to come to the airline office in order to make a booking. Apart from the fact that not all customers have time to come to the office, existing system also causes long queues at the office. Some customers get bored from waiting in the queue and airline loses its potential customers.
+__Airline Ticketing reservation systems (ARS)__ are part of the so-called passenger service systems (PSS), which are applications supporting the direct contact with the passenger.
+Airline reservation systems incorporate airline schedules, fare tariffs, passenger reservations and ticket records.An airline's direct distribution works within their own reservation system, as well as pushing out information to the GDS.
+ARS eventually evolved into the computer reservations system (CRS). A computer reservation system is used for the reservations of a particular airline and interfaces with a global distribution system (GDS) which supports travel agencies and other distribution channels in making reservations for most major airlines in a single system
 
-In addition to that, a hard copy of the passport is required during the reservation at office. Customers who are not able to present their passports at the office for whatever reason cannot make reservations.
-
+ **ATRS** is a direct distribution channel are consumers who use the internet or mobile applications to make their own reservations. Travel agencies and other indirect distribution channels access the same GDS as those accessed by the airline reservation systems.
+ 
+Although the existing systems were performing the basic functions of the airlines and doing their best but not yet those who can meet the demand, There are a few systematic challenges that airlines are still facing that can be overcome.
+ 
+ currentlly systems can make schedules, search availability, book flights, Ticketing, refund, change date and arrenge departure basic. 
+design of this  **ATRS** come to do this jobs easy and smooth plus add missing Features that are needed.
+ 
+- [ ] list current systems drawbacks. 
+ 
 The new system aims to overcome the above-mentioned drawbacks of the existing system. It will allow users to make reservations according their needs from different parts of the world without leaving their places. Furthermore, it will reduce the workload of the employees who are responsible to make reservations at the office.
 
 The system allows customers to check the availability of flights for specific dates and routes, get information about durations of available flights. It also allows customers to check the prices and the things that are included in the ticket such as baggage allowance, meal and etc. and booking the ticket. Administrator can modify, remove existing flights, also add new flights to the system. Furthermore, administrator can see customer requests about cancellation of bookings, and decide whether to accept and reject them.
 
-## 2.2 Product Functions 
-
+### 2.2 Product Functions
 The system will have 10 functionalities for customers and administrators and they are listed below.
 
-### 2.2.1 Search for flights 
+#### 2.2.1 Search for flights
 
 Description: Using this function a customer is able to search for one-way, round-trip and multiple destination flights by choosing specific dates and destinations.
 
-### 2.2.2 Specify passengers 
+#### 2.2.2 Specify passengers
 
 Description: With the help of this function customer selects the number of passengers and their category, either adult, child or infant.
 
-### 2.2.3 Sort flights 
+#### 2.2.3 Sort flights
 
 Description: Regarding to this functions, customer sorts flights either by price or duration of the flight.
 
-### 2.2.4 Book flights 
+#### 2.2.4 Book flights
 
 Description: This function allows customer to book flights by choosing ticket types and processing online payment.
 
-### 2.2.5 Request cancellation 
+#### 2.2.5 Request cancellation
 
 Description: This function indicates that customer can request the cancellation of the reserved ticket.
 
@@ -459,19 +107,19 @@ Description: The function grants administrator the privilege of adding new fligh
 
 Description: Using this functionality administrator can modify the details of the existing flights.
 
-### 2.2.8 Remove flights 
+#### 2.2.8 Remove flights
 
 Description: With the help of this function administrator removes the flights from the system that are cancelled for whatever reason.
 
-### 2.2.9 See cancellation requests 
+#### 2.2.9 See cancellation requests
 
 Description: This functionality allows administrator to overview the cancellation requests of customers, and approve or reject them.
 
 **2.2.10 See booking details**
 
-Description: This functionality enables administrator to view the customersô booking details.
+Description: This functionality enables administrator to view the customers' booking details.
 
-## 2.3 Use-case Diagram 
+### 2.3 Use-case Diagram
 
 **Description:** In the use case diagram given below, we have displayed how our users interact with the system to accomplish their goals and responsibilities. Here in our diagram we have 4 actors (Customer, Administrator, Support Staff, Bank), 3 of which are the main users (Customer, Administrator, Support Staff). In every use case mentioned in the diagram, the actions of the users are described, and how these use cases are related to one another is represented by the help of arrows. In our Use case diagram all functionalities of the system are displayed. Customer can search for flights based on dates and destination, flights being one-way or round-trip, sort the displayed flights according to price or duration, specify the passengers (how many adults, children or infants), request cancellation, book flight, choose the ticket type and proceed with the payment. The payment is processed by the Bank. Another actor, Administrator, is responsible for adding new flights, modifying flight details and removing flights if needed, see the cancellation request, approve or deny them and see booking details. Our final actor, Support Staff, is responsible for maintenance of the system, ensuring the security of the system (by creating predefined users and maintaining AAS), safety of the system (by restoring and recovering data and assuring data integrity) and reliability of the system (by maintaining SLA).
 
@@ -497,8 +145,11 @@ Description: This functionality enables administrator to view the customersô boo
 <tbody>
 <tr class="odd">
 <td><blockquote>
-<p>Use Case Name:</p>
-</blockquote></td>
+<p>
+Use Case Name:
+</p>
+</blockquote>
+</td>
 <td>Search for flights</td>
 <td></td>
 <td></td>
@@ -513,8 +164,11 @@ Description: This functionality enables administrator to view the customersô boo
 <td>Date Created:</td>
 <td>9/11/2021</td>
 <td><blockquote>
-<p>Date Last Updated:</p>
-</blockquote></td>
+<p>
+Date Last Updated:
+</p>
+</blockquote>
+</td>
 <td>9/11/2021</td>
 </tr>
 </tbody>
@@ -550,13 +204,26 @@ Description: This functionality enables administrator to view the customersô boo
 </tr>
 <tr class="odd">
 <td><blockquote>
-<p>Normal Course of Events:</p>
-</blockquote></td>
+<p>
+Normal Course of Events:
+</p>
+</blockquote>
+</td>
 <td><ol type="1">
-<li><p>Customer enters airlineôs website</p></li>
-<li><p>Customer chooses the specific date</p></li>
-<li><p>System displays the flights on a given date</p></li>
-</ol></td>
+<li><p>
+Customer enters airline's website
+</p>
+</li>
+<li><p>
+Customer chooses the specific date
+</p>
+</li>
+<li><p>
+System displays the flights on a given date
+</p>
+</li>
+</ol>
+</td>
 </tr>
 <tr class="even">
 <td>Alternative Courses:</td>
@@ -598,8 +265,11 @@ Description: This functionality enables administrator to view the customersô boo
 <tbody>
 <tr class="odd">
 <td><blockquote>
-<p>Use Case Name:</p>
-</blockquote></td>
+<p>
+Use Case Name:
+</p>
+</blockquote>
+</td>
 <td>Sort flights</td>
 <td colspan="2"></td>
 </tr>
@@ -637,16 +307,32 @@ Description: This functionality enables administrator to view the customersô boo
 <tr class="even">
 <td>Normal flow:</td>
 <td><ol type="1">
-<li><p>Customer enters airlineôs website</p></li>
-<li><p>Customer searches for flights</p></li>
-<li><p>System displays the list of available flights</p></li>
-<li><p>Customer chooses to sort the list of flights either by price or the duration of flight.</p></li>
-<li><p>System displays the sorted list of flights</p></li>
-</ol></td>
+<li><p>
+Customer enters airline's website
+</p>
+</li>
+<li><p>
+Customer searches for flights
+</p>
+</li>
+<li><p>
+System displays the list of available flights
+</p>
+</li>
+<li><p>
+Customer chooses to sort the list of flights either by price or the duration of flight.
+</p>
+</li>
+<li><p>
+System displays the sorted list of flights
+</p>
+</li>
+</ol>
+</td>
 </tr>
 <tr class="odd">
 <td>Preconditions:</td>
-<td>System has displayed the list of available flights based on customerôs query</td>
+<td>System has displayed the list of available flights based on customer's query</td>
 </tr>
 <tr class="even">
 <td>Post conditions:</td>
@@ -662,8 +348,11 @@ Description: This functionality enables administrator to view the customersô boo
 </tr>
 <tr class="odd">
 <td><blockquote>
-<p>Alternative Courses:</p>
-</blockquote></td>
+<p>
+Alternative Courses:
+</p>
+</blockquote>
+</td>
 <td>NA</td>
 </tr>
 <tr class="even">
@@ -676,7 +365,7 @@ Description: This functionality enables administrator to view the customersô boo
 </tr>
 <tr class="even">
 <td>Assumptions:</td>
-<td>System is available, There are available flights according to customerôs search criteria</td>
+<td>System is available, There are available flights according to customer's search criteria</td>
 </tr>
 <tr class="odd">
 <td>Notes and Issues:</td>
@@ -701,8 +390,11 @@ Description: This functionality enables administrator to view the customersô boo
 <tbody>
 <tr class="odd">
 <td><blockquote>
-<p>Use Case Name:</p>
-</blockquote></td>
+<p>
+Use Case Name:
+</p>
+</blockquote>
+</td>
 <td>Payment</td>
 <td></td>
 <td></td>
@@ -717,8 +409,11 @@ Description: This functionality enables administrator to view the customersô boo
 <td>Date Created:</td>
 <td>10/11/2021</td>
 <td><blockquote>
-<p>Date Last Updated:</p>
-</blockquote></td>
+<p>
+Date Last Updated:
+</p>
+</blockquote>
+</td>
 <td>10/11/2021</td>
 </tr>
 </tbody>
@@ -754,17 +449,42 @@ Description: This functionality enables administrator to view the customersô boo
 </tr>
 <tr class="odd">
 <td><blockquote>
-<p>Normal Course of Events:</p>
-</blockquote></td>
+<p>
+Normal Course of Events:
+</p>
+</blockquote>
+</td>
 <td><ol type="1">
-<li><p>Customer clicks úBook Nowù button</p></li>
-<li><p>System asks the customer to enter card details as default</p></li>
-<li><p>Customer enters the card details</p></li>
-<li><p>Customer clicks úMake Paymentù button</p></li>
-<li><p>System handles the payment</p></li>
-<li><p>System displays the confirmation of the payment</p></li>
-<li><p>System sends an invoice to customerôs email</p></li>
-</ol></td>
+<li><p>
+Customer clicks 'Book Now' button
+</p>
+</li>
+<li><p>
+System asks the customer to enter card details as default
+</p>
+</li>
+<li><p>
+Customer enters the card details
+</p>
+</li>
+<li><p>
+Customer clicks 'Make Payment' button
+</p>
+</li>
+<li><p>
+System handles the payment
+</p>
+</li>
+<li><p>
+System displays the confirmation of the payment
+</p>
+</li>
+<li><p>
+System sends an invoice to customer's email
+</p>
+</li>
+</ol>
+</td>
 </tr>
 <tr class="even">
 <td>Alternative Courses:</td>
@@ -805,8 +525,11 @@ Description: This functionality enables administrator to view the customersô boo
 <tbody>
 <tr class="odd">
 <td><blockquote>
-<p>Use Case Name:</p>
-</blockquote></td>
+<p>
+Use Case Name:
+</p>
+</blockquote>
+</td>
 <td>Adding new flights.</td>
 <td></td>
 <td></td>
@@ -815,16 +538,22 @@ Description: This functionality enables administrator to view the customersô boo
 <td>Created By:</td>
 <td>Abdirahman Ahmed</td>
 <td><blockquote>
-<p>Last Updated By:</p>
-</blockquote></td>
+<p>
+Last Updated By:
+</p>
+</blockquote>
+</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Date Created:</td>
 <td>10/11/2021</td>
 <td><blockquote>
-<p>Date Last Updated:</p>
-</blockquote></td>
+<p>
+Date Last Updated:
+</p>
+</blockquote>
+</td>
 <td>10/11/2021</td>
 </tr>
 </tbody>
@@ -849,11 +578,24 @@ Description: This functionality enables administrator to view the customersô boo
 <tr class="even">
 <td>Normal flow:</td>
 <td><ol type="1">
-<li><p>Administrator enters the website.</p></li>
-<li><p>Administrator logs in to the admin panel.</p></li>
-<li><p>Administrator adds details about new flights to the system.</p></li>
-<li><p>Administrator submits the addition of the new flights to the system</p></li>
-</ol></td>
+<li><p>
+Administrator enters the website.
+</p>
+</li>
+<li><p>
+Administrator logs in to the admin panel.
+</p>
+</li>
+<li><p>
+Administrator adds details about new flights to the system.
+</p>
+</li>
+<li><p>
+Administrator submits the addition of the new flights to the system
+</p>
+</li>
+</ol>
+</td>
 </tr>
 <tr class="odd">
 <td>Preconditions:</td>
@@ -868,8 +610,13 @@ Description: This functionality enables administrator to view the customersô boo
 <td>Once in 6 hours.</td>
 </tr>
 <tr class="even">
-<td><p>Normal Course of</p>
-<p>Events:</p></td>
+<td><p>
+Normal Course of
+</p>
+<p>
+Events:
+</p>
+</td>
 <td>Administrator logs in to the system and adds/modifies flights at the system.</td>
 </tr>
 <tr class="odd">
@@ -895,43 +642,43 @@ Description: This functionality enables administrator to view the customersô boo
 </tbody>
 </table>
 
-## 2.4 User Classes and Characteristics 
+### 2.4 User Classes and Characteristics
 
 The system users are divided into three categories: administrators, customers and support staff. Administrators should be trained and have a knowledge about using this application. On the other hand, customers do not need a training or a background knowledge. Support staff consist of specialists who have good analytical and problem solving skills, up-to-date technical knowledge, good interpersonal and customer care skills.
 
-## 2.5 User Interests 
+### 2.5 User Interests
 
-Customersô interests are getting information about available flights of specific dates and routes, knowing their durations, checking the prices of the tickets. They are also interested in what are included in different ticket types in terms of whether the ticket is refundable, include meal, what is the baggage limit for each type of ticket. Moreover, customers concern about booking flights without leaving the places where they are.
+Customers' interests are getting information about available flights of specific dates and routes, knowing their durations, checking the prices of the tickets. They are also interested in what are included in different ticket types in terms of whether the ticket is refundable, include meal, what is the baggage limit for each type of ticket. Moreover, customers concern about booking flights without leaving the places where they are.
 
-Administratorôs interests include modifying, removing existing flights and adding new flights to the system. Furthermore, administrator can manage customersô cancellation requests in terms of either accepting or rejecting them.
+Administrator's interests include modifying, removing existing flights and adding new flights to the system. Furthermore, administrator can manage customers' cancellation requests in terms of either accepting or rejecting them.
 
-Support staffôs duties are maintaining performance, ensuring security and reliability of the system, alongside controlling AAS in terms of predefining administrator passwords, adding new administrator customized passwords to the system, and granting them administrator privileges.
+Support staff's duties are maintaining performance, ensuring security and reliability of the system, alongside controlling AAS in terms of predefining administrator passwords, adding new administrator customized passwords to the system, and granting them administrator privileges.
 
-## 2.6 Operating Environment 
+### 2.6 Operating Environment
 
-The designed system is thought to be a website and will be available via any web-browser application. It will not be dependent on the technical capabilities or operating system of userôs device.
+The designed system is thought to be a website and will be available via any web-browser application. It will not be dependent on the technical capabilities or operating system of user's device.
 
-## 2.7 Design and Implementation Constraints 
+### 2.7 Design and Implementation Constraints
 
-Flight dates and hours should be displayed according to the city of departure and destinationsô time zones and the daylight saving time settings for each country should be considered. Additionally, information about any changes that are made in the database should be displayed with no delay.
+Flight dates and hours should be displayed according to the city of departure and destinations' time zones and the daylight saving time settings for each country should be considered. Additionally, information about any changes that are made in the database should be displayed with no delay.
 
 **2.8 User Documentation**
 
 The instructions on how to book a flight will be provided on the website for inexperienced users.
 
-## 2.9 Assumptions and Dependencies 
+### 2.9 Assumptions and Dependencies
 
-It is assumed that the user has an internet access and can do online payments. The performance of ATRS depends on the quality and speed of the internet connection.
+It is assumed that the user has an internet access and can do online payments. The performance of **ATRS** depends on the quality and speed of the internet connection.
 
-# 3. Requirements and Goal Modelling 
+# 3. Requirements and Goal Modelling
 
-## 3.1 Goal Modelling 
+### 3.1 Goal Modelling
 
-### 3.1.1 Strategic Dependency Model
+#### 3.1.1 Strategic Dependency Model
 
 <img src="media/image2.png" style="width:6.50333in;height:4.12in" />
 
-###  Figure 2. Strategic Dependency Model 
+###  Figure 2. Strategic Dependency Model
 
 Below given table explains the way how Strategic Dependency Model should be read:
 
@@ -1009,14 +756,17 @@ Below given table explains the way how Strategic Dependency Model should be read
 </tr>
 <tr class="even">
 <td><blockquote>
-<p>G6</p>
-</blockquote></td>
+<p>
+G6
+</p>
+</blockquote>
+</td>
 <td>Customers are dependent from bank on making payments</td>
 </tr>
 </tbody>
 </table>
 
-#### 3.1.2 Model of software-intensive system
+##### 3.1.2 Model of software-intensive system
 
 <img src="media/image3.jpg" style="width:6.5in;height:5.16667in" />
 
@@ -1030,80 +780,83 @@ Below given table explains the way how Strategic Dependency Model should be read
 <thead>
 <tr class="header">
 <th><blockquote>
-<p><strong>ID</strong></p>
-</blockquote></th>
+<p>
+<strong>ID</strong>
+</p>
+</blockquote>
+</th>
 <th><strong>Description of Figure 3</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>T1.1</td>
-<td>ATRS depends on administrator to add new flights</td>
+<td>**ATRS** depends on administrator to add new flights</td>
 </tr>
 <tr class="even">
 <td>T1.2</td>
-<td>ATRS depends on administrator to modify flights flight details</td>
+<td>**ATRS** depends on administrator to modify flights flight details</td>
 </tr>
 <tr class="odd">
 <td>T1.3</td>
-<td>ATRS depends on administrator to remove flights</td>
+<td>**ATRS** depends on administrator to remove flights</td>
 </tr>
 <tr class="even">
 <td>T1.4</td>
-<td>ATRS depends on administrator on management of cancellation requests</td>
+<td>**ATRS** depends on administrator on management of cancellation requests</td>
 </tr>
 <tr class="odd">
 <td>T1.5</td>
-<td>Administrator depends on ATRS to display cancellation requests</td>
+<td>Administrator depends on **ATRS** to display cancellation requests</td>
 </tr>
 <tr class="even">
 <td>T2.1</td>
-<td>ATRS depends on customerôs query to search for flights</td>
+<td>**ATRS** depends on customer's query to search for flights</td>
 </tr>
 <tr class="odd">
 <td>T2.2</td>
-<td>ATRS depends on customerôs request to book the ticket</td>
+<td>**ATRS** depends on customer's request to book the ticket</td>
 </tr>
 <tr class="even">
 <td>T2.3</td>
-<td>ATRS depends on customerôs request to sort the flights</td>
+<td>**ATRS** depends on customer's request to sort the flights</td>
 </tr>
 <tr class="odd">
 <td>T2.4</td>
-<td>ATRS depends on customer for specification of passengers</td>
+<td>**ATRS** depends on customer for specification of passengers</td>
 </tr>
 <tr class="even">
 <td>T2.5</td>
-<td>Customer depends on ATRS to display information about flights</td>
+<td>Customer depends on **ATRS** to display information about flights</td>
 </tr>
 <tr class="odd">
 <td>T3.1</td>
-<td>ATRS depends on support staff to maintain performance of the system</td>
+<td>**ATRS** depends on support staff to maintain performance of the system</td>
 </tr>
 <tr class="even">
 <td>T3.2</td>
-<td>ATRS depends on support staff to ensure security of the system</td>
+<td>**ATRS** depends on support staff to ensure security of the system</td>
 </tr>
 <tr class="odd">
 <td>T3.3</td>
-<td>ATRS depends on support staff to ensure safety of the system</td>
+<td>**ATRS** depends on support staff to ensure safety of the system</td>
 </tr>
 <tr class="even">
 <td>T3.4</td>
-<td>ATRS depends on support staff to ensure reliability of the system</td>
+<td>**ATRS** depends on support staff to ensure reliability of the system</td>
 </tr>
 <tr class="odd">
 <td>T4.1</td>
-<td>Bank depends on ATRS to fetch the card details of customer to handle the payment</td>
+<td>Bank depends on **ATRS** to fetch the card details of customer to handle the payment</td>
 </tr>
 <tr class="even">
 <td>T4.2</td>
-<td>ATRS depends on bank to process the payment</td>
+<td>**ATRS** depends on bank to process the payment</td>
 </tr>
 </tbody>
 </table>
 
-#### 3.1.3 Goal and Agent Responsibility Model 
+##### 3.1.3 Goal and Agent Responsibility Model
 
 <img src="media/image4.jpg" style="width:6.41667in;height:4.20833in" />
 
@@ -1117,66 +870,99 @@ Below given table explains the way how Strategic Dependency Model should be read
 <thead>
 <tr class="header">
 <th><blockquote>
-<p><strong>ID</strong></p>
-</blockquote></th>
+<p>
+<strong>ID</strong>
+</p>
+</blockquote>
+</th>
 <th><strong>Description of Figure 4</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><blockquote>
-<p>G1</p>
-</blockquote></td>
+<p>
+G1
+</p>
+</blockquote>
+</td>
 <td>Customer wants to book a flight</td>
 </tr>
 <tr class="even">
 <td><blockquote>
-<p>G2</p>
-</blockquote></td>
+<p>
+G2
+</p>
+</blockquote>
+</td>
 <td>Customer searches for flights</td>
 </tr>
 <tr class="odd">
 <td><blockquote>
-<p>G3</p>
-</blockquote></td>
+<p>
+G3
+</p>
+</blockquote>
+</td>
 <td>Customer searches for one-way flights</td>
 </tr>
 <tr class="even">
 <td><blockquote>
-<p>G4</p>
-</blockquote></td>
+<p>
+G4
+</p>
+</blockquote>
+</td>
 <td>Customer searches for round trip flights</td>
 </tr>
 <tr class="odd">
 <td><blockquote>
-<p>G5</p>
-</blockquote></td>
+<p>
+G5
+</p>
+</blockquote>
+</td>
 <td>Customer searches for flights of multiple destinations</td>
 </tr>
 <tr class="even">
 <td><blockquote>
-<p>G6</p>
-</blockquote></td>
+<p>
+G6
+</p>
+</blockquote>
+</td>
 <td>Customer specifies departure date of flight</td>
 </tr>
 <tr class="odd">
 <td><blockquote>
-<p>G7</p>
-</blockquote></td>
+<p>
+G7
+</p>
+</blockquote>
+</td>
 <td><blockquote>
-<p>Customer specifies both departure and arrival dates of flight</p>
-</blockquote></td>
+<p>
+Customer specifies both departure and arrival dates of flight
+</p>
+</blockquote>
+</td>
 </tr>
 <tr class="even">
 <td><blockquote>
-<p>G8</p>
-</blockquote></td>
+<p>
+G8
+</p>
+</blockquote>
+</td>
 <td>Customer specifies destinations for flight</td>
 </tr>
 <tr class="odd">
 <td><blockquote>
-<p>G9</p>
-</blockquote></td>
+<p>
+G9
+</p>
+</blockquote>
+</td>
 <td>Customer wants to sort flights</td>
 </tr>
 <tr class="even">
@@ -1224,7 +1010,7 @@ Below given table explains the way how Strategic Dependency Model should be read
 
 <img src="media/image5.jpg" style="width:6.5in;height:4.88542in" />
 
-###  Figure 5. KAOS Model 2 
+###  Figure 5. KAOS Model 2
 
 Below given table explains the way *Figure 5*  should be read:
 
@@ -1236,8 +1022,11 @@ Below given table explains the way *Figure 5*  should be read:
 <thead>
 <tr class="header">
 <th><blockquote>
-<p><strong>ID</strong></p>
-</blockquote></th>
+<p>
+<strong>ID</strong>
+</p>
+</blockquote>
+</th>
 <th><strong>Description of Figure 5</strong></th>
 </tr>
 </thead>
@@ -1256,7 +1045,7 @@ Below given table explains the way *Figure 5*  should be read:
 </tr>
 <tr class="even">
 <td>G4</td>
-<td>Administrator wants to manage customersô cancellation requests</td>
+<td>Administrator wants to manage customers' cancellation requests</td>
 </tr>
 <tr class="odd">
 <td>G5</td>
@@ -1276,26 +1065,26 @@ Below given table explains the way *Figure 5*  should be read:
 </tr>
 <tr class="odd">
 <td>G9</td>
-<td>Administrator wants to restrict non-administrative usersô access to the system</td>
+<td>Administrator wants to restrict non-administrative users' access to the system</td>
 </tr>
 </tbody>
 </table>
 
-## 3.2 Requirements Modelling 
+### 3.2 Requirements Modelling
 
-### 3.2.1 Scope 
+#### 3.2.1 Scope
 
 Scope for our diagrams is focused on the implementation of Use Case ID 15, to customer booking a flight.
 
-### 3.2.2 Booking a Flight 
+#### 3.2.2 Booking a Flight
 
 <img src="media/image6.jpg" style="width:6.5in;height:4.21875in" />
 
-###  Figure 6. Booking a flight 
+###  Figure 6. Booking a flight
 
-**Description:** Customer class contains information about customers, such as their full names, locations, card details and genders. Operations performed by customers via interactions with administrator, bank, flight and flight tickets are contained in the respective part of the Customer class. Administrator class, on the other hand contains the data about the administrator (name and account details) and the operations he/she performs on the system. It relates to customer on approving or rejecting the cancellation requests made by the customer. Flight class is another key class in our diagram and contains information about flight such as destination and origin city, flight date, time and duration, number of seats and flightôs availability. Ticket class is also essential for our diagram and contains the full name of the customer that it belongs to. It has its own unique ID, price and type, which expands to Standard, Premium or VIP class tickets. The last class in the diagram belongs to Bank and as operations its payment processing and receipt generating functions are specified.
+**Description:** Customer class contains information about customers, such as their full names, locations, card details and genders. Operations performed by customers via interactions with administrator, bank, flight and flight tickets are contained in the respective part of the Customer class. Administrator class, on the other hand contains the data about the administrator (name and account details) and the operations he/she performs on the system. It relates to customer on approving or rejecting the cancellation requests made by the customer. Flight class is another key class in our diagram and contains information about flight such as destination and origin city, flight date, time and duration, number of seats and flight's availability. Ticket class is also essential for our diagram and contains the full name of the customer that it belongs to. It has its own unique ID, price and type, which expands to Standard, Premium or VIP class tickets. The last class in the diagram belongs to Bank and as operations its payment processing and receipt generating functions are specified.
 
-#### 3.2.3 State Models 
+##### 3.2.3 State Models
 
 **Description:** As visible in class diagram, administrator can add or remove flights to the system. In state diagrams these functionalities displayed as finite states. In first diagram, administrator gets information about a new flight, adds the flight to the system and it is visible to the rest of the users of the system. Second one displays administrator being informed of cancelled flight, removing it and checking whether it is still available on the system. In third diagram, booking flight and making payment functionalities of customer are explained. Here, customer books a flight, he/she is asked to proceed with payment, and the process is finished if customer has enough fund to make payment. In the last diagram bank handles the payment made by the customer. Bank receives information about the payment, processes the payment and generates the receipt.
 
@@ -1303,41 +1092,41 @@ Scope for our diagrams is focused on the implementation of Use Case ID 15, to cu
 
 <img src="media/image7.jpg" style="width:3.63542in;height:4.09375in" /><img src="media/image8.jpg" style="width:1.92708in;height:1.83333in" />
 
-###  Figure 7. Adding new flight 
+###  Figure 7. Adding new flight
 
 **1.2 SD_2 Administrator diagram**
 
 <img src="media/image9.jpg" style="width:3.1875in;height:3.09375in" /><img src="media/image8.jpg" style="width:1.92708in;height:1.83333in" />
 
-###  Figure 8. Removing existing flight 
+###  Figure 8. Removing existing flight
 
-#### 1.3 SD_3 Bank statement 
+##### 1.3 SD_3 Bank statement
 
 <img src="media/image10.jpg" style="width:2.86458in;height:3.42708in" /><img src="media/image11.jpg" style="width:2.0625in;height:1.36458in" />
 
-###  Figure 9. Processing payment 
+###  Figure 9. Processing payment
 
 **1.4 SD_4 Customer state**
 
 <img src="media/image12.jpg" style="width:3.35417in;height:3.6875in" /><img src="media/image13.jpg" style="width:1.59375in;height:1.91667in" />
 
-###  Figure 10. Paying for booking 
+###  Figure 10. Paying for booking
 
-#### 3.2.4 Ticket Booking Process 
+##### 3.2.4 Ticket Booking Process
 
-**Description:** In sequence diagram we have displayed how the objects of classes interact with each other throughout the customerôs ticket booking process.
+**Description:** In sequence diagram we have displayed how the objects of classes interact with each other throughout the customer's ticket booking process.
 
 <img src="media/image14.jpg" style="width:6.5in;height:4.20833in" />
 
-# 4. Specific Requirements 
+## 4. Specific Requirements
 
-## 4.1 External Interface Requirements 
+### 4.1 External Interface Requirements
 
-### 4.1.1 User Interfaces 
+#### 4.1.1 User Interfaces
 
-4.1.1.1 ATRS should have a customer user interface.
+4.1.1.1 **ATRS** should have a customer user interface.
 
-4.1.1.2 ATRS should have an administrator user interface.
+4.1.1.2 **ATRS** should have an administrator user interface.
 
 4.1.1.3 Customer user interface should have a graphical user interface (GUI).
 
@@ -1347,9 +1136,9 @@ Scope for our diagrams is focused on the implementation of Use Case ID 15, to cu
 
 No hardware interface is required for the Airline Ticket Reservation system.
 
-### 4.1.3 Software Interfaces 
+#### 4.1.3 Software Interfaces
 
-4.1.3.1 ATRS should be a web-based system.
+4.1.3.1 **ATRS** should be a web-based system.
 
 4.1.3.2 It should be possible to open and use the website on the computers with operating systems of Microsoft 7, Microsoft 8, Microsoft 10, Mac Os, Linux, Ubuntu.
 
@@ -1357,11 +1146,11 @@ No hardware interface is required for the Airline Ticket Reservation system.
 
 4.1.3.4 Oracle Database 12C should be used to store the data about users.
 
-### 4.1.4 Communication Interfaces 
+#### 4.1.4 Communication Interfaces
 
 4.1.4.1 HTTP protocol should be used as an interface of communication between client and server sides.
 
-## 4.2 Functional Requirements 
+### 4.2 Functional Requirements
 
 4.2.1 Customer should be able to search flights for a specific date for one-way trips.
 
@@ -1455,31 +1244,31 @@ No hardware interface is required for the Airline Ticket Reservation system.
 
 4.2.47 Administrator should be able to see details of existing bookings.
 
-## 4.3. Software System Attributes 
+### 4.3. Software System Attributes
 
-### 4.3.1 Usability 
+#### 4.3.1 Usability
 
 4.4.1.1 Non-technical background of a user should not be an obstacle to understand and use the system.
 
-### 4.3.2 Robustness 
+#### 4.3.2 Robustness
 
 4.4.2.1 System should be able to display the most recent inquiry by the user in case of refreshment of page after sudden connection lost.
 
-### 4.3.3 Consistency 
+#### 4.3.3 Consistency
 
 4.4.4.1 Number of available seats for specific flight should be decreased by 1 unit once a transaction of the payment for the flight ticket is made.
 
-## 4.4 Nonfunctional Requirements 
+### 4.4 Nonfunctional Requirements
 
-### 4.4.1 Performance Requirements 
+#### 4.4.1 Performance Requirements
 
 3.4.1.1 System should be able to handle 1000 transactions per second. \[4.2.21 - 4.2.30\]
 
-#### 4.4.2 Reliability Requirements 
+##### 4.4.2 Reliability Requirements
 
-4.4.2.1 Systemôs Service Level Agreement (SLA) level should be of 98%. \[4.2.1 - 4.2.20\] 4.4.2.2 Maximum 2 of 1000 online payment transactions through the systems can result in failure. \[3.2.31-3.2.34\]
+4.4.2.1 System's Service Level Agreement (SLA) level should be of 98%. \[4.2.1 - 4.2.20\] 4.4.2.2 Maximum 2 of 1000 online payment transactions through the systems can result in failure. \[3.2.31-3.2.34\]
 
-#### 4.4.3 Security Requirements \[4.2.41 - 4.2.47\] 
+##### 4.4.3 Security Requirements \[4.2.41 - 4.2.47\]
 
 4.4.3.1 System should have an Authentication and Authorization System (AAS) for logins.
 
@@ -1497,23 +1286,23 @@ No hardware interface is required for the Airline Ticket Reservation system.
 
 4.4.3.8 Customized password should contain both letters and numbers.
 
-#### 4.4.4 Maintainability Requirements \[4.2.35 - 4.2.37\] 
+##### 4.4.4 Maintainability Requirements \[4.2.35 - 4.2.37\]
 
 4.4.4.1 User should be displayed acceptance message within 5 seconds, when he/she submits entered data to the system.
 
 4.4.4.2 Warning messages about entrance data out of defined standards must remain on the screen for 3 seconds.
 
-#### 4.4.5 Portability Requirements \[4.3\] 
+##### 4.4.5 Portability Requirements \[4.3\]
 
 4.4.5.1 System should be manageable in web-browsers of Internet Explorer, Google Chrome, Mozilla Firefox, Opera and Safari.
 
-### 4.4.6 Safety Requirements\[4.2.35 - 4.2.37\] 
+#### 4.4.6 Safety Requirements\[4.2.35 - 4.2.37\]
 
 4.4.6.1 System should include restore and recover functions in order to prevent data loss.
 
 4.4.6.2 System should assure data integrity.
 
-### 4.4.7 Other Requirements\[4.2.21-4.2.25\] 
+#### 4.4.7 Other Requirements\[4.2.21-4.2.25\]
 
 4.4.7.1 System should display a warning message if the customer input for full name label is out of defined standard.
 
@@ -1523,7 +1312,7 @@ No hardware interface is required for the Airline Ticket Reservation system.
 
 4.4.7.4 System should display a warning message if the administrator tries to customize his/her password out of defined standards.\[4.2.47\]
 
-#### 4.5 Solution oriented requirement 
+##### 4.5 Solution oriented requirement
 
 4.5.1 Class diagram requirements \[4.2.1,4.2.2,4.2.3,4.2.15,4.2.23,4.2.43\]
 
@@ -1542,7 +1331,7 @@ No hardware interface is required for the Airline Ticket Reservation system.
 | 4.5.3.3 | Administrator should be able to reject reservation/cancellation request.                          | Based on SD1_3 | 5 out of 5 |
 | 4.5.3.4 | Customer should be able to see the list of available flights based on the information he entered. | Based on SD1_4 | 5 out of 5 |
 
-### 4.6 System Features (contains functional, non-functional and solution-oriented requirements) 
+#### 4.6 System Features (contains functional, non-functional and solution-oriented requirements)
 
 Features of the system are the followings:
 
@@ -1580,7 +1369,7 @@ Features of the system are the followings:
 
 17. See and change the details of bookings
 
-18. Performance of ATRS
+18. Performance of **ATRS**
 
 19. Guarantee security of communication channel
 
@@ -1598,7 +1387,7 @@ Features of the system are the followings:
 
 26. Booking Tickets
 
-27. Reliability of ATRS
+27. Reliability of **ATRS**
 
 28. Customizing administrator passwords
 
@@ -1606,9 +1395,9 @@ Features of the system are the followings:
 
 30. Acceptance messages
 
-## 4.7 Requirements prioritization 
+### 4.7 Requirements prioritization
 
-### 4.7.1 MoSCoW Method 
+#### 4.7.1 MoSCoW Method
 
 <table>
 <colgroup>
@@ -1620,226 +1409,334 @@ Features of the system are the followings:
 <tr class="header">
 <th><strong>Must</strong></th>
 <th colspan="2"><ol type="1">
-<li><p>User interface</p></li>
-<li><p>Searching specific dates</p></li>
-<li><p>Database about flights, reservations, and user details</p></li>
-<li><p>Request and response for reservation cancellation</p></li>
-<li><p>Online payment</p></li>
-<li><p>Ticket reservation</p></li>
-<li><p>Addition of new flights to system</p></li>
-<li><p>System attributes</p></li>
-<li><p>Modification of details about existing flights</p></li>
-<li><p>Removing cancelled flights</p></li>
-<li><p>Management of cancellation requests</p></li>
-<li><p>See and change the details of bookings</p></li>
-<li><p>Performance of ATRS</p></li>
-<li><p>Communication interface with HTTP protocol</p></li>
-<li><p>AAS for logins</p></li>
-<li><p>Booking Tickets</p></li>
-<li><p>Guarantee security of communication channel</p></li>
-</ol></th>
+<li><p>
+User interface
+</p>
+</li>
+<li><p>
+Searching specific dates
+</p>
+</li>
+<li><p>
+Database about flights, reservations, and user details
+</p>
+</li>
+<li><p>
+Request and response for reservation cancellation
+</p>
+</li>
+<li><p>
+Online payment
+</p>
+</li>
+<li><p>
+Ticket reservation
+</p>
+</li>
+<li><p>
+Addition of new flights to system
+</p>
+</li>
+<li><p>
+System attributes
+</p>
+</li>
+<li><p>
+Modification of details about existing flights
+</p>
+</li>
+<li><p>
+Removing cancelled flights
+</p>
+</li>
+<li><p>
+Management of cancellation requests
+</p>
+</li>
+<li><p>
+See and change the details of bookings
+</p>
+</li>
+<li><p>
+Performance of **ATRS**
+</p>
+</li>
+<li><p>
+Communication interface with HTTP protocol
+</p>
+</li>
+<li><p>
+AAS for logins
+</p>
+</li>
+<li><p>
+Booking Tickets
+</p>
+</li>
+<li><p>
+Guarantee security of communication channel
+</p>
+</li>
+</ol>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><strong>Should</strong></td>
 <td colspan="2"><ol type="1">
-<li><p>Sort flights either by price or duration</p></li>
-<li><p>Request and response for reservation cancellation</p></li>
-<li><p>Guarantee the safety of the channel</p></li>
-<li><p>Ability to change administrator's password</p></li>
-<li><p>Manually entering the names of destinations (by city, country, continent)</p></li>
-<li><p>Defined requirements for password</p></li>
-</ol></td>
+<li><p>
+Sort flights either by price or duration
+</p>
+</li>
+<li><p>
+Request and response for reservation cancellation
+</p>
+</li>
+<li><p>
+Guarantee the safety of the channel
+</p>
+</li>
+<li><p>
+Ability to change administrator's password
+</p>
+</li>
+<li><p>
+Manually entering the names of destinations (by city, country, continent)
+</p>
+</li>
+<li><p>
+Defined requirements for password
+</p>
+</li>
+</ol>
+</td>
 </tr>
 <tr class="even">
 <td><strong>Could</strong></td>
 <td colspan="2"><ol type="1">
-<li><p>Searching flights for specific dates</p></li>
-<li><p>Searching by multiple destinations</p></li>
-</ol></td>
+<li><p>
+Searching flights for specific dates
+</p>
+</li>
+<li><p>
+Searching by multiple destinations
+</p>
+</li>
+</ol>
+</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><blockquote>
-<p>3.</p>
-</blockquote></td>
+<p>
+3.
+</p>
+</blockquote>
+</td>
 <td>Specifying number of passengers while searching (adults, children and infants)</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><blockquote>
-<p>4.</p>
-</blockquote></td>
+<p>
+4.
+</p>
+</blockquote>
+</td>
 <td>Multi - Currency and language</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><blockquote>
-<p>5.</p>
-</blockquote></td>
+<p>
+5.
+</p>
+</blockquote>
+</td>
 <td>Displaying warning messages</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><blockquote>
-<p>6.</p>
-</blockquote></td>
+<p>
+6.
+</p>
+</blockquote>
+</td>
 <td>Maintain 1000 transactions in second</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><blockquote>
-<p>7.</p>
-</blockquote></td>
+<p>
+7.
+</p>
+</blockquote>
+</td>
 <td>Customized administrator passwords</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><blockquote>
-<p>8.</p>
-</blockquote></td>
+<p>
+8.
+</p>
+</blockquote>
+</td>
 <td>Acceptance messages</td>
 </tr>
 <tr class="odd">
 <td><blockquote>
-<p><strong>Won't</strong></p>
-</blockquote></td>
+<p>
+<strong>Won't</strong>
+</p>
+</blockquote>
+</td>
 <td><blockquote>
-<p>1.</p>
-</blockquote></td>
+<p>
+1.
+</p>
+</blockquote>
+</td>
 <td>Login and sign in for customers</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><blockquote>
-<p>2.</p>
-</blockquote></td>
+<p>
+2.
+</p>
+</blockquote>
+</td>
 <td>Hotel reservation</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><blockquote>
-<p>3.</p>
-</blockquote></td>
+<p>
+3.
+</p>
+</blockquote>
+</td>
 <td>Airport pick-up</td>
 </tr>
 </tbody>
 </table>
 
-### 4.7.2 Prioritisation According to Cost 
+#### 4.7.2 Prioritisation According to Cost
 
-#### 4.7.2.1 Main 
+##### 4.7.2.1 Main
 
 <img src="media/image17.jpg" style="width:6.5in;height:1.88542in" />
 
-#### 4.7.2.2 Normalized 
+##### 4.7.2.2 Normalized
 
 <img src="media/image18.jpg" style="width:6.64583in;height:1.64583in" />
 
-#### 4.7.2.3 Percent 
+##### 4.7.2.3 Percent
 
 <img src="media/image19.jpg" style="width:2.67708in;height:5.47917in" />
 
-### 4.7.3 Prioritisation According to Value 
+#### 4.7.3 Prioritisation According to Value
 
-#### 4.7.3.1 Main 
+##### 4.7.3.1 Main
 
 <img src="media/image20.jpg" style="width:6.5in;height:1.80208in" />
 
-#### 4.7.3.2 Normalised 
+##### 4.7.3.2 Normalised
 
 <img src="media/image21.jpg" style="width:6.5in;height:1.58333in" />
 
-#### 4.7.3.3 Percent 
+##### 4.7.3.3 Percent
 
 <img src="media/image22.jpg" style="width:2.55208in;height:6.19792in" />
 
-### 4.7.4 Plot ROI Graph 
+#### 4.7.4 Plot ROI Graph
 
 <img src="media/image23.jpg" style="width:6.5in;height:4.05208in" />
 
-##  Figure 11. ROI Plot Graph 
+##  Figure 11. ROI Plot Graph
 
-### 4.7.5 Hierarchical Prioritization 
+#### 4.7.5 Hierarchical Prioritization
 
 <img src="media/image24.jpg" style="width:6.5in;height:6.13542in" />
 
-##  Figure 13. Hierarchical prioritization of requirements 
+##  Figure 13. Hierarchical prioritization of requirements
 
-### 4.8 Requirements Traceability 
+#### 4.8 Requirements Traceability
 
 **4.8.1 Traceability Matrix**
 
 Scenarios are defined as follows:
 
-Scenario 1 ì Customer wants to search for flights.
+Scenario 1 ' Customer wants to search for flights.
 
-Scenario 2 ì Customer wants search for flights of specific dates.
+Scenario 2 ' Customer wants search for flights of specific dates.
 
-Scenario 3 ì Customer wants to search for flights of specific routes.
+Scenario 3 ' Customer wants to search for flights of specific routes.
 
-Scenario 4 ì Customer wants to see flight prices of different ticket types.
+Scenario 4 ' Customer wants to see flight prices of different ticket types.
 
-Scenario 5 ì Customer wants to see what is included in different ticket types.
+Scenario 5 ' Customer wants to see what is included in different ticket types.
 
-Scenario 6 ì Customer wants to sort available flights according to price.
+Scenario 6 ' Customer wants to sort available flights according to price.
 
-Scenario 7 ì Customer wants to sort available flights according to duration.
+Scenario 7 ' Customer wants to sort available flights according to duration.
 
-Scenario 8 ì Customer wants to proceed to payment for booked flight.
+Scenario 8 ' Customer wants to proceed to payment for booked flight.
 
-Scenario 9 ì Customer wants to cancel his/her booked ticket.
+Scenario 9 ' Customer wants to cancel his/her booked ticket.
 
-Scenario 10 ì Administrator wants to add a new flight to the system.
+Scenario 10 ' Administrator wants to add a new flight to the system.
 
-Scenario 11 ì Administrator wants to modify the details about existing flights.
+Scenario 11 ' Administrator wants to modify the details about existing flights.
 
-Scenario 12 ì Administrator wants to remove cancelled flights.
+Scenario 12 ' Administrator wants to remove cancelled flights.
 
-Scenario 13 ì Administrator wants to respond to cancellation requests of customers.
+Scenario 13 ' Administrator wants to respond to cancellation requests of customers.
 
-Scenario 14 ì Customer wants to be sure about security of payment.
+Scenario 14 ' Customer wants to be sure about security of payment.
 
-Scenario 15 ì Customer wants to enter information to the labels.
+Scenario 15 ' Customer wants to enter information to the labels.
 
-Scenario 16 ì Customer enters non-standard information while filling labels.
+Scenario 16 ' Customer enters non-standard information while filling labels.
 
-Scenario 17 ì Administrator wants to log on the system.
+Scenario 17 ' Administrator wants to log on the system.
 
-Scenario 18 ì Administrator types wrong password during log in.
+Scenario 18 ' Administrator types wrong password during log in.
 
-Scenario 19 ì Administrator wants to change his/her predefined password.
+Scenario 19 ' Administrator wants to change his/her predefined password.
 
-Scenario 20 ì Administrator defines new password out of defined standards.
+Scenario 20 ' Administrator defines new password out of defined standards.
 
-Scenario 21 ì Customers cannot reach website.
+Scenario 21 ' Customers cannot reach website.
 
-Scenario 22 ì Customer wants to change the currency and language.
+Scenario 22 ' Customer wants to change the currency and language.
 
-Scenario 23 ì Support staff wants to ensure the security of the system.
+Scenario 23 ' Support staff wants to ensure the security of the system.
 
-Scenario 24 ì Support staff wants to ensure the safety of the system.
+Scenario 24 ' Support staff wants to ensure the safety of the system.
 
-Scenario 25 ì Support staff wants to maintain performance of the system.
+Scenario 25 ' Support staff wants to maintain performance of the system.
 
-Scenario 26 ì Support staff wants to ensure the reliability of the system.
+Scenario 26 ' Support staff wants to ensure the reliability of the system.
 
 Traceability matrix according to these scenarios and previous mentioned features (contains functional, non-functional and solution-oriented requirements) is constructed as follows:
 
 <img src="media/image25.jpg" style="width:7.89583in;height:3.28125in" />
 
-##  Figure 14. Traceability matrix 
+##  Figure 14. Traceability matrix
 
-### 4.8.2 Traceability Model 
+#### 4.8.2 Traceability Model
 
 <img src="media/image26.jpg" style="width:5.44792in;height:4.41667in" />
 
-##  Figure 15. Traceability model 
+##  Figure 15. Traceability model
 
 In the given model following subtypes are defined under the traceability types of Content, Abstraction and Evolution:
 
-### Content 
+### Content
 
 -   *Contradicts* **-** inconsistency in the requirements artefacts
 
@@ -1849,7 +1746,7 @@ In the given model following subtypes are defined under the traceability types o
 
 -   *Generalizes* - artefact is a generalisation of (one or) several other artefacts
 
-### Evolution 
+### Evolution
 
 -   *Satisfies* - if artefact A is realised in the system, artefact B is realised as well
 
@@ -1859,7 +1756,7 @@ In the given model following subtypes are defined under the traceability types o
 
 -   *Derived* - artefact A was derived based on a set of other artefact
 
-### 5. Prototype 
+### 5. Prototype
 
 **Description: Visualisation of website.**
 
@@ -1869,12 +1766,12 @@ We try to visualize website of ITM Airlines and while customers using this websi
 
 <img src="media/image28.jpg" style="width:6.5in;height:4.07292in" /><img src="media/image29.jpg" style="width:6.5in;height:3.63542in" />
 
-## Appendix A: Glossary 
+## Appendix A: Glossary
 
 | *IEEE*             | The Institute of Electrical and Electronics Engineers                                |
 |-----------------------|-------------------------------------------------|
 | *HTTP*             | Hypertext Transfer Protocol                                                          |
-| *ATRS*             | Airline Ticket Reservation System                                                    |
+| ***ATRS***             | Airline Ticket Reservation System                                                    |
 | *Authentication*   | The process of identifying an individual, usually based on username and password     |
 | *Authorization*    | The process of granting defined privileges to successfully authenticated individuals |
 | *AAS*              | Authentication and Authorization System                                              |
