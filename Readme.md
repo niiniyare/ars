@@ -41,6 +41,7 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 1. [AirGateway’s NDC JSON API](https://dev-guides.airgateway.net/) 
 
 1. [Best Travelport Universal API wrapper](https://github.com/Travelport-Ukraine/uapi-json) 
+1. [Sample data](http://www.lsv.fr/~sirangel/teaching/dataset/index.html) 
 
 
 ### 1.6 Overview
