@@ -16,3 +16,5 @@
 1. [Sample data](http://www.lsv.fr/~sirangel/teaching/dataset/index.html)
 
 1. [security Documentation Sample](https://duffel.com/security)
+
+1. [PNR genetation sample](https://sive.rs/rand1)(<https://sive.rs/code/rand1.sql>)
