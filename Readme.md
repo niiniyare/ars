@@ -28,6 +28,7 @@ The intended audience for this document consists of requirements engineers, soft
 **IT facet:** Database, Web-based software system, AAS for logins, Performance maintenance. *Development facet:* Internal policy and culture of the airlines company should be taken under consideration.
 
 ### 1.5 Reference Documents
+<<<<<<< HEAD
 
 1. [Lecture slides.
 Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Software
@@ -44,6 +45,9 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 1. [Sample data](http://www.lsv.fr/~sirangel/teaching/dataset/index.html) 
 
 
+=======
+  [** Reference Documents **](refs.md) 
+>>>>>>> main
 ### 1.6 Overview
 
 The remaining part of the specification document is organized as follows.
@@ -71,7 +75,6 @@ Although the existing systems were performing the basic functions of the airline
  currentlly systems can make schedules, search availability, book flights, Ticketing, refund, change date and arrenge departure basic. 
 design of this  **ATRS** come to do this jobs easy and smooth plus add missing Features that are needed.
  
-- [ ] list current systems drawbacks. 
  
 The new system aims to overcome the above-mentioned drawbacks of the existing system. It will allow users to make reservations according their needs from different parts of the world without leaving their places. Furthermore, it will reduce the workload of the employees who are responsible to make reservations at the office.
 
