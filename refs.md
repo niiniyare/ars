@@ -18,3 +18,5 @@
 1. [security Documentation Sample](https://duffel.com/security)
 
 1. [PNR genetation sample](https://sive.rs/rand1)(<https://sive.rs/code/rand1.sql>)
+1. [postgis-intro](https://postgis.net/workshops/zh_Hans/postgis-intro/geography.html)
+1. [airport info ](https://www.airportcoder.com/)
