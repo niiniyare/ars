@@ -24,3 +24,5 @@
 1. [airport info ](https://www.airportcoder.com/)
 
 1. [Crane a (PSS) offering airlines Example](https://crane.aero/)
+
+1. [Crane a (PSS) promo video ](https://youtu.be/kppIlGPEYT4)
