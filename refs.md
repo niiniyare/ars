@@ -26,3 +26,5 @@
 1. [Crane a (PSS) offering airlines Example](https://crane.aero/)
 
 1. [Crane a (PSS) promo video ](https://youtu.be/kppIlGPEYT4)
+
+1. [yugabyte Free Course](https://university.yugabyte.com/enrollments)
