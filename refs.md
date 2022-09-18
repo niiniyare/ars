@@ -28,3 +28,5 @@
 1. [Crane a (PSS) promo video ](https://youtu.be/kppIlGPEYT4)
 
 1. [yugabyte Free Course](https://university.yugabyte.com/enrollments)
+
+1. [somali dictionary ](https://www.lexilogos.com/english/somali_dictionary.htm)
