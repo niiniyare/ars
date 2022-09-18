@@ -29,4 +29,6 @@
 
 1. [yugabyte Free Course](https://university.yugabyte.com/enrollments)
 
+1. [somali dictionary book Cornell University Library](https://archive.org/details/cu31924026888820/page/143/mode/1up?view=theater)
+
 1. [somali dictionary ](https://www.lexilogos.com/english/somali_dictionary.htm)
