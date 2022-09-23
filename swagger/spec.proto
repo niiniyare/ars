@@ -1,0 +1,2537 @@
+syntax = "proto3";
+
+package airgatewayndcjsonapi;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+
+message Address {
+    // City name.
+    string cityName = 1;
+
+    // Country code.
+    string countryCode = 2;
+
+    // Postal code.
+    string postalCode = 3;
+
+    // Street.
+    string street = 4;
+}
+
+message AgencyData {
+    // Country code
+    string countryCode = 1;
+
+    // IATA Number
+    string iataCode = 2;
+}
+
+message AirDocIssuePayloadPayload {
+    // AirGateway order ID
+    string id = 1;
+    Payment payment = 2;
+}
+
+message AirDocIssuePostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+    AirDocIssuePayloadPayload payload = 2;
+}
+
+// AirShoppingMedia media type (default view)
+message AirShoppingMedia {
+    repeated AirShoppingOffer result = 1;
+}
+
+message AirShoppingOffer {
+    enum AirShoppingOfferOfferType {
+        AIR_SHOPPING_OFFER_OFFER_TYPE_ONE_WAY = 0;
+        AIR_SHOPPING_OFFER_OFFER_TYPE_ROUND_TRIP = 1;
+        AIR_SHOPPING_OFFER_OFFER_TYPE_MULTI_CITY = 2;
+    }
+
+    Benefit benefits = 1;
+
+    // Offer created at unix time
+    int64 createdAt = 2;
+
+    // List of disclosures corresponding to offer.
+    repeated Disclosure disclosures = 3;
+
+    // Error from provider
+    string error = 4;
+
+    // Flight Segment information. Including departure, arrival and airline information.
+    repeated Flight flights = 5;
+
+    // Max number of stops
+    int64 maxNumberOfStops = 6;
+
+    // Offer identifier
+    string offerID = 7;
+
+    // Offer type
+    AirShoppingOfferOfferType offerType = 8;
+
+    // 2 letter abbreviation of airline
+    string owner = 9;
+
+    // Offer payment time limit, after this time created order will become expired
+    string paymentTimeLimit = 10;
+    Price price = 11;
+    PriceBreakdown priceBreakdown = 12;
+
+    // 2 letter abbreviation of airline
+    string provider = 13;
+}
+
+// AirShoppingPayload is the type for AirShopping endpoint request body
+message AirShoppingPayload {
+    // Corporate Discount Codes Map
+    google.protobuf.Struct corporateDiscountCodes = 1;
+    Metadata metadata = 2;
+
+    // Origin/Destination pair in a shopping search scenario
+    repeated OriginDestinationASRQ originDestinations = 3;
+    PreferencesAS preferences = 4;
+    Travelers travelers = 5;
+}
+
+message AirShoppingPostRequest {
+    // Provider IDs list or * for all
+    string Ag_Providers = 1;
+
+    // Request max lifetime in seconds
+    string Ag_Request_Timeout = 2;
+
+    // AirShoppingPayload is the type for AirShopping endpoint request body
+    AirShoppingPayload payload = 3;
+}
+
+// Allowed payment methods
+message AllowedPaymentMethods {
+    bool agencyCard = 1;
+    bool agencyCash = 2;
+    bool card = 3;
+    bool none = 4;
+    bool unusedTicket = 5;
+}
+
+// Struct returned to the alternative pnrs not owner by the airlines, but for 3th parties.
+message AlternativePNR {
+    // The value of the PNR
+    string id = 1;
+
+    // The id of the third party
+    string providerID = 2;
+}
+
+message AncillariesToRebook {
+    string flightKey = 1;
+    bool rebook = 2;
+}
+
+// AirShopping request arrival
+message ArrivalASRQ {
+    // Departure/Arrival airport IATA three letter code.
+    string airportCode = 1;
+
+    // Arrival date in format YYYY-MM-DD.
+    string date = 2;
+}
+
+message BaggageAllowance {
+    repeated BaggageAllowanceItem carryOn = 1;
+    repeated BaggageAllowanceItem checked = 2;
+}
+
+message BaggageAllowanceItem {
+    enum BaggageAllowanceItemChooseType {
+        BAGGAGE_ALLOWANCE_ITEM_CHOOSE_TYPE_ONE = 0;
+        BAGGAGE_ALLOWANCE_ITEM_CHOOSE_TYPE_MANY = 1;
+    }
+
+    // Options choose type, possible values are: one - select one of suggested options; many - select multiple suggested options
+    BaggageAllowanceItemChooseType chooseType = 1;
+
+    // options to choose
+    repeated BaggageAllowanceItemOption options = 2;
+
+    // Passenger references that access this baggage condition
+    string passengerRefs = 3;
+}
+
+// Baggage Allowance Item Option
+message BaggageAllowanceItemOption {
+    // Properties
+    repeated DisclosureProperty properties = 1;
+
+    // baggage quantity
+    int64 quantity = 2;
+
+    // description 
+    string text = 3;
+}
+
+message Benefit {
+    Price amount = 1;
+
+    // The reason of the discount
+    string application = 2;
+
+    // A brief description of the discount
+    string description = 3;
+    DisclosureDescription term = 4;
+}
+
+// Indicates if there is an optional, a mandatory or a not allowed text from the customer´s side depending in the MandatoryText attribute value.
+message BookingInstructions {
+    enum BookingInstructionsMandatoryText {
+        BOOKING_INSTRUCTIONS_MANDATORY_TEXT_NOT_ALLOWED = 0;
+        BOOKING_INSTRUCTIONS_MANDATORY_TEXT_MANDATORY = 1;
+        BOOKING_INSTRUCTIONS_MANDATORY_TEXT_OPTIONAL = 2;
+    }
+
+    // This attribute indicates the optional, mandatory or not allowed need for the text
+    BookingInstructionsMandatoryText mandatoryText = 1;
+
+    // The pattern that the text introduced by the customer should match to. This value can be empty
+    string pattern = 2;
+
+    // The text in the input or the textarea which helps the customers knows what should write
+    string placeHolder = 3;
+
+    // The type for the input used to be filled by the customer, it can be number or text
+    string type = 4;
+}
+
+// BookingReferenceResponse
+message BookingReferenceResponse {
+    // Airline ID
+    string airlineID = 1;
+    repeated AlternativePNR alternativeIDs = 2;
+
+    // Booking reference
+    string id = 3;
+
+    // Other ID
+    string otherID = 4;
+}
+
+message CarbonOffset {
+    // Flight destination point
+    string destination = 1;
+
+    // Footprint in kgs per passenger
+    double footprint = 2;
+
+    // Flight origin point
+    string origin = 3;
+
+    // Segment key
+    string segmentKey = 4;
+}
+
+message CardInformation {
+    // The type of the card
+    string cardCode = 1;
+
+    // The last four numbers of the card
+    string cardNumber = 2;
+
+    // The month and year of the expiration of the card
+    string expirationDate = 3;
+}
+
+// Characteristics info
+message Characteristics {
+    string code = 1;
+    string definition = 2;
+}
+
+// Class of the service offered
+message ClassOfService {
+    // Cabin Type
+    string cabinDesignator = 1;
+
+    // Code for class
+    string code = 2;
+
+    // Disclosures
+    repeated string disclosureRefs = 3;
+    FlightDetailFare fare = 4;
+
+    // Fare rules for cancelability, changeability and the penalties.
+    repeated FareRule fareRules = 5;
+    string generalClassCode = 6;
+
+    // Reference of class
+    string refs = 7;
+}
+
+// AirShopping request departure
+message DepartureASRQ {
+    // Departure/Arrival airport IATA three letter code.
+    string airportCode = 1;
+
+    // Departure/Arrival date in format YYYY-MM-DD.
+    string date = 2;
+}
+
+message Disclosure {
+    // Disclosure details
+    repeated DisclosureDescription descriptions = 1;
+
+    // Disclosure Reference
+    string listKey = 2;
+}
+
+// Disclosure description
+message DisclosureDescription {
+    // Category
+    string category = 1;
+
+    // Item
+    string item = 2;
+    MediaData media = 3;
+
+    // MetadataToken
+    string metadataToken = 4;
+
+    // A reference to the origin-destination
+    string originDestinationReference = 5;
+
+    // Properties
+    repeated DisclosureProperty properties = 6;
+
+    // Text
+    string text = 7;
+
+    // Units
+    string units = 8;
+}
+
+// Disclosure properties
+message DisclosureProperty {
+    // Units of measurement
+    string UOM = 1;
+
+    // Type
+    string type = 2;
+
+    // Value
+    string value = 3;
+}
+
+message DiscountPreferences {
+    // IB Large Family Discount Code
+    string largeFamily = 1;
+
+    // IB Resident Code
+    string residentCode = 2;
+}
+
+message Document {
+    enum DocumentDocumentType {
+        DOCUMENT_DOCUMENT_TYPE_PP = 0;
+        DOCUMENT_DOCUMENT_TYPE_NI = 1;
+        DOCUMENT_DOCUMENT_TYPE = 2;
+    }
+
+    string documentID = 1;
+
+    // Valid values: 
+    DocumentDocumentType documentType = 2;
+
+    // The expiration date of the document using format YYYY-MM-DD.
+    string expirationDate = 3;
+}
+
+message Equipment {
+    string aircraftCode = 1;
+    string name = 2;
+}
+
+// Error response media type (default view)
+message Error {
+    // an application-specific error code, expressed as a string value.
+    string code = 1;
+
+    // a human-readable explanation specific to this occurrence of the problem.
+    string detail = 2;
+
+    // a unique identifier for this particular occurrence of the problem.
+    string id = 3;
+
+    // a meta object containing non-standard meta-information about the error.
+    google.protobuf.Struct meta = 4;
+
+    // the HTTP status code applicable to this problem, expressed as a string value.
+    string status = 5;
+}
+
+message ExitSeat {
+    // If the exit is on the right or in the left of the plane
+    string position = 1;
+
+    // The row where the exit in placed
+    int64 row = 2;
+
+    // The resference to the segment 
+    string segmentID = 3;
+}
+
+// Frequent traveler account
+message FQTVAccount {
+    // Frequent traveler account number
+    string number = 1;
+}
+
+// Frequent traveler information
+message FQTVInfo {
+    FQTVAccount account = 1;
+
+    // Airline ID
+    string airlineID = 2;
+}
+
+message Fare {
+    // Fare code
+    string Code = 1;
+
+    // Fare Definition Code
+    string Definition = 2;
+}
+
+// Fare Rules per segment and per each passenger type.
+message FareRule {
+    enum FareRuleCancel {
+        FARE_RULE_CANCEL = 0;
+        FARE_RULE_CANCEL_ALLOWED = 1;
+        FARE_RULE_CANCEL_FOR_FEE = 2;
+        FARE_RULE_CANCEL_NOT_ALLOWED = 3;
+    }
+
+    enum FareRuleCancelEnum {
+        FARE_RULE_CANCEL_ENUM = 0;
+        FARE_RULE_CANCEL_ENUM_ALLOWED = 1;
+        FARE_RULE_CANCEL_ENUM_FOR_FEE = 2;
+        FARE_RULE_CANCEL_ENUM_NOT_ALLOWED = 3;
+    }
+
+    enum FareRuleChange {
+        FARE_RULE_CHANGE = 0;
+        FARE_RULE_CHANGE_ALLOWED = 1;
+        FARE_RULE_CHANGE_FOR_FEE = 2;
+        FARE_RULE_CHANGE_NOT_ALLOWED = 3;
+    }
+
+    enum FareRuleChangeEnum {
+        FARE_RULE_CHANGE_ENUM = 0;
+        FARE_RULE_CHANGE_ENUM_ALLOWED = 1;
+        FARE_RULE_CHANGE_ENUM_FOR_FEE = 2;
+        FARE_RULE_CHANGE_ENUM_NOT_ALLOWED = 3;
+    }
+
+    // The fare rule for the cancelability.
+    FareRuleCancel cancel = 1;
+
+    // The fare rule for the cancelability with a very structure format.
+    FareRuleCancelEnum cancelEnum = 2;
+
+    // The fare rule for the changeability.
+    FareRuleChange change = 3;
+
+    // The fare rule for the changeability with a very structure format.
+    FareRuleChangeEnum changeEnum = 4;
+
+    // The references tot the passengers involved in the group of FareReules.
+    string passengerRef = 5;
+
+    // The type of the passengers related to this group of FareRule.
+    string passengerType = 6;
+
+    // Fare rule penalties.
+    repeated Penalty penalties = 7;
+}
+
+message Flight {
+    FlightPointData arrival = 1;
+    BaggageAllowance baggageAllowance = 2;
+    FlightPointData departure = 3;
+
+    // Flight duration
+    string duration = 4;
+
+    // Key identificator
+    string key = 5;
+    repeated FlightSegment segments = 6;
+}
+
+message FlightDetail {
+    ClassOfService classOfService = 1;
+
+    // Flight duration
+    string duration = 2;
+
+    // How many seats left
+    string seatsLeft = 3;
+
+    // The status of the segment -> UN: Unconfirmed. TK: Change scheduled, contact center will confirm. HK: Confirmed.
+    string segmentType = 4;
+
+    // Stop locations
+    repeated StopLocation stopLocations = 5;
+
+    // Number of extra stops from Origin to Destination
+    string stopQuantity = 6;
+}
+
+message FlightDetailFare {
+    // Fare Basis Code
+    string basisCode = 1;
+    string cabin = 2;
+
+    // Fare information for this flight segment
+    string code = 3;
+
+    // Marketing name
+    string marketingName = 4;
+
+    // Price class name
+    string priceClassName = 5;
+    string standardName = 6;
+
+    // Fare type
+    string type = 7;
+}
+
+message FlightPointData {
+    // Departure/Arrival airport IATA three letter code.
+    string airportCode = 1;
+
+    // Departure/Arrival airport name.
+    string airportName = 2;
+
+    // Country ID data
+    string countryID = 3;
+
+    // Departure/Arrival date in format YYYY-MM-DD.
+    string date = 4;
+
+    // Parent Location data
+    string parentLocation = 5;
+
+    // Departure/Arrival terminal name.
+    string terminalName = 6;
+
+    // Preferred departure time in format HH:MM 24h.
+    string time = 7;
+}
+
+message FlightPointDataRSArrInner {
+    // Departure/Arrival airport IATA three letter code.
+    string airportCode = 1;
+
+    // Departure/Arrival airport name.
+    string airportName = 2;
+
+    // Country ID data
+    string countryID = 3;
+
+    // Departure/Arrival date in format YYYY-MM-DD.
+    string date = 4;
+
+    // Parent Location data
+    string parentLocation = 5;
+
+    // Departure/Arrival terminal.
+    string terminalName = 6;
+
+    // Preferred departure time in format HH:MM 24h.
+    string time = 7;
+}
+
+message FlightPointDataRSDepInner {
+    // Departure/Arrival airport IATA three letter code.
+    string airportCode = 1;
+
+    // Departure/Arrival airport name.
+    string airportName = 2;
+
+    // Country ID data
+    string countryID = 3;
+
+    // Departure/Arrival date in format YYYY-MM-DD.
+    string date = 4;
+
+    // Parent Location data
+    string parentLocation = 5;
+
+    // Departure/Arrival terminal.
+    string terminalName = 6;
+
+    // Preferred departure time in format HH:MM 24h.
+    string time = 7;
+}
+
+message FlightSegment {
+    // Origin destination reference
+    string ODRef = 1;
+    FlightDetail detail = 2;
+    Equipment equipment = 3;
+
+    // The code of the fare
+    string fareCode = 4;
+
+    // Flight number of airline
+    string flightNumber = 5;
+    MarketingCarrier marketingCarrier = 6;
+    OperatingCarrier operatingCarrier = 7;
+    OriginDestinationRSInner originDestination = 8;
+
+    // Segment ID
+    string segmentID = 9;
+}
+
+message Identity4Discount {
+    string identityDocumentNumber = 1;
+    string identityDocumentType = 2;
+    string remark = 3;
+}
+
+// ItinShoppingMedia media type (default view)
+message ItinShoppingMedia {
+    ItineraryRS itinerary = 1;
+
+    // Status of request: 'itinerary-found', 'itinerary-not-found'
+    string status = 2;
+}
+
+// ItinShoppingPayload is the type for ItinShopping endpoint request body
+message ItinShoppingPayload {
+    // List of itinerary routes
+    repeated ItineraryRQ itinerary = 1;
+    Metadata metadata = 2;
+    Travelers travelers = 3;
+}
+
+message ItinShoppingPostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+
+    // ItinShoppingPayload is the type for ItinShopping endpoint request body
+    ItinShoppingPayload payload = 2;
+}
+
+message ItineraryFlight {
+    FlightPointData arrival = 1;
+    FlightPointData departure = 2;
+
+    // Flight duration
+    string duration = 3;
+
+    // Key identificator
+    string key = 4;
+    repeated ItineraryFlightSegment segments = 5;
+}
+
+message ItineraryFlightSegment {
+    // Origin destination reference
+    string ODRef = 1;
+    ItineraryFlightSegmentDetail detail = 2;
+    Equipment equipment = 3;
+
+    // Flight number of airline
+    string flightNumber = 4;
+    MarketingCarrier marketingCarrier = 5;
+    OperatingCarrier operatingCarrier = 6;
+    OriginDestinationRSInner originDestination = 7;
+
+    // Segment ID
+    string segmentID = 8;
+}
+
+message ItineraryFlightSegmentDetail {
+    // Flight duration
+    string duration = 1;
+
+    // The status of the segment -> UN: Unconfirmed. TK: Change scheduled, contact center will confirm. HK: Confirmed.
+    string segmentType = 2;
+
+    // Stop locations
+    repeated StopLocation stopLocations = 3;
+
+    // Number of extra stops from Origin to Destination
+    string stopQuantity = 4;
+}
+
+message ItineraryOption {
+    repeated ItineraryOptionFlight details = 1;
+
+    // List of disclosures corresponding to offer.
+    repeated Disclosure disclosures = 2;
+
+    // Offer identifier
+    string offerID = 3;
+    Price price = 4;
+    PriceBreakdown priceBreakdown = 5;
+}
+
+message ItineraryOptionFlight {
+    BaggageAllowance baggageAllowance = 1;
+
+    // Key identificator
+    string key = 2;
+    repeated ItineraryOptionFlightSegmentDetail segments = 3;
+}
+
+message ItineraryOptionFlightSegmentDetail {
+    // Origin destination reference
+    string ODRef = 1;
+
+    // Cabin Type
+    string cabinDesignator = 2;
+
+    // Code for class
+    string code = 3;
+
+    // Disclosures
+    repeated string disclosureRefs = 4;
+    FlightDetailFare fare = 5;
+
+    // Fare rules for cancelability, changeability and the penalties.
+    repeated FareRule fareRules = 6;
+    string generalClassCode = 7;
+
+    // Reference of class
+    string refs = 8;
+
+    // How many seats left
+    string seatsLeft = 9;
+
+    // Segment ID
+    string segmentID = 10;
+}
+
+// ItineraryRQ is an object for flight
+message ItineraryRQ {
+    // Departure airport IATA 3-letter code
+    string arrival = 1;
+
+    // Departure/Arrival date in format YYYY-MM-DD.
+    string date = 2;
+
+    // Departure airport IATA 3-letter code
+    string departure = 3;
+
+    // Flight numbers for itinerary
+    repeated string flightNumbers = 4;
+}
+
+message ItineraryRS {
+    enum ItineraryRSOfferType {
+        ITINERARY_RS_OFFER_TYPE_ONE_WAY = 0;
+        ITINERARY_RS_OFFER_TYPE_ROUND_TRIP = 1;
+        ITINERARY_RS_OFFER_TYPE_MULTI_CITY = 2;
+    }
+
+    // Created at unix time
+    int64 createdAt = 1;
+
+    // route details
+    repeated ItineraryFlight flights = 2;
+
+    // Max number of stops
+    int64 maxNumberOfStops = 3;
+
+    // Offer type
+    ItineraryRSOfferType offerType = 4;
+
+    // possible fare options for itinerary
+    repeated ItineraryOption options = 5;
+
+    // 2-letter code of provider
+    string owner = 6;
+
+    // Payment time limit, after this time created order will become expired
+    string paymentTimeLimit = 7;
+}
+
+message MarketingCarrier {
+    // Two letter airline code
+    string airlineID = 1;
+    string flightNumber = 2;
+
+    // Airline Name
+    string name = 3;
+}
+
+// Some Disclosures have media types
+message MediaData {
+    // ID
+    string id = 1;
+
+    // Link
+    string link = 2;
+}
+
+message Metadata {
+    // Country code preference for the shopping ISO
+    string country = 1;
+
+    // Currency for results in ISO format
+    string currency = 2;
+
+    // Language preferences
+    string locale = 3;
+}
+
+message OfferPriceAllowedRequests {
+    bool OrderCreateWithPayment = 1;
+    bool SeatAvailability = 2;
+    bool ServiceList = 3;
+}
+
+// OfferPriceMedia media type (default view)
+message OfferPriceMedia {
+    AgencyData agencyData = 1;
+    AllowedPaymentMethods allowedPaymentMethods = 2;
+    OfferPriceAllowedRequests allowedRequests = 3;
+    Benefit benefits = 4;
+
+    // A hash of surcharges indexed by the credit card type.
+    google.protobuf.Struct cardSurcharges = 5;
+
+    // Unix time of created datetime
+    int64 createdAt = 6;
+    repeated Disclosure disclosures = 7;
+    DiscountPreferences discounts = 8;
+
+    // A Bundle of fields which are not mandatory for all airlines, in that way, the API will check the airline config and return them.
+    repeated string extraInfoMandatory = 9;
+
+    // Flight Segment information. Including departure, arrival and airline information.
+    repeated Flight flights = 10;
+
+    // Instant payment field indicates agency has auto-issuing with 'agencyCash' or 'agencyCard' enabled. If this field is presented, payment method will be automatically selected
+    string instantPayment = 11;
+
+    // Offer expiration time
+    string offerExpiration = 12;
+
+    // The ID for this offer
+    string offerID = 13;
+
+    // The code of the provider that is really offering the flight
+    string owner = 14;
+
+    // List of referenced travelers
+    repeated Passenger passengers = 15;
+
+    // Payment time limit
+    string paymentTimeLimit = 16;
+    Price price = 17;
+    OfferPriceRemarks remarks = 18;
+
+    // The ID of the response. Usually needed on the OrderCreate request (few providers don´t need it).
+    string shoppingResponseID = 19;
+
+    // List of ancillaries allowed on pre-booking stage
+    repeated SSR specialServices = 20;
+    repeated OrderLog warnings = 21;
+}
+
+message OfferPricePayload {
+    string offerID = 1;
+    repeated string offerIDs = 2;
+
+    // The offerID provided in OrderReshopReprice response on the rebooking process. Used on the rebooking flow and order has services or seats to get the final real price of the re-offer and the services/seats.
+    string reshopOfferID = 3;
+
+    // List of service objects (used on the rebooking flow only with some airlines)
+    repeated ServiceRequest services = 4;
+}
+
+message OfferPricePostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+    OfferPricePayload payload = 2;
+}
+
+message OfferPriceRemarks {
+    // Offer Price remark templates
+    repeated OrderRemarkTemplate templates = 1;
+}
+
+message OperatingCarrier {
+    // Two letter airline code
+    string airlineID = 1;
+    string flightNumber = 2;
+
+    // Airline Name
+    string name = 3;
+}
+
+// OrderCancelMedia media type (default view)
+message OrderCancelMedia {
+    // The unique identifier of the order.
+    string orderID = 1;
+
+    // Order cancel response warnings
+    repeated OrderLog warnings = 2;
+}
+
+message OrderCancelPayload {
+    // AirGateway order ID
+    string id = 1;
+}
+
+message OrderCancelPostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+    OrderCancelPayload payload = 2;
+}
+
+message OrderChangePayload {
+    // A flag used in some cases of the OrderChange like accept the disruption of an order or split the order
+    string action = 1;
+
+    // AirGateway order ID
+    string id = 2;
+
+    // Loyalty program account number for corporates
+    string loyaltyProgramAccount = 3;
+    Passenger passengerUpdate = 4;
+
+    // List of passengers
+    repeated Passenger passengers = 5;
+    Payment payment = 6;
+
+    // Reshop offer ID from OrderReshop response
+    string reshopOfferID = 7;
+
+    // List of service objects
+    repeated ServiceRequest services = 8;
+}
+
+message OrderChangePostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+    OrderChangePayload payload = 2;
+}
+
+// OrderCommentsMedia media type (default view)
+message OrderCommentsMedia {
+    // API status
+    bool ok = 1;
+}
+
+// OrderCommentsPayload is the type for OrderComments endpoint request body
+message OrderCommentsPayload {
+    string comments = 1;
+
+    // AirGateway order ID
+    string id = 2;
+}
+
+message OrderCommentsPostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+
+    // OrderCommentsPayload is the type for OrderComments endpoint request body
+    OrderCommentsPayload payload = 2;
+}
+
+message OrderCreateAllowedRequests {
+    OrderCreateAllowedRequestsPending pending = 1;
+    OrderCreateAllowedRequestsStarted started = 2;
+    OrderCreateAllowedRequestsTicketed ticketed = 3;
+}
+
+message OrderCreateAllowedRequestsPending {
+    bool OrderCancel = 1;
+    bool OrderReprice = 2;
+    bool OrderSplit = 3;
+    bool SeatAvailability = 4;
+    bool ServiceList = 5;
+    bool TicketIssue = 6;
+}
+
+message OrderCreateAllowedRequestsStarted {
+    bool OrderCancel = 1;
+    bool OrderReshop = 2;
+    bool OrderReshopRefund = 3;
+}
+
+message OrderCreateAllowedRequestsTicketed {
+    bool OrderCancel = 1;
+    bool OrderCancelToVoucher = 2;
+    bool OrderReshop = 3;
+    bool OrderReshopRefund = 4;
+    bool OrderReshopRouteChange = 5;
+    bool OrderSplit = 6;
+    bool OrderVoid = 7;
+    bool SeatAvailability = 8;
+    bool ServiceList = 9;
+}
+
+// OrderCreateMedia media type (default view)
+message OrderCreateMedia {
+    message TicketIssueMessage {}
+
+    // Agency name
+    string agency = 1;
+    AgencyData agencyData = 2;
+    AllowedPaymentMethods allowedPaymentMethods = 3;
+    OrderCreateAllowedRequests allowedRequests = 4;
+
+    // Approval status
+    string approvalStatus = 5;
+
+    // Approved status
+    bool approved = 6;
+    Benefit benefits = 7;
+    string bookingDate = 8;
+    BookingReferenceResponse bookingReference = 9;
+    string bookingType = 10;
+
+    // Order flights carbon offset
+    repeated CarbonOffset carbonOffset = 11;
+    string comments = 12;
+
+    // CorporateID for corporate orders
+    string corporateID = 13;
+    string createdAt = 14;
+    repeated Disclosure disclosures = 15;
+
+    // Disruption notification message
+    string disruptionMessage = 16;
+
+    // Disruption status (FlightTimeChange/FlightNumberChange/FlightCancellation)
+    string disruptionStatus = 17;
+
+    // External order ID
+    string externalOrderID = 18;
+
+    // Files information
+    repeated OrderFile files = 19;
+
+    // Flight Segment information. Including departure, arrival and airline information.
+    repeated Flight flights = 20;
+    string formOfPayment = 21;
+    repeated OrderHistoryItem history = 22;
+
+    // AirGateway order ID
+    string id = 23;
+    repeated OrderLog logs = 24;
+
+    // Order metadata
+    google.protobuf.Struct metas = 25;
+
+    // External order ID (deprecated)
+    string orderID = 26;
+    repeated Passenger passengers = 27;
+    OrderCreatePayment payment = 28;
+
+    // Payment time limit
+    string paymentTimeLimit = 29;
+
+    // Type and the application (with the value for each application) for every penalties.
+    repeated Penalty penalties = 30;
+
+    // The unique identifier of the order used on the old system and respected by some providers to maintain compatibility.
+    string pnr = 31;
+    Price price = 32;
+
+    // Time limit, for an on hold order, during which airline guarantee the price doesn't vary
+    string priceGuaranteeTimeLimit = 33;
+
+    // Ready To Ticket Issue flag
+    bool readyToTicketIssue = 34;
+
+    // Refunds type can be: 'refund', 'voucher'
+    string refundType = 35;
+    Price refundedAmount = 36;
+    OrderRemarks remarks = 37;
+
+    // List of seats
+    repeated Seat seats = 38;
+
+    // Send for approval allowed
+    bool sendForApprovalAllowed = 39;
+
+    // List of services
+    repeated Service services = 40;
+
+    // Order status (Pending/Ticketed/Cancelled/Completed/Started/Expired)
+    string status = 41;
+
+    // Ticket Issue object
+    TicketIssueMessage ticketIssue = 42;
+
+    // Tickets information
+    repeated TicketInfo tickets = 43;
+    string updatedAt = 44;
+
+    // View mode for order
+    string viewMode = 45;
+    repeated OrderLog warnings = 46;
+}
+
+message OrderCreatePayload {
+    // CorporateID for corporate orders
+    string corporateID = 1;
+
+    // Loyalty program account number for corporates
+    string loyaltyProgramAccount = 2;
+
+    // Order metadata
+    google.protobuf.Struct metas = 3;
+    repeated Passenger passengers = 4;
+    Payment payment = 5;
+    OrderCreateRemarks remarks = 6;
+
+    // The responseID provided in OfferPrice response
+    string shoppingResponseID = 7;
+}
+
+message OrderCreatePayment {
+    // Payment amount (1000 or 1000.50)
+    double amount = 1;
+    CardInformation cardInformation = 2;
+
+    // Payment currency
+    string currency = 3;
+
+    // Payment status
+    string status = 4;
+
+    // Payment type
+    string type = 5;
+}
+
+message OrderCreatePostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+    OrderCreatePayload payload = 2;
+}
+
+message OrderCreateRemarks {
+    OrderRemarkData data = 1;
+
+    // generated remarks text
+    string result = 2;
+}
+
+message OrderFile {
+    // File ID
+    string id = 1;
+
+    // File Type
+    string type = 2;
+}
+
+message OrderFileGetRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+
+    // Airgateway File ID
+    string file_id = 2;
+
+    // Airgateway Order ID
+    string id = 3;
+}
+
+message OrderHistoryGetRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+
+    // Airgateway Order ID
+    string id = 2;
+}
+
+message OrderHistoryItem {
+    message DetailsMessage {}
+
+    // Agency
+    string agency = 1;
+
+    // Agent
+    string agent = 2;
+
+    // Generic details object
+    DetailsMessage details = 3;
+
+    // Event ID
+    string eventID = 4;
+
+    // Event time
+    string eventTime = 5;
+
+    // AirGateway order ID
+    string id = 6;
+    Price price = 7;
+
+    // Newly added tickets
+    repeated TicketInfo tickets = 8;
+
+    // Transaction type
+    string transactionType = 9;
+}
+
+// OrderHistoryMedia media type (default view)
+message OrderHistoryMedia {
+    int64 count = 1;
+    repeated OrderHistoryItem history = 2;
+}
+
+message OrderListCounters {
+    int64 active = 1;
+    int64 approved = 2;
+    int64 cancelled = 3;
+    int64 disrupted = 4;
+    int64 pending = 5;
+    int64 refused = 6;
+    int64 ticketed = 7;
+    int64 underApproval = 8;
+    int64 unused = 9;
+    int64 voided = 10;
+}
+
+message OrderListGetRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+
+    // Agency
+    string agency = 2;
+
+    // Orders with approve status [in_progress / approved / refused]
+    string approveStatus = 3;
+
+    // Booking date from
+    string bookingDateFrom = 4;
+
+    // Booking date to
+    string bookingDateTo = 5;
+
+    // Corporate ID
+    string corporateID = 6;
+
+    // Departure date
+    string departureDate = 7;
+
+    // Destination of flight
+    string destination = 8;
+
+    // Show disrupted orders
+    string disrupted = 9;
+
+    // Sort order
+    string id = 10;
+
+    // Origin of flight
+    string origin = 11;
+
+    // Page number
+    string page = 12;
+
+    // Orders number per page
+    string pageSize = 13;
+
+    // PAX number
+    string pax = 14;
+
+    // PNR
+    string pnr = 15;
+
+    // Providers list separated by comma
+    string providers = 16;
+
+    // Passenger name
+    string psgName = 17;
+
+    // Passenger surname
+    string psgSurname = 18;
+
+    // Show orders type
+    string showOrdersType = 19;
+
+    // Flag to show subagencies' orders
+    string showSubagencies = 20;
+
+    // Sort order
+    string sort = 21;
+
+    // Status of order
+    string status = 22;
+
+    // Ticket Nr. / EMD
+    string ticketNumber = 23;
+}
+
+message OrderListItem {
+    string agency = 1;
+
+    // Order approve status (traveler_pending/traveler_rejected/manager_pending/manager_rejected/customer_ok)
+    string approveStatus = 2;
+    string bookingDate = 3;
+    string bookingType = 4;
+
+    // CorporateID for corporate orders
+    string corporateID = 5;
+
+    // Disruption status (ScheduledTimeChange/FlightCancellation)
+    string disruptionStatus = 6;
+
+    // Flight Segment information. Including departure, arrival and airline information.
+    repeated Flight flights = 7;
+
+    // AirGateway order ID
+    string id = 8;
+    string orderID = 9;
+    string owner = 10;
+    repeated Passenger passengers = 11;
+
+    // Payment time limit
+    string paymentTimeLimit = 12;
+
+    // PNR
+    string pnr = 13;
+    string provider = 14;
+
+    // Order status (Pending/Confirmed/Canceled/Voided/Refunded)
+    string status = 15;
+}
+
+// OrderListMedia media type (default view)
+message OrderListMedia {
+    repeated string agencies = 1;
+    int64 count = 2;
+    OrderListCounters counters = 3;
+    repeated OrderListItem orders = 4;
+}
+
+// Order warning
+message OrderLog {
+    // Severity level
+    string severity = 1;
+
+    // Warning text
+    string text = 2;
+
+    // Warning timestamp
+    string timestamp = 3;
+
+    // Type of request which warning came from (FP, OC)
+    string type = 4;
+}
+
+// OrderMetasMedia media type (default view)
+message OrderMetasMedia {
+    // Order Metas save status
+    bool ok = 1;
+}
+
+// OrderMetasPayload is the type for OrderMetas endpoint request body
+message OrderMetasPayload {
+    // AirGateway order ID
+    string id = 1;
+
+    // Metas object
+    google.protobuf.Struct metas = 2;
+}
+
+message OrderMetasPostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+
+    // OrderMetasPayload is the type for OrderMetas endpoint request body
+    OrderMetasPayload payload = 2;
+}
+
+// Order remarks data
+message OrderRemarkData {
+    // Selected template
+    string template = 1;
+
+    // template variables
+    google.protobuf.Struct variables = 2;
+}
+
+// Order remarks template
+message OrderRemarkTemplate {
+    // multiline template string
+    string data = 1;
+
+    // Name
+    string name = 2;
+
+    // Needed on creation
+    bool neededOnCreation = 3;
+}
+
+// Order remarks object. Created plain text is used in air files
+message OrderRemarks {
+    OrderRemarkData data = 1;
+
+    // generated remarks text
+    string result = 2;
+    repeated OrderRemarkTemplate templates = 3;
+}
+
+// OrderRemarksMedia media type (default view)
+message OrderRemarksMedia {
+    // API status
+    bool ok = 1;
+}
+
+// OrderRemarksPayload is the type for OrderRemarks endpoint request body
+message OrderRemarksPayload {
+    OrderRemarkData data = 1;
+
+    // AirGateway order ID
+    string id = 2;
+
+    // generated remarks text
+    string result = 3;
+}
+
+message OrderRemarksPostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+
+    // OrderRemarksPayload is the type for OrderRemarks endpoint request body
+    OrderRemarksPayload payload = 2;
+}
+
+// OrderReshopMedia media type (default view)
+message OrderReshopMedia {
+    repeated OrderReshopMediaType offers = 1;
+}
+
+message OrderReshopMediaType {
+    enum OrderReshopMediaTypeOfferType {
+        ORDER_RESHOP_MEDIA_TYPE_OFFER_TYPE_ONE_WAY = 0;
+        ORDER_RESHOP_MEDIA_TYPE_OFFER_TYPE_ROUND_TRIP = 1;
+        ORDER_RESHOP_MEDIA_TYPE_OFFER_TYPE_OUTBOUND = 2;
+        ORDER_RESHOP_MEDIA_TYPE_OFFER_TYPE_RETURN = 3;
+    }
+
+    Benefit benefits = 1;
+
+    // List of disclosures corresponding to offer.
+    repeated Disclosure disclosures = 2;
+
+    // Flight Segment information. Including departure, arrival and airline information.
+    repeated Flight flights = 3;
+
+    // Offer identifier
+    string offerID = 4;
+
+    // Offer type
+    OrderReshopMediaTypeOfferType offerType = 5;
+
+    // 2 letter abbreviation of airline
+    string owner = 6;
+    Price price = 7;
+    PriceBreakdown priceBreakdown = 8;
+
+    // Indicates if the price has change from the original in the hold order.
+    bool priceChange = 9;
+    repeated OrderLog warnings = 10;
+}
+
+message OrderReshopPayload {
+    // AirGateway order ID
+    string id = 1;
+
+    // Origin/Destination pair in a shopping search scenario
+    repeated OriginDestinationASRQ originDestinations = 2;
+    Preferences preferences = 3;
+}
+
+message OrderReshopPostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+    OrderReshopPayload payload = 2;
+}
+
+// OrderReshopRefundMedia media type (default view)
+message OrderReshopRefundMedia {
+    // Flight Segment information. Including departure, arrival and airline information.
+    repeated Flight flights = 1;
+    Price originalOrder = 2;
+    Price penalty = 3;
+    Price refund = 4;
+
+    // List of seats
+    repeated Seat seats = 5;
+
+    // List of services
+    repeated Service services = 6;
+
+    // Tickets information
+    repeated TicketInfo tickets = 7;
+
+    // Some airlines returns the voiding option in the OrderReshop Refund. In this way, this field indicates if the OrderCancel will be executed.
+    bool voidPermited = 8;
+    repeated OrderLog warnings = 9;
+}
+
+message OrderReshopRefundPayload {
+    // AirGateway order ID
+    string id = 1;
+
+    // Refund type, can be: "refund", "voucher"
+    string type = 2;
+}
+
+message OrderReshopRefundPostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+    OrderReshopRefundPayload payload = 2;
+}
+
+// OrderReshopRepriceMedia media type (default view)
+message OrderReshopRepriceMedia {
+    Benefit benefits = 1;
+
+    // A hash of surcharges indexed by the credit card type.
+    google.protobuf.Struct cardSurcharges = 2;
+    repeated Disclosure disclosures = 3;
+
+    // Flight Segment information. Including departure, arrival and airline information.
+    repeated Flight flights = 4;
+
+    // The ID for this offer
+    string offerID = 5;
+
+    // The code of the provider that is really offering the flight
+    string owner = 6;
+    Price price = 7;
+
+    // List of services that indicate for which segment the ancillaries must be re-booked
+    repeated AncillariesToRebook seatsToRebook = 8;
+
+    // List of services that indicate for which segment the ancillaries must be re-booked
+    repeated AncillariesToRebook servicesToRebook = 9;
+    repeated OrderLog warnings = 10;
+}
+
+message OrderReshopRepricePayload {
+    // AirGateway order ID
+    string id = 1;
+
+    // OrderReshop offer ID for Reprice request
+    string offerID = 2;
+}
+
+message OrderReshopRepricePostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+    OrderReshopRepricePayload payload = 2;
+}
+
+// OrderRetrievePayload is the type for OrderRetrieve endpoint request body
+message OrderRetrievePayload {
+    // AirGateway order ID
+    string id = 1;
+}
+
+message OrderRetrievePostRequest {
+    // If this header is set to any value, the OrderRetrieve request will be forwarded to the airline and its respective reply will also come from the airline. In case you don't set it, the OrderRetrieve reply will be generated from the information cached locally.
+    string Ag_No_Cache_OR = 1;
+
+    // Provider ID
+    string Ag_Providers = 2;
+
+    // OrderRetrievePayload is the type for OrderRetrieve endpoint request body
+    OrderRetrievePayload payload = 3;
+}
+
+// OrderReviewMedia media type (default view)
+message OrderReviewMedia {
+    // result
+    bool ok = 1;
+}
+
+// OrderReviewPayload is the type for OrderReview endpoint request body
+message OrderReviewPayload {
+    // Review action
+    string action = 1;
+
+    // AirGateway order ID
+    string id = 2;
+
+    // Reason
+    string reason = 3;
+}
+
+message OrderReviewPostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+
+    // OrderReviewPayload is the type for OrderReview endpoint request body
+    OrderReviewPayload payload = 2;
+}
+
+message OrderUpdatePayload {
+    enum OrderUpdatePayloadAction {
+        ORDER_UPDATE_PAYLOAD_ACTION_ADD_FQTV = 0;
+        ORDER_UPDATE_PAYLOAD_ACTION_NAME_CORRECTION = 1;
+        ORDER_UPDATE_PAYLOAD_ACTION_ADD_CONTACT_DETAILS = 2;
+    }
+
+    // A flag used to indicate qhet type of update is being made
+    OrderUpdatePayloadAction action = 1;
+
+    // AirGateway order ID
+    string id = 2;
+
+    // Passengers details to update for
+    repeated Passenger passengersUpdate = 3;
+}
+
+message OrderUpdatePostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+    OrderUpdatePayload payload = 2;
+}
+
+// Origin/Destination pair in a shopping search scenario
+message OriginDestinationASRQ {
+    enum OriginDestinationASRQType {
+        ORIGIN_DESTINATION_ASRQ_TYPE = 0;
+        ORIGIN_DESTINATION_ASRQ_TYPE_KEEP = 1;
+    }
+
+    ArrivalASRQ arrival = 1;
+    DepartureASRQ departure = 2;
+
+    // To be used in the OrederReshop, on the Rebooking process. If 'keep' is set the OD will be retained.
+    OriginDestinationASRQType type = 3;
+}
+
+message OriginDestinationRSInner {
+    FlightPointDataRSArrInner arrival = 1;
+    FlightPointDataRSDepInner departure = 2;
+}
+
+message Passenger {
+    PassengerData data = 1;
+    Document document = 2;
+
+    // FareBasisCodes
+    google.protobuf.Struct fareBasisCodes = 3;
+    repeated Identity4Discount identity4Discount = 4;
+
+    // Infant reference (if any)
+    string infantReference = 5;
+    string passengerType = 6;
+    repeated Seat seats = 7;
+    repeated ServiceRequest services = 8;
+    repeated SSR specialServices = 9;
+
+    // Traveler reference from ServiceList response
+    string travelerReference = 10;
+}
+
+message PassengerData {
+    enum PassengerDataGender {
+        PASSENGER_DATA_GENDER_MALE = 0;
+        PASSENGER_DATA_GENDER_FEMALE = 1;
+        PASSENGER_DATA_GENDER = 2;
+    }
+
+    enum PassengerDataTitle {
+        PASSENGER_DATA_TITLE_MR = 0;
+        PASSENGER_DATA_TITLE_MS = 1;
+        PASSENGER_DATA_TITLE_MRS = 2;
+        PASSENGER_DATA_TITLE_MSTR = 3;
+    }
+
+    Address address = 1;
+
+    // Birthdate using format YYYY-MM-DD.
+    string birthdate = 2;
+    string email = 3;
+    FQTVInfo fqtvInfo = 4;
+
+    // Valid values: 
+    PassengerDataGender gender = 5;
+    string name = 6;
+
+    // Phone number
+    string phone = 7;
+    string surname = 8;
+
+    // Valid Values: 
+    PassengerDataTitle title = 9;
+}
+
+message Payment {
+    // VI (Visa), CA (MasterCard), JCB (JCB), AX (American Express), DC (Diners Club), CB (Carte blanche), TP (UATP/AIRPLUS), GK (Lufthansa GK Card), AU (Carte Aurore), not all credit cards are supported by all airlines, required if method == "card"
+    string cardCode = 1;
+    string cardHolderEmail = 2;
+    string cardHolderName = 3;
+    string cardHolderSurname = 4;
+
+    // Valid Values: 
+    string cardHolderTitle = 5;
+
+    // CC Number, required if method == "card"
+    string cardNumber = 6;
+
+    // CC (Credit)/DB (Debit), required if method == "card"
+    string cardType = 7;
+    string cashEmail = 8;
+    string cashName = 9;
+    string cashSurname = 10;
+
+    // Valid Values: 
+    string cashTitle = 11;
+
+    // Card Holder Billing city, required if method == "card" 
+    string cityName = 12;
+
+    // Card Holder Billing country code , required if method == "card"
+    string countryCode = 13;
+    string expiration = 14;
+
+    // Possible values: "card", "agencyCard", "agencyCash". Set this to "card" if you pay with card. Contact us to setup cash on file and card on file
+    string method = 15;
+    string passengerType = 16;
+
+    // Phone number
+    string phone = 17;
+
+    // Card Holder Billing postal code, required if method == "card"
+    string postalCode = 18;
+
+    // A code used for special types of paying. In case your agency is allowed to pay with this special remark we will send you more information.
+    string remark = 19;
+
+    // CVV/CVC code, required if method == "card"
+    string seriesCode = 20;
+
+    // The code of the state or province where the bank office issued the card, required if method == "card"
+    string stateProv = 21;
+
+    // Card Holder Billing address, required if method == "card"
+    string street1 = 22;
+    string street2 = 23;
+    PaymentVoucher voucher = 24;
+}
+
+message PaymentVoucher {
+    // The amount paid with voucher (12 or 12.09)
+    double amount = 1;
+
+    // Voucher currency
+    string currency = 2;
+
+    // Voucher owner's email
+    string email = 3;
+
+    // Voucher number
+    string number = 4;
+
+    // Voucher owner's surname
+    string surname = 5;
+}
+
+message Penalty {
+    // Value and the application of this value for the penalty.
+    repeated PenaltyAmount amounts = 1;
+
+    // A more extensive and explicit explanation of the penalty
+    string description = 2;
+
+    // The code of the penalty
+    string type = 3;
+}
+
+message PenaltyAmount {
+    // The homogenised value of the penalty for the application case (35 or 30.65)
+    double amount = 1;
+
+    // The consumer currency of this value
+    string currency = 2;
+
+    // The provider value of the penalty for the application case (30 or 30.70)
+    double providerAmount = 3;
+
+    // The provider currency of this value
+    string providerCurrency = 4;
+
+    // Penalty remark.
+    string remark = 5;
+}
+
+message Preferences {
+    enum Cabin {
+        CABIN_1 = 0;
+        CABIN_2 = 1;
+        CABIN_3 = 2;
+        CABIN_4 = 3;
+        CABIN_5 = 4;
+        CABIN_6 = 5;
+        CABIN_7 = 6;
+        CABIN = 7;
+    }
+
+    // Cabin preference from PADIS 9873.<br/>
+    // 	Please take note that not all airlines accept all attributes, check our <a href=https://github.com/AirGateway/NDC-Gateway-Developer-Guide#cabin-preferences>developer guide</a>.<br/>
+    // 	1-First Class,<br/>
+    // 	2-Second Class (Business),<br/>
+    // 	3-Third class, economy,<br/>
+    // 	4-Economy/coach premium,<br/>
+    // 	5-Economy/coach,<br/>
+    // 	6-Economy/coach discounted,<br/>
+    // 	7-All
+    repeated Cabin cabin = 1;
+    DiscountPreferences discounts = 2;
+    Fare fare = 3;
+
+    // List of fare preferences from PADIS 9910.</br>
+    // 		Please take note that not all airlines accept all attributes, check our <a href=https://github.com/AirGateway/NDC-Gateway-Developer-Guide#fare-preferences>developer guide</a>.<br/>
+    // 		70J-Published fares,<br/>
+    // 		749-Negotiated fares,<br/>
+    // 		754-Flexible Fare,<br/>
+    // 		758-Private Fare,<br/>
+    // 		759-Restricted Fare
+    repeated Fare fareList = 4;
+
+    // NonStop preferences for search. If this is present, it will search flights without stops.
+    bool nonStop = 5;
+}
+
+message PreferencesAS {
+    enum Cabin {
+        CABIN_1 = 0;
+        CABIN_2 = 1;
+        CABIN_3 = 2;
+        CABIN_4 = 3;
+        CABIN_5 = 4;
+        CABIN_6 = 5;
+        CABIN_7 = 6;
+        CABIN = 7;
+    }
+
+    // Cabin preference from PADIS 9873.<br/>
+    // 	Please take note that not all airlines accept all attributes, check our <a href=https://github.com/AirGateway/NDC-Gateway-Developer-Guide#cabin-preferences>developer guide</a>.<br/>
+    // 	1-First Class,<br/>
+    // 	2-Second Class (Business),<br/>
+    // 	3-Third class, economy,<br/>
+    // 	4-Economy/coach premium,<br/>
+    // 	5-Economy/coach,<br/>
+    // 	6-Economy/coach discounted,<br/>
+    // 	7-All
+    repeated Cabin cabin = 1;
+    DiscountPreferences discounts = 2;
+    Fare fare = 3;
+
+    // List of fare preferences from PADIS 9910.</br>
+    // 		Please take note that not all airlines accept all attributes, check our <a href=https://github.com/AirGateway/NDC-Gateway-Developer-Guide#fare-preferences>developer guide</a>.<br/>
+    // 		70J-Published fares,<br/>
+    // 		749-Negotiated fares,<br/>
+    // 		754-Flexible Fare,<br/>
+    // 		758-Private Fare,<br/>
+    // 		759-Restricted Fare
+    repeated Fare fareList = 4;
+
+    // Maximum duration of the flight per O&D in ISO-8601 format
+    repeated string maxDuration = 5;
+
+    // Maximum duration ratio of the flight per O&D in float number factor
+    repeated double maxDurationRatio = 6;
+
+    // Maximum stops number per O&D
+    repeated int64 maxStops = 7;
+
+    // NonStop preferences for search. If this is present, it will search flights without stops.
+    bool nonStop = 8;
+}
+
+message Price {
+    PriceDetail consumer = 1;
+    PriceDetail provider = 2;
+}
+
+// Airline Offer price breakdown of combined round trip offers
+message PriceBreakdown {
+    Price inbound = 1;
+    Price outbound = 2;
+}
+
+message PriceDetail {
+    // 670 or 670.41
+    double base = 1;
+
+    // The price for each flight offer. There is an offer for each passenger (ADT, CHD, INF).
+    repeated PriceDetailBreakdown breakdown = 2;
+    string currency = 3;
+
+    // The surcharges for the whole flight offer (6 or 6.05).
+    double surcharge = 4;
+    PriceDetailTax tax = 5;
+
+    // 720 or 720.62
+    double total = 6;
+}
+
+message PriceDetailBreakdown {
+    // The base price, without any taxes (300 or 300.32)
+    double base = 1;
+
+    // The ID for each offer
+    string offerItemID = 2;
+
+    // Passenger references
+    string passengerRefs = 3;
+
+    // The passenger type
+    string passengerType = 4;
+
+    // The total sum of all surcharges (6 or 6.05)
+    double surcharge = 5;
+    PriceDetailTax tax = 6;
+}
+
+message PriceDetailTax {
+    // The value price, currency, code and description for each tax for each AirlineOffer
+    repeated PriceDetailTaxBreakdown breakdown = 1;
+
+    // 120 or 120.62
+    double total = 2;
+}
+
+message PriceDetailTaxBreakdown {
+    // The code used for each tax
+    string code = 1;
+
+    // The currency code used for each tax
+    string currency = 2;
+
+    // The description of each tax
+    string description = 3;
+
+    // The price (12 or 12.09)
+    double total = 4;
+}
+
+message ProviderListGetRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+}
+
+// ProviderListMedia media type (default view)
+message ProviderListMedia {
+    repeated string providers = 1;
+}
+
+message Rows {
+    // First row
+    int64 first = 1;
+
+    // Last row
+    int64 last = 2;
+}
+
+message SSR {
+    BookingInstructions bookingInstructions = 1;
+
+    // Special service request code
+    string code = 2;
+
+    // Special service request description
+    string desc = 3;
+
+    // Passenger type SSR applies to
+    string passengerType = 4;
+
+    // Special service request text required flag
+    bool text_required = 5;
+}
+
+message Seat {
+    // A list of characteristics about the seat
+    repeated Characteristics characteristics = 1;
+
+    // Seat description
+    string description = 2;
+
+    // This is an attribute for each seat.
+    string listKey = 3;
+    SeatLocation location = 4;
+
+    // Reference to passenger which can select the seat. Sometimes the same seat has different price depending on the type of passenger, some other times two passengers of the same type are not allowed to get the same seats, for example when two adults travel with an infant, one of those adults will have a few specific seats.
+    string passengerRefs = 5;
+
+    // Type of passenger which can select the seat (sometimes the same seat has different price depending on the type of passenger)
+    string passengerType = 6;
+    Price price = 7;
+
+    // This is an attribute for each seat.
+    string refs = 8;
+
+    // Some seats have restriction about the age, blindness, deafness, state of pregnancy, etc...
+    repeated string remarks = 9;
+
+    // Points when a seats is removable or not. Used only in OrderViewRS
+    bool removable = 10;
+
+    // Flight Segment Reference Key
+    string segment = 11;
+}
+
+// SeatAvailabilityMedia media type (default view)
+message SeatAvailabilityMedia {
+    repeated Disclosure disclosures = 1;
+
+    // Exit rows position
+    repeated ExitSeat exits = 2;
+
+    // The owner of the segment flight that the SeatAvailability is requesting
+    string owner = 3;
+
+    // Info about seat display (rows and columns)
+    repeated SeatDisplay seatDisplay = 4;
+
+    // Info about seats location, description, characteristics, price...
+    repeated Seat seatList = 5;
+
+    // Info about flight segments
+    repeated FlightSegment segments = 6;
+}
+
+// SeatAvailability data
+message SeatAvailabilityPayload {
+    // AirGateway order ID
+    string id = 1;
+    repeated Passenger passengers = 2;
+
+    // The offerID provided in OrderReshopReprice response on the rebooking process. Used when request SeatAvailable is called on the rebooking stage because order has seats.
+    string reshopOfferID = 3;
+
+    // Segment ID. Use when need to fetch a certain segment of flight
+    string segmentID = 4;
+
+    // The responseID provided in OfferPrice response. Use when request SeatAvailability on Pre-Booking stage
+    string shoppingResponseID = 5;
+}
+
+message SeatAvailabilityPostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+
+    // SeatAvailability data
+    SeatAvailabilityPayload payload = 2;
+}
+
+message SeatDisplay {
+    // All available seat columns
+    string columns = 1;
+    Rows rows = 2;
+
+    // Flight Segment Reference Key
+    string segment = 3;
+}
+
+message SeatLocation {
+    // Column of the seat
+    string column = 1;
+
+    // Row of the seat
+    int64 row = 2;
+}
+
+// Service List
+message Service {
+    BookingInstructions bookingInstructions = 1;
+
+    // List of service descriptions
+    repeated string descriptions = 2;
+
+    // Maximum quantity of services
+    int64 maximumQuantity = 3;
+
+    // Minimum quantity of services
+    int64 minimumQuantity = 4;
+
+    // Service name
+    string name = 5;
+
+    // Service object key
+    string objectKey = 6;
+    Price price = 7;
+
+    // Properties
+    repeated DisclosureProperty properties = 8;
+
+    // Service reference
+    string ref = 9;
+
+    // Points when a service is removable or not. Used only in OrderViewRS
+    bool removable = 10;
+
+    // Segment references
+    string segmentReferences = 11;
+
+    // Service ID
+    string serviceID = 12;
+
+    // Traveler references
+    string travelerReferences = 13;
+}
+
+// ServiceListMedia media type (default view)
+message ServiceListMedia {
+    // List of disclosures
+    repeated Disclosure disclosures = 1;
+
+    // List of referenced travelers
+    repeated Passenger passengers = 2;
+    repeated FlightSegment segments = 3;
+
+    // List of services
+    repeated Service services = 4;
+    repeated OrderLog warnings = 5;
+}
+
+// ServiceListPayload is the type for ServiceList endpoint request body
+message ServiceListPayload {
+    // AirGateway order ID
+    string id = 1;
+    repeated Passenger passengers = 2;
+
+    // The offerID provided in OrderReshopReprice response on the rebooking process. Used when request ServiceList is called on the rebooking stage and order has services.
+    string reshopOfferID = 3;
+
+    // The responseID provided in OfferPrice response. Use when request ServiceList on Pre-Booking stage
+    string shoppingResponseID = 4;
+}
+
+message ServiceListPostRequest {
+    // Provider ID
+    string Ag_Providers = 1;
+
+    // ServiceListPayload is the type for ServiceList endpoint request body
+    ServiceListPayload payload = 2;
+}
+
+// Service Request
+message ServiceRequest {
+    enum ServiceRequestAction {
+        SERVICE_REQUEST_ACTION_CREATE = 0;
+        SERVICE_REQUEST_ACTION_CANCEL = 1;
+    }
+
+    enum ServiceRequestType {
+        SERVICE_REQUEST_TYPE_SEAT = 0;
+        SERVICE_REQUEST_TYPE_SERVICE = 1;
+    }
+
+    // Action (Create/Cancel)
+    ServiceRequestAction action = 1;
+
+    // Service owner
+    string owner = 2;
+
+    // Baggage type (deprecated)
+    double quantity = 3;
+    SeatLocation seatLocation = 4;
+
+    // Segment reference
+    string segmentReference = 5;
+
+    // Type of service (ID)
+    string serviceID = 6;
+
+    // Used in some services to indicate the quantity of some extra kilos in the baggage, the type of pet, etc...
+    string text = 7;
+
+    // Traveler reference
+    string travelerReference = 8;
+
+    // Type of service object. Required for service object validation
+    ServiceRequestType type = 9;
+}
+
+// Stop location details
+message StopLocation {
+    // Airport code
+    string airportCode = 1;
+
+    // Airport name
+    string airportName = 2;
+
+    // Arrival date
+    string arrivalDate = 3;
+
+    // Arrival time
+    string arrivalTime = 4;
+
+    // Departure date
+    string departureDate = 5;
+
+    // Departure time
+    string departureTime = 6;
+}
+
+message TicketCoupon {
+    // Coupon date of service
+    string dateOfService = 1;
+
+    // Coupon fareBasisCode
+    string fareBasisCode = 2;
+
+    // Coupon media
+    string media = 3;
+
+    // Coupon number
+    string number = 4;
+    Price price = 5;
+
+    // Coupon ref
+    string reference = 6;
+
+    // Coupon remark
+    string remark = 7;
+    TicketCouponAirlineInfo segment = 8;
+
+    // Coupon service references
+    string serviceReferences = 9;
+
+    // Coupon status code
+    string status = 10;
+
+    // Coupon status description
+    string statusDefinition = 11;
+    TicketCouponValid valid = 12;
+
+    // Coupon validating airline
+    string validatingAirline = 13;
+}
+
+message TicketCouponAirlineInfo {
+    FlightPointData arrival = 1;
+    TicketCouponAirlineInfoDepartureArrivalDateTime arrivalDateTime = 2;
+    FlightPointData departure = 3;
+    TicketCouponAirlineInfoDepartureArrivalDateTime departureDateTime = 4;
+    Equipment equipment = 5;
+    MarketingCarrier marketingCarrier = 6;
+
+    // Flight Segment status
+    string status = 7;
+}
+
+message TicketCouponAirlineInfoDepartureArrivalDateTime {
+    // Flight Segment status
+    string date = 1;
+
+    // Flight Segment status
+    string time = 2;
+}
+
+message TicketCouponValid {
+    // Coupon effective date
+    string effective = 1;
+
+    // Coupon expiration date
+    string expiration = 2;
+}
+
+message TicketInfo {
+    // Ticket coupons' details
+    repeated TicketCoupon coupons = 1;
+
+    // Ticket issue date
+    string dateOfIssue = 2;
+
+    // Number of tickets for passenger
+    int64 numberOfBooklets = 3;
+
+    // Passenger reference
+    string passengerRef = 4;
+    Price price = 5;
+
+    // Remark text
+    string remark = 6;
+
+    // Ticket number of passenger
+    string ticketNumber = 7;
+
+    // Ticket issue time
+    string timeOfIssue = 8;
+
+    // Type of ticket
+    string typeCode = 9;
+
+    // The meaning of the type of ticket
+    string typeCodeDefinition = 10;
+}
+
+message Travelers {
+    // Number of adult passengers - older than 12 yo
+    double ADT = 1;
+
+    // Number of children - older than 2 yo
+    double CHD = 2;
+
+    // Number of infants - younger than 2 yo
+    double INF = 3;
+
+    // Number of young adults for Tour Operators - 12-16 yo
+    double V14 = 4;
+
+    // Number of adult passengers for Tour Operators - older than 12 yo
+    double VFR = 5;
+
+    // Number of infants for Tour Operators - younger than 2 yo
+    double VNF = 6;
+
+    // Number of children for Tour Operators - older than 2 yo
+    double VNN = 7;
+
+    // Number of young adults - 12-16 yo
+    double YAD = 8;
+}
+
+service AirGatewayNDCJSONAPIService {
+    // Post AirDocIssue
+    // 
+    // AirDocIssue the ability to pay for the held booking.
+    rpc AirDocIssuePost(AirDocIssuePostRequest) returns (OrderCreateMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/AirDocIssue"
+            body: "payload"
+        };
+    }
+
+    // Post AirShopping
+    // 
+    // Get a list of offers for provided O&D, dates and travelers.
+    // 		There are three types of AirShopping request:<br> <b>(one-way)</b> -> For this airshopping, the array of OriginDestination´s must have only one element.</br>
+    // 		<b>(round-trip)</b> -> For this airshopping, the array of OriginDestination´s must have only two elements, and the arrival of the second element must be the same that the departure of the first element.</br>
+    // 		<b>(multi-city)</b> -> For this airshopping, the array of OriginDestination´s can have an unlimited quantity of elements.</br>
+    // 		This method allows async behavior by sending <b>AG-Connection: keep-alive</b> header. If a request is received with this header, response will be real-time <a href="https://en.wikipedia.org/wiki/JSON_Streaming">json streaming</a> so API will return offers as soon as they are received from providers and parsed. Streaming responses are line delimited JSON. You can <a href="https://api.airgateway.work/streaming-json-example.json">see an example here</a>.</br>
+    // 		If AG-Connection is not sent, all responses from providers will be parsed together (it will be slow since it needs to wait for all provider's responses) and there will be only a response with format specified here.<br>
+    // 		As an additional header option you can control maximum request lifetime. Use <b>AG-Request-Timeout</b> header with integer number value in milliseconds.
+    rpc AirShoppingPost(AirShoppingPostRequest) returns (AirShoppingMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/AirShopping"
+            body: "payload"
+        };
+    }
+
+    // Post ItinShopping
+    // 
+    // Find itinerary by O&D, dates and flight numbers by exact matching input data.<br>
+    // 		ItinShopping supports all possible itinerary types such as: OW (one-way), RT (round-trip) and MC (multi-city)<br>
+    // 		<b>(one-trip)</b> -> To search one way itinerary provide single itinerary object.</br>
+    // 		<b>(round-trip)</b> -> To search round trip provide two itinerary objects</br>
+    // 		<b>(round-trip)</b> -> To search multi city provide itinerary objects according to number of flights</br>
+    rpc ItinShoppingPost(ItinShoppingPostRequest) returns (ItinShoppingMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/ItinShopping"
+            body: "payload"
+        };
+    }
+
+    // Post OfferPrice
+    // 
+    // OfferPrice performs an specific detailed info query on a precise flight.
+    rpc OfferPricePost(OfferPricePostRequest) returns (OfferPriceMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OfferPrice"
+            body: "payload"
+        };
+    }
+
+    // Post OrderCancel
+    // 
+    // OrderCancel returns cancelled order.
+    rpc OrderCancelPost(OrderCancelPostRequest) returns (OrderCancelMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderCancel"
+            body: "payload"
+        };
+    }
+
+    // Post OrderChange
+    // 
+    // The OrderChange amends existing order/PNR, and returns amended order details.
+    rpc OrderChangePost(OrderChangePostRequest) returns (OrderCreateMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderChange"
+            body: "payload"
+        };
+    }
+
+    // Post OrderComments
+    // 
+    // OrderComments updates order with new comments
+    rpc OrderCommentsPost(OrderCommentsPostRequest) returns (OrderCommentsMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderComments"
+            body: "payload"
+        };
+    }
+
+    // Post OrderCreate
+    // 
+    // The OrderCreate makes a purchase request for the selected flight, and returns an OrderID (some providers also return a PNR), along with some flight data, such as the Origins-Destinations listing or the passenger list.
+    rpc OrderCreatePost(OrderCreatePostRequest) returns (OrderCreateMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderCreate"
+            body: "payload"
+        };
+    }
+
+    // GET OrderFile
+    // 
+    // OrderFile
+    rpc OrderFileGet(OrderFileGetRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            get: "/v1.2/OrderFile"
+        };
+    }
+
+    // GET OrderHistory
+    // 
+    // OrderHistory
+    rpc OrderHistoryGet(OrderHistoryGetRequest) returns (OrderHistoryMedia) {
+        option (google.api.http) = {
+            get: "/v1.2/OrderHistory"
+        };
+    }
+
+    // GET OrderList
+    // 
+    // OrderList
+    rpc OrderListGet(OrderListGetRequest) returns (OrderListMedia) {
+        option (google.api.http) = {
+            get: "/v1.2/OrderList"
+        };
+    }
+
+    // Post OrderMetas
+    // 
+    // OrderMetas updates order with new metas
+    rpc OrderMetasPost(OrderMetasPostRequest) returns (OrderMetasMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderMetas"
+            body: "payload"
+        };
+    }
+
+    // Post OrderRemarks
+    // 
+    // OrderRemarks updates order with new remarks
+    rpc OrderRemarksPost(OrderRemarksPostRequest) returns (OrderRemarksMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderRemarks"
+            body: "payload"
+        };
+    }
+
+    // Post OrderReshop
+    // 
+    // OrderReshop returns offers avaialble for provided order ID and different date.
+    rpc OrderReshopPost(OrderReshopPostRequest) returns (OrderReshopMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderReshop"
+            body: "payload"
+        };
+    }
+
+    // Post OrderReshopRefund
+    rpc OrderReshopRefundPost(OrderReshopRefundPostRequest) returns (OrderReshopRefundMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderReshopRefund"
+            body: "payload"
+        };
+    }
+
+    // Post OrderReshopReprice
+    // 
+    // OrderReshopReprice returns price for selected OrderReshop offer.
+    rpc OrderReshopRepricePost(OrderReshopRepricePostRequest) returns (OrderReshopRepriceMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderReshopReprice"
+            body: "payload"
+        };
+    }
+
+    // Post OrderRetrieve
+    // 
+    // OrderRetrieve returns an order information of existing order.
+    rpc OrderRetrievePost(OrderRetrievePostRequest) returns (OrderCreateMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderRetrieve"
+            body: "payload"
+        };
+    }
+
+    // Post OrderReview
+    // 
+    // OrderReview returns result of review approval/rejection
+    rpc OrderReviewPost(OrderReviewPostRequest) returns (OrderReviewMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderReview"
+            body: "payload"
+        };
+    }
+
+    // Post OrderUpdate
+    // 
+    // The OrderUpdate amends existing passengers details on order/PNR, and returns amended order details.
+    rpc OrderUpdatePost(OrderUpdatePostRequest) returns (OrderCreateMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/OrderUpdate"
+            body: "payload"
+        };
+    }
+
+    // GET ProviderList
+    // 
+    // ProviderList
+    rpc ProviderListGet(ProviderListGetRequest) returns (ProviderListMedia) {
+        option (google.api.http) = {
+            get: "/v1.2/ProviderList"
+        };
+    }
+
+    // Post SeatAvailability
+    // 
+    // SeatAvailability returns a list of seat, price of these seats, its location and some more info like, for example, if a seat can be occupied by infants or only adults.
+    rpc SeatAvailabilityPost(SeatAvailabilityPostRequest) returns (SeatAvailabilityMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/SeatAvailability"
+            body: "payload"
+        };
+    }
+
+    // Post ServiceList
+    // 
+    // ServiceList returns a service list information for existing order.
+    rpc ServiceListPost(ServiceListPostRequest) returns (ServiceListMedia) {
+        option (google.api.http) = {
+            post: "/v1.2/ServiceList"
+            body: "payload"
+        };
+    }
+
+    // Get Status
+    // 
+    // Status returns ok if API is active
+    rpc StatusGet(google.protobuf.Empty) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            get: "/v1.2/status"
+        };
+    }
+}
