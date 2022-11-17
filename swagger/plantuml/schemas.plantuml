@@ -1,0 +1,1275 @@
+@startuml
+
+title AirGateway NDC JSON API Schemas Diagram
+
+entity Address {
+    cityName: String
+    countryCode: String
+    postalCode: String
+    street: String
+}
+
+entity AgencyData {
+    countryCode: String
+    iataCode: String
+}
+
+entity AirDocIssuePayloadPayload {
+    * id: String
+    * payment: Payment
+}
+
+entity AirShoppingMedia {
+    result: List<AirShoppingOffer>
+}
+
+entity AirShoppingOffer {
+    benefits: Benefit
+    createdAt: Long
+    disclosures: List<Disclosure>
+    error: String
+    flights: List<Flight>
+    maxNumberOfStops: Long
+    offerID: String
+    offerType: String
+    owner: String
+    paymentTimeLimit: String
+    price: Price
+    priceBreakdown: PriceBreakdown
+    provider: String
+}
+
+entity AirShoppingPayload {
+    corporateDiscountCodes: Object
+    metadata: Metadata
+    * originDestinations: List<OriginDestinationASRQ>
+    preferences: PreferencesAS
+    * travelers: Travelers
+}
+
+entity AllowedPaymentMethods {
+    * agencyCard: Boolean
+    * agencyCash: Boolean
+    * card: Boolean
+    * none: Boolean
+    * unusedTicket: Boolean
+}
+
+entity AlternativePNR {
+    id: String
+    providerID: String
+}
+
+entity AncillariesToRebook {
+    flightKey: String
+    rebook: Boolean
+}
+
+entity ArrivalASRQ {
+    * airportCode: String
+    date: String
+}
+
+entity BaggageAllowance {
+    carryOn: List<BaggageAllowanceItem>
+    checked: List<BaggageAllowanceItem>
+}
+
+entity BaggageAllowanceItem {
+    chooseType: String
+    options: List<BaggageAllowanceItemOption>
+    passengerRefs: String
+}
+
+entity BaggageAllowanceItemOption {
+    properties: List<DisclosureProperty>
+    quantity: Long
+    text: String
+}
+
+entity Benefit {
+    amount: Price
+    application: String
+    description: String
+    term: DisclosureDescription
+}
+
+entity BookingInstructions {
+    mandatoryText: String
+    pattern: String
+    placeHolder: String
+    type: String
+}
+
+entity BookingReferenceResponse {
+    airlineID: String
+    alternativeIDs: List<AlternativePNR>
+    id: String
+    otherID: String
+}
+
+entity CarbonOffset {
+    destination: String
+    footprint: Double
+    origin: String
+    segmentKey: String
+}
+
+entity CardInformation {
+    cardCode: String
+    cardNumber: String
+    expirationDate: String
+}
+
+entity Characteristics {
+    code: String
+    definition: String
+}
+
+entity ClassOfService {
+    cabinDesignator: String
+    code: String
+    disclosureRefs: List<String>
+    fare: FlightDetailFare
+    fareRules: List<FareRule>
+    generalClassCode: String
+    refs: String
+}
+
+entity DepartureASRQ {
+    * airportCode: String
+    * date: String
+}
+
+entity Disclosure {
+    descriptions: List<DisclosureDescription>
+    listKey: String
+}
+
+entity DisclosureDescription {
+    category: String
+    item: String
+    media: MediaData
+    metadataToken: String
+    originDestinationReference: String
+    properties: List<DisclosureProperty>
+    text: String
+    units: String
+}
+
+entity DisclosureProperty {
+    UOM: String
+    type: String
+    value: String
+}
+
+entity DiscountPreferences {
+    largeFamily: String
+    residentCode: String
+}
+
+entity Document {
+    * documentID: String
+    * documentType: String
+    expirationDate: String
+}
+
+entity Equipment {
+    aircraftCode: String
+    name: String
+}
+
+entity Error {
+    code: String
+    detail: String
+    id: String
+    meta: Object
+    status: String
+}
+
+entity ExitSeat {
+    position: String
+    row: Long
+    segmentID: String
+}
+
+entity FQTVAccount {
+    number: String
+}
+
+entity FQTVInfo {
+    account: FQTVAccount
+    airlineID: String
+}
+
+entity Fare {
+    Code: String
+    Definition: String
+}
+
+entity FareRule {
+    cancel: String
+    cancelEnum: String
+    change: String
+    changeEnum: String
+    passengerRef: String
+    passengerType: String
+    penalties: List<Penalty>
+}
+
+entity Flight {
+    arrival: FlightPointData
+    baggageAllowance: BaggageAllowance
+    departure: FlightPointData
+    duration: String
+    key: String
+    segments: List<FlightSegment>
+}
+
+entity FlightDetail {
+    classOfService: ClassOfService
+    duration: String
+    seatsLeft: String
+    segmentType: String
+    stopLocations: List<StopLocation>
+    stopQuantity: String
+}
+
+entity FlightDetailFare {
+    basisCode: String
+    cabin: String
+    code: String
+    marketingName: String
+    priceClassName: String
+    standardName: String
+    type: String
+}
+
+entity FlightPointData {
+    * airportCode: String
+    airportName: String
+    countryID: String
+    date: String
+    parentLocation: String
+    terminalName: String
+    time: String
+}
+
+entity FlightPointDataRSArrInner {
+    * airportCode: String
+    airportName: String
+    countryID: String
+    date: String
+    parentLocation: String
+    terminalName: String
+    time: String
+}
+
+entity FlightPointDataRSDepInner {
+    * airportCode: String
+    airportName: String
+    countryID: String
+    date: String
+    parentLocation: String
+    terminalName: String
+    time: String
+}
+
+entity FlightSegment {
+    ODRef: String
+    detail: FlightDetail
+    * equipment: Equipment
+    fareCode: String
+    flightNumber: String
+    * marketingCarrier: MarketingCarrier
+    operatingCarrier: OperatingCarrier
+    * originDestination: OriginDestinationRSInner
+    segmentID: String
+}
+
+entity Identity4Discount {
+    identityDocumentNumber: String
+    identityDocumentType: String
+    remark: String
+}
+
+entity ItinShoppingMedia {
+    itinerary: ItineraryRS
+    status: String
+}
+
+entity ItinShoppingPayload {
+    * itinerary: List<ItineraryRQ>
+    metadata: Metadata
+    * travelers: Travelers
+}
+
+entity ItineraryFlight {
+    arrival: FlightPointData
+    departure: FlightPointData
+    duration: String
+    key: String
+    segments: List<ItineraryFlightSegment>
+}
+
+entity ItineraryFlightSegment {
+    ODRef: String
+    detail: ItineraryFlightSegmentDetail
+    equipment: Equipment
+    flightNumber: String
+    marketingCarrier: MarketingCarrier
+    operatingCarrier: OperatingCarrier
+    originDestination: OriginDestinationRSInner
+    segmentID: String
+}
+
+entity ItineraryFlightSegmentDetail {
+    duration: String
+    segmentType: String
+    stopLocations: List<StopLocation>
+    stopQuantity: String
+}
+
+entity ItineraryOption {
+    details: List<ItineraryOptionFlight>
+    disclosures: List<Disclosure>
+    offerID: String
+    price: Price
+    priceBreakdown: PriceBreakdown
+}
+
+entity ItineraryOptionFlight {
+    baggageAllowance: BaggageAllowance
+    key: String
+    segments: List<ItineraryOptionFlightSegmentDetail>
+}
+
+entity ItineraryOptionFlightSegmentDetail {
+    ODRef: String
+    cabinDesignator: String
+    code: String
+    disclosureRefs: List<String>
+    fare: FlightDetailFare
+    fareRules: List<FareRule>
+    generalClassCode: String
+    refs: String
+    seatsLeft: String
+    segmentID: String
+}
+
+entity ItineraryRQ {
+    * arrival: String
+    * date: String
+    * departure: String
+    flightNumbers: List<String>
+}
+
+entity ItineraryRS {
+    createdAt: Long
+    flights: List<ItineraryFlight>
+    maxNumberOfStops: Long
+    offerType: String
+    options: List<ItineraryOption>
+    owner: String
+    paymentTimeLimit: String
+}
+
+entity MarketingCarrier {
+    * airlineID: String
+    * flightNumber: String
+    * name: String
+}
+
+entity MediaData {
+    id: String
+    link: String
+}
+
+entity Metadata {
+    * country: String
+    * currency: String
+    * locale: String
+}
+
+entity OfferPriceAllowedRequests {
+    OrderCreateWithPayment: Boolean
+    SeatAvailability: Boolean
+    ServiceList: Boolean
+}
+
+entity OfferPriceMedia {
+    agencyData: AgencyData
+    allowedPaymentMethods: AllowedPaymentMethods
+    allowedRequests: OfferPriceAllowedRequests
+    benefits: Benefit
+    cardSurcharges: Object
+    createdAt: Long
+    disclosures: List<Disclosure>
+    discounts: DiscountPreferences
+    extraInfoMandatory: List<String>
+    flights: List<Flight>
+    instantPayment: String
+    offerExpiration: String
+    offerID: String
+    owner: String
+    passengers: List<Passenger>
+    paymentTimeLimit: String
+    price: Price
+    remarks: OfferPriceRemarks
+    shoppingResponseID: String
+    specialServices: List<SSR>
+    warnings: List<OrderLog>
+}
+
+entity OfferPricePayload {
+    offerID: String
+    offerIDs: List<String>
+    reshopOfferID: String
+    services: List<ServiceRequest>
+}
+
+entity OfferPriceRemarks {
+    templates: List<OrderRemarkTemplate>
+}
+
+entity OperatingCarrier {
+    * airlineID: String
+    flightNumber: String
+    * name: String
+}
+
+entity OrderCancelMedia {
+    orderID: String
+    warnings: List<OrderLog>
+}
+
+entity OrderCancelPayload {
+    * id: String
+}
+
+entity OrderChangePayload {
+    action: String
+    * id: String
+    loyaltyProgramAccount: String
+    passengerUpdate: Passenger
+    passengers: List<Passenger>
+    payment: Payment
+    reshopOfferID: String
+    services: List<ServiceRequest>
+}
+
+entity OrderCommentsMedia {
+    ok: Boolean
+}
+
+entity OrderCommentsPayload {
+    comments: String
+    * id: String
+}
+
+entity OrderCreateAllowedRequests {
+    pending: OrderCreateAllowedRequestsPending
+    started: OrderCreateAllowedRequestsStarted
+    ticketed: OrderCreateAllowedRequestsTicketed
+}
+
+entity OrderCreateAllowedRequestsPending {
+    OrderCancel: Boolean
+    OrderReprice: Boolean
+    OrderSplit: Boolean
+    SeatAvailability: Boolean
+    ServiceList: Boolean
+    TicketIssue: Boolean
+}
+
+entity OrderCreateAllowedRequestsStarted {
+    OrderCancel: Boolean
+    OrderReshop: Boolean
+    OrderReshopRefund: Boolean
+}
+
+entity OrderCreateAllowedRequestsTicketed {
+    OrderCancel: Boolean
+    OrderCancelToVoucher: Boolean
+    OrderReshop: Boolean
+    OrderReshopRefund: Boolean
+    OrderReshopRouteChange: Boolean
+    OrderSplit: Boolean
+    OrderVoid: Boolean
+    SeatAvailability: Boolean
+    ServiceList: Boolean
+}
+
+entity OrderCreateMedia {
+    agency: String
+    agencyData: AgencyData
+    allowedPaymentMethods: AllowedPaymentMethods
+    allowedRequests: OrderCreateAllowedRequests
+    approvalStatus: String
+    approved: Boolean
+    benefits: Benefit
+    bookingDate: String
+    bookingReference: BookingReferenceResponse
+    bookingType: String
+    carbonOffset: List<CarbonOffset>
+    comments: String
+    corporateID: String
+    createdAt: String
+    disclosures: List<Disclosure>
+    disruptionMessage: String
+    disruptionStatus: String
+    externalOrderID: String
+    files: List<OrderFile>
+    flights: List<Flight>
+    formOfPayment: String
+    history: List<OrderHistoryItem>
+    id: String
+    logs: List<OrderLog>
+    metas: Object
+    orderID: String
+    passengers: List<Passenger>
+    payment: OrderCreatePayment
+    paymentTimeLimit: String
+    penalties: List<Penalty>
+    pnr: String
+    price: Price
+    priceGuaranteeTimeLimit: String
+    readyToTicketIssue: Boolean
+    refundType: String
+    refundedAmount: Price
+    remarks: OrderRemarks
+    seats: List<Seat>
+    sendForApprovalAllowed: Boolean
+    services: List<Service>
+    status: String
+    ticketIssue: Object
+    tickets: List<TicketInfo>
+    updatedAt: String
+    viewMode: String
+    warnings: List<OrderLog>
+}
+
+entity OrderCreatePayload {
+    corporateID: String
+    loyaltyProgramAccount: String
+    metas: Object
+    * passengers: List<Passenger>
+    payment: Payment
+    remarks: OrderCreateRemarks
+    * shoppingResponseID: String
+}
+
+entity OrderCreatePayment {
+    amount: Double
+    cardInformation: CardInformation
+    currency: String
+    status: String
+    type: String
+}
+
+entity OrderCreateRemarks {
+    data: OrderRemarkData
+    result: String
+}
+
+entity OrderFile {
+    id: String
+    type: String
+}
+
+entity OrderHistoryItem {
+    agency: String
+    agent: String
+    details: Object
+    eventID: String
+    eventTime: String
+    id: String
+    price: Price
+    tickets: List<TicketInfo>
+    transactionType: String
+}
+
+entity OrderHistoryMedia {
+    * count: Long
+    * history: List<OrderHistoryItem>
+}
+
+entity OrderListCounters {
+    active: Long
+    approved: Long
+    cancelled: Long
+    disrupted: Long
+    pending: Long
+    refused: Long
+    ticketed: Long
+    underApproval: Long
+    unused: Long
+    voided: Long
+}
+
+entity OrderListItem {
+    agency: String
+    approveStatus: String
+    bookingDate: String
+    bookingType: String
+    corporateID: String
+    disruptionStatus: String
+    flights: List<Flight>
+    id: String
+    orderID: String
+    owner: String
+    passengers: List<Passenger>
+    paymentTimeLimit: String
+    pnr: String
+    provider: String
+    status: String
+}
+
+entity OrderListMedia {
+    agencies: List<String>
+    count: Long
+    counters: OrderListCounters
+    orders: List<OrderListItem>
+}
+
+entity OrderLog {
+    severity: String
+    text: String
+    timestamp: String
+    type: String
+}
+
+entity OrderMetasMedia {
+    ok: Boolean
+}
+
+entity OrderMetasPayload {
+    * id: String
+    metas: Object
+}
+
+entity OrderRemarkData {
+    template: String
+    variables: Object
+}
+
+entity OrderRemarkTemplate {
+    data: String
+    name: String
+    neededOnCreation: Boolean
+}
+
+entity OrderRemarks {
+    data: OrderRemarkData
+    result: String
+    templates: List<OrderRemarkTemplate>
+}
+
+entity OrderRemarksMedia {
+    ok: Boolean
+}
+
+entity OrderRemarksPayload {
+    data: OrderRemarkData
+    * id: String
+    result: String
+}
+
+entity OrderReshopMedia {
+    offers: List<OrderReshopMediaType>
+}
+
+entity OrderReshopMediaType {
+    benefits: Benefit
+    disclosures: List<Disclosure>
+    flights: List<Flight>
+    offerID: String
+    offerType: String
+    owner: String
+    price: Price
+    priceBreakdown: PriceBreakdown
+    priceChange: Boolean
+    warnings: List<OrderLog>
+}
+
+entity OrderReshopPayload {
+    * id: String
+    * originDestinations: List<OriginDestinationASRQ>
+    preferences: Preferences
+}
+
+entity OrderReshopRefundMedia {
+    flights: List<Flight>
+    originalOrder: Price
+    penalty: Price
+    refund: Price
+    seats: List<Seat>
+    services: List<Service>
+    tickets: List<TicketInfo>
+    voidPermited: Boolean
+    warnings: List<OrderLog>
+}
+
+entity OrderReshopRefundPayload {
+    * id: String
+    type: String
+}
+
+entity OrderReshopRepriceMedia {
+    benefits: Benefit
+    cardSurcharges: Object
+    disclosures: List<Disclosure>
+    flights: List<Flight>
+    offerID: String
+    owner: String
+    price: Price
+    seatsToRebook: List<AncillariesToRebook>
+    servicesToRebook: List<AncillariesToRebook>
+    warnings: List<OrderLog>
+}
+
+entity OrderReshopRepricePayload {
+    * id: String
+    offerID: String
+}
+
+entity OrderRetrievePayload {
+    * id: String
+}
+
+entity OrderReviewMedia {
+    ok: Boolean
+}
+
+entity OrderReviewPayload {
+    * action: String
+    * id: String
+    reason: String
+}
+
+entity OrderUpdatePayload {
+    action: String
+    * id: String
+    * passengersUpdate: List<Passenger>
+}
+
+entity OriginDestinationASRQ {
+    * arrival: ArrivalASRQ
+    * departure: DepartureASRQ
+    type: String
+}
+
+entity OriginDestinationRSInner {
+    arrival: FlightPointDataRSArrInner
+    departure: FlightPointDataRSDepInner
+}
+
+entity Passenger {
+    data: PassengerData
+    document: Document
+    fareBasisCodes: Object
+    identity4Discount: List<Identity4Discount>
+    infantReference: String
+    passengerType: String
+    seats: List<Seat>
+    services: List<ServiceRequest>
+    specialServices: List<SSR>
+    * travelerReference: String
+}
+
+entity PassengerData {
+    address: Address
+    birthdate: String
+    email: String
+    fqtvInfo: FQTVInfo
+    gender: String
+    * name: String
+    phone: String
+    surname: String
+    title: String
+}
+
+entity Payment {
+    cardCode: String
+    cardHolderEmail: String
+    cardHolderName: String
+    cardHolderSurname: String
+    cardHolderTitle: String
+    cardNumber: String
+    cardType: String
+    cashEmail: String
+    cashName: String
+    cashSurname: String
+    cashTitle: String
+    cityName: String
+    countryCode: String
+    expiration: String
+    * method: String
+    passengerType: String
+    phone: String
+    postalCode: String
+    remark: String
+    seriesCode: String
+    stateProv: String
+    street1: String
+    street2: String
+    voucher: PaymentVoucher
+}
+
+entity PaymentVoucher {
+    amount: Double
+    currency: String
+    email: String
+    number: String
+    surname: String
+}
+
+entity Penalty {
+    amounts: List<PenaltyAmount>
+    description: String
+    type: String
+}
+
+entity PenaltyAmount {
+    amount: Double
+    currency: String
+    providerAmount: Double
+    providerCurrency: String
+    remark: String
+}
+
+entity Preferences {
+    cabin: List<String>
+    discounts: DiscountPreferences
+    fare: Fare
+    fareList: List<Fare>
+    nonStop: Boolean
+}
+
+entity PreferencesAS {
+    cabin: List<String>
+    discounts: DiscountPreferences
+    fare: Fare
+    fareList: List<Fare>
+    maxDuration: List<String>
+    maxDurationRatio: List<Double>
+    maxStops: List<Long>
+    nonStop: Boolean
+}
+
+entity Price {
+    consumer: PriceDetail
+    provider: PriceDetail
+}
+
+entity PriceBreakdown {
+    inbound: Price
+    outbound: Price
+}
+
+entity PriceDetail {
+    base: Double
+    breakdown: List<PriceDetailBreakdown>
+    currency: String
+    surcharge: Double
+    tax: PriceDetailTax
+    total: Double
+}
+
+entity PriceDetailBreakdown {
+    base: Double
+    offerItemID: String
+    passengerRefs: String
+    passengerType: String
+    surcharge: Double
+    tax: PriceDetailTax
+}
+
+entity PriceDetailTax {
+    breakdown: List<PriceDetailTaxBreakdown>
+    total: Double
+}
+
+entity PriceDetailTaxBreakdown {
+    code: String
+    currency: String
+    description: String
+    total: Double
+}
+
+entity ProviderListMedia {
+    providers: List<String>
+}
+
+entity Rows {
+    first: Long
+    last: Long
+}
+
+entity SSR {
+    bookingInstructions: BookingInstructions
+    code: String
+    desc: String
+    passengerType: String
+    text_required: Boolean
+}
+
+entity Seat {
+    characteristics: List<Characteristics>
+    description: String
+    listKey: String
+    location: SeatLocation
+    passengerRefs: String
+    passengerType: String
+    price: Price
+    refs: String
+    remarks: List<String>
+    removable: Boolean
+    segment: String
+}
+
+entity SeatAvailabilityMedia {
+    disclosures: List<Disclosure>
+    exits: List<ExitSeat>
+    owner: String
+    seatDisplay: List<SeatDisplay>
+    seatList: List<Seat>
+    segments: List<FlightSegment>
+}
+
+entity SeatAvailabilityPayload {
+    id: String
+    passengers: List<Passenger>
+    reshopOfferID: String
+    segmentID: String
+    shoppingResponseID: String
+}
+
+entity SeatDisplay {
+    columns: String
+    rows: Rows
+    segment: String
+}
+
+entity SeatLocation {
+    column: String
+    row: Long
+}
+
+entity Service {
+    bookingInstructions: BookingInstructions
+    descriptions: List<String>
+    maximumQuantity: Long
+    minimumQuantity: Long
+    name: String
+    objectKey: String
+    price: Price
+    properties: List<DisclosureProperty>
+    ref: String
+    removable: Boolean
+    segmentReferences: String
+    serviceID: String
+    travelerReferences: String
+}
+
+entity ServiceListMedia {
+    disclosures: List<Disclosure>
+    passengers: List<Passenger>
+    segments: List<FlightSegment>
+    services: List<Service>
+    warnings: List<OrderLog>
+}
+
+entity ServiceListPayload {
+    id: String
+    passengers: List<Passenger>
+    reshopOfferID: String
+    shoppingResponseID: String
+}
+
+entity ServiceRequest {
+    * action: String
+    owner: String
+    quantity: Double
+    seatLocation: SeatLocation
+    segmentReference: String
+    serviceID: String
+    text: String
+    travelerReference: String
+    * type: String
+}
+
+entity StopLocation {
+    airportCode: String
+    airportName: String
+    arrivalDate: String
+    arrivalTime: String
+    departureDate: String
+    departureTime: String
+}
+
+entity TicketCoupon {
+    dateOfService: String
+    fareBasisCode: String
+    media: String
+    number: String
+    price: Price
+    reference: String
+    remark: String
+    segment: TicketCouponAirlineInfo
+    serviceReferences: String
+    status: String
+    statusDefinition: String
+    valid: TicketCouponValid
+    validatingAirline: String
+}
+
+entity TicketCouponAirlineInfo {
+    arrival: FlightPointData
+    arrivalDateTime: TicketCouponAirlineInfoDepartureArrivalDateTime
+    departure: FlightPointData
+    departureDateTime: TicketCouponAirlineInfoDepartureArrivalDateTime
+    equipment: Equipment
+    marketingCarrier: MarketingCarrier
+    status: String
+}
+
+entity TicketCouponAirlineInfoDepartureArrivalDateTime {
+    date: String
+    time: String
+}
+
+entity TicketCouponValid {
+    effective: String
+    expiration: String
+}
+
+entity TicketInfo {
+    coupons: List<TicketCoupon>
+    dateOfIssue: String
+    numberOfBooklets: Long
+    passengerRef: String
+    price: Price
+    remark: String
+    ticketNumber: String
+    timeOfIssue: String
+    typeCode: String
+    typeCodeDefinition: String
+}
+
+entity Travelers {
+    * ADT: Double
+    CHD: Double
+    INF: Double
+    V14: Double
+    VFR: Double
+    VNF: Double
+    VNN: Double
+    YAD: Double
+}
+
+
+OrderRemarks -- OrderRemarkData : data
+OrderRemarks -- "0..*" OrderRemarkTemplate : templates
+Seat -- "0..*" Characteristics : characteristics
+Seat -- SeatLocation : location
+Seat -- Price : price
+Flight -- FlightPointData : arrival
+Flight -- BaggageAllowance : baggageAllowance
+Flight -- FlightPointData : departure
+Flight -- "0..*" FlightSegment : segments
+ItineraryOption -- "0..*" ItineraryOptionFlight : details
+ItineraryOption -- "0..*" Disclosure : disclosures
+ItineraryOption -- Price : price
+ItineraryOption -- PriceBreakdown : priceBreakdown
+OrderReshopPayload -- "0..*" OriginDestinationASRQ : originDestinations
+OrderReshopPayload -- Preferences : preferences
+OrderReshopRefundMedia -- "0..*" Flight : flights
+OrderReshopRefundMedia -- Price : originalOrder
+OrderReshopRefundMedia -- Price : penalty
+OrderReshopRefundMedia -- Price : refund
+OrderReshopRefundMedia -- "0..*" Seat : seats
+OrderReshopRefundMedia -- "0..*" Service : services
+OrderReshopRefundMedia -- "0..*" TicketInfo : tickets
+OrderReshopRefundMedia -- "0..*" OrderLog : warnings
+OrderCreateAllowedRequests -- OrderCreateAllowedRequestsPending : pending
+OrderCreateAllowedRequests -- OrderCreateAllowedRequestsStarted : started
+OrderCreateAllowedRequests -- OrderCreateAllowedRequestsTicketed : ticketed
+OrderRemarksPayload -- OrderRemarkData : data
+ServiceListMedia -- "0..*" Disclosure : disclosures
+ServiceListMedia -- "0..*" Passenger : passengers
+ServiceListMedia -- "0..*" FlightSegment : segments
+ServiceListMedia -- "0..*" Service : services
+ServiceListMedia -- "0..*" OrderLog : warnings
+OfferPriceRemarks -- "0..*" OrderRemarkTemplate : templates
+OrderCreateMedia -- AgencyData : agencyData
+OrderCreateMedia -- AllowedPaymentMethods : allowedPaymentMethods
+OrderCreateMedia -- OrderCreateAllowedRequests : allowedRequests
+OrderCreateMedia -- Benefit : benefits
+OrderCreateMedia -- BookingReferenceResponse : bookingReference
+OrderCreateMedia -- "0..*" CarbonOffset : carbonOffset
+OrderCreateMedia -- "0..*" Disclosure : disclosures
+OrderCreateMedia -- "0..*" OrderFile : files
+OrderCreateMedia -- "0..*" Flight : flights
+OrderCreateMedia -- "0..*" OrderHistoryItem : history
+OrderCreateMedia -- "0..*" OrderLog : logs
+OrderCreateMedia -- "0..*" Passenger : passengers
+OrderCreateMedia -- OrderCreatePayment : payment
+OrderCreateMedia -- "0..*" Penalty : penalties
+OrderCreateMedia -- Price : price
+OrderCreateMedia -- Price : refundedAmount
+OrderCreateMedia -- OrderRemarks : remarks
+OrderCreateMedia -- "0..*" Seat : seats
+OrderCreateMedia -- "0..*" Service : services
+OrderCreateMedia -- "0..*" TicketInfo : tickets
+OrderCreateMedia -- "0..*" OrderLog : warnings
+PriceDetail -- "0..*" PriceDetailBreakdown : breakdown
+PriceDetail -- PriceDetailTax : tax
+SeatDisplay -- Rows : rows
+ServiceRequest -- SeatLocation : seatLocation
+OrderHistoryItem -- Price : price
+OrderHistoryItem -- "0..*" TicketInfo : tickets
+OriginDestinationRSInner -- FlightPointDataRSArrInner : arrival
+OriginDestinationRSInner -- FlightPointDataRSDepInner : departure
+OrderHistoryMedia -- "0..*" OrderHistoryItem : history
+AirDocIssuePayloadPayload -- Payment : payment
+OrderListItem -- "0..*" Flight : flights
+OrderListItem -- "0..*" Passenger : passengers
+OrderCreateRemarks -- OrderRemarkData : data
+OrderCreatePayment -- CardInformation : cardInformation
+FlightSegment -- FlightDetail : detail
+FlightSegment -- Equipment : equipment
+FlightSegment -- MarketingCarrier : marketingCarrier
+FlightSegment -- OperatingCarrier : operatingCarrier
+FlightSegment -- OriginDestinationRSInner : originDestination
+FlightDetail -- ClassOfService : classOfService
+FlightDetail -- "0..*" StopLocation : stopLocations
+ItineraryRS -- "0..*" ItineraryFlight : flights
+ItineraryRS -- "0..*" ItineraryOption : options
+OrderReshopMedia -- "0..*" OrderReshopMediaType : offers
+Passenger -- PassengerData : data
+Passenger -- Document : document
+Passenger -- "0..*" Identity4Discount : identity4Discount
+Passenger -- "0..*" Seat : seats
+Passenger -- "0..*" ServiceRequest : services
+Passenger -- "0..*" SSR : specialServices
+PassengerData -- Address : address
+PassengerData -- FQTVInfo : fqtvInfo
+ItineraryOptionFlight -- BaggageAllowance : baggageAllowance
+ItineraryOptionFlight -- "0..*" ItineraryOptionFlightSegmentDetail : segments
+ItinShoppingPayload -- "0..*" ItineraryRQ : itinerary
+ItinShoppingPayload -- Metadata : metadata
+ItinShoppingPayload -- Travelers : travelers
+FareRule -- "0..*" Penalty : penalties
+OrderChangePayload -- Passenger : passengerUpdate
+OrderChangePayload -- "0..*" Passenger : passengers
+OrderChangePayload -- Payment : payment
+OrderChangePayload -- "0..*" ServiceRequest : services
+Disclosure -- "0..*" DisclosureDescription : descriptions
+OrderReshopMediaType -- Benefit : benefits
+OrderReshopMediaType -- "0..*" Disclosure : disclosures
+OrderReshopMediaType -- "0..*" Flight : flights
+OrderReshopMediaType -- Price : price
+OrderReshopMediaType -- PriceBreakdown : priceBreakdown
+OrderReshopMediaType -- "0..*" OrderLog : warnings
+AirShoppingMedia -- "0..*" AirShoppingOffer : result
+DisclosureDescription -- MediaData : media
+DisclosureDescription -- "0..*" DisclosureProperty : properties
+OriginDestinationASRQ -- ArrivalASRQ : arrival
+OriginDestinationASRQ -- DepartureASRQ : departure
+PriceDetailBreakdown -- PriceDetailTax : tax
+ServiceListPayload -- "0..*" Passenger : passengers
+FQTVInfo -- FQTVAccount : account
+BaggageAllowance -- "0..*" BaggageAllowanceItem : carryOn
+BaggageAllowance -- "0..*" BaggageAllowanceItem : checked
+OrderUpdatePayload -- "0..*" Passenger : passengersUpdate
+OrderReshopRepriceMedia -- Benefit : benefits
+OrderReshopRepriceMedia -- "0..*" Disclosure : disclosures
+OrderReshopRepriceMedia -- "0..*" Flight : flights
+OrderReshopRepriceMedia -- Price : price
+OrderReshopRepriceMedia -- "0..*" AncillariesToRebook : seatsToRebook
+OrderReshopRepriceMedia -- "0..*" AncillariesToRebook : servicesToRebook
+OrderReshopRepriceMedia -- "0..*" OrderLog : warnings
+Benefit -- Price : amount
+Benefit -- DisclosureDescription : term
+AirShoppingOffer -- Benefit : benefits
+AirShoppingOffer -- "0..*" Disclosure : disclosures
+AirShoppingOffer -- "0..*" Flight : flights
+AirShoppingOffer -- Price : price
+AirShoppingOffer -- PriceBreakdown : priceBreakdown
+ItineraryOptionFlightSegmentDetail -- FlightDetailFare : fare
+ItineraryOptionFlightSegmentDetail -- "0..*" FareRule : fareRules
+OfferPricePayload -- "0..*" ServiceRequest : services
+AirShoppingPayload -- Metadata : metadata
+AirShoppingPayload -- "0..*" OriginDestinationASRQ : originDestinations
+AirShoppingPayload -- PreferencesAS : preferences
+AirShoppingPayload -- Travelers : travelers
+BaggageAllowanceItem -- "0..*" BaggageAllowanceItemOption : options
+BaggageAllowanceItemOption -- "0..*" DisclosureProperty : properties
+ItineraryFlight -- FlightPointData : arrival
+ItineraryFlight -- FlightPointData : departure
+ItineraryFlight -- "0..*" ItineraryFlightSegment : segments
+TicketCoupon -- Price : price
+TicketCoupon -- TicketCouponAirlineInfo : segment
+TicketCoupon -- TicketCouponValid : valid
+OrderCancelMedia -- "0..*" OrderLog : warnings
+SeatAvailabilityPayload -- "0..*" Passenger : passengers
+ItinShoppingMedia -- ItineraryRS : itinerary
+TicketInfo -- "0..*" TicketCoupon : coupons
+TicketInfo -- Price : price
+ItineraryFlightSegment -- ItineraryFlightSegmentDetail : detail
+ItineraryFlightSegment -- Equipment : equipment
+ItineraryFlightSegment -- MarketingCarrier : marketingCarrier
+ItineraryFlightSegment -- OperatingCarrier : operatingCarrier
+ItineraryFlightSegment -- OriginDestinationRSInner : originDestination
+PriceBreakdown -- Price : inbound
+PriceBreakdown -- Price : outbound
+Payment -- PaymentVoucher : voucher
+Price -- PriceDetail : consumer
+Price -- PriceDetail : provider
+PriceDetailTax -- "0..*" PriceDetailTaxBreakdown : breakdown
+OfferPriceMedia -- AgencyData : agencyData
+OfferPriceMedia -- AllowedPaymentMethods : allowedPaymentMethods
+OfferPriceMedia -- OfferPriceAllowedRequests : allowedRequests
+OfferPriceMedia -- Benefit : benefits
+OfferPriceMedia -- "0..*" Disclosure : disclosures
+OfferPriceMedia -- DiscountPreferences : discounts
+OfferPriceMedia -- "0..*" Flight : flights
+OfferPriceMedia -- "0..*" Passenger : passengers
+OfferPriceMedia -- Price : price
+OfferPriceMedia -- OfferPriceRemarks : remarks
+OfferPriceMedia -- "0..*" SSR : specialServices
+OfferPriceMedia -- "0..*" OrderLog : warnings
+ClassOfService -- FlightDetailFare : fare
+ClassOfService -- "0..*" FareRule : fareRules
+OrderListMedia -- OrderListCounters : counters
+OrderListMedia -- "0..*" OrderListItem : orders
+BookingReferenceResponse -- "0..*" AlternativePNR : alternativeIDs
+Preferences -- DiscountPreferences : discounts
+Preferences -- Fare : fare
+Preferences -- "0..*" Fare : fareList
+TicketCouponAirlineInfo -- FlightPointData : arrival
+TicketCouponAirlineInfo -- TicketCouponAirlineInfoDepartureArrivalDateTime : arrivalDateTime
+TicketCouponAirlineInfo -- FlightPointData : departure
+TicketCouponAirlineInfo -- TicketCouponAirlineInfoDepartureArrivalDateTime : departureDateTime
+TicketCouponAirlineInfo -- Equipment : equipment
+TicketCouponAirlineInfo -- MarketingCarrier : marketingCarrier
+Service -- BookingInstructions : bookingInstructions
+Service -- Price : price
+Service -- "0..*" DisclosureProperty : properties
+SeatAvailabilityMedia -- "0..*" Disclosure : disclosures
+SeatAvailabilityMedia -- "0..*" ExitSeat : exits
+SeatAvailabilityMedia -- "0..*" SeatDisplay : seatDisplay
+SeatAvailabilityMedia -- "0..*" Seat : seatList
+SeatAvailabilityMedia -- "0..*" FlightSegment : segments
+Penalty -- "0..*" PenaltyAmount : amounts
+SSR -- BookingInstructions : bookingInstructions
+PreferencesAS -- DiscountPreferences : discounts
+PreferencesAS -- Fare : fare
+PreferencesAS -- "0..*" Fare : fareList
+ItineraryFlightSegmentDetail -- "0..*" StopLocation : stopLocations
+OrderCreatePayload -- "0..*" Passenger : passengers
+OrderCreatePayload -- Payment : payment
+OrderCreatePayload -- OrderCreateRemarks : remarks
+
+@enduml

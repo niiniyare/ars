@@ -1,0 +1,1101 @@
+Table "Address" {
+  "cityName" TEXT [default: NULL, note: 'City name.']
+  "countryCode" TEXT [default: NULL, note: 'Country code.']
+  "postalCode" TEXT [default: NULL, note: 'Postal code.']
+  "street" TEXT [default: NULL, note: 'Street.']
+}
+
+Table "AgencyData" {
+  "countryCode" TEXT [default: NULL, note: 'Country code']
+  "iataCode" TEXT [default: NULL, note: 'IATA Number']
+}
+
+Table "AirDocIssuePayloadPayload" {
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  "payment" TEXT [not null]
+}
+
+Table "AirShoppingMedia" {
+  "result" JSON [default: NULL]
+  Note: 'AirShoppingMedia media type (default view)'
+}
+
+Table "AirShoppingOffer" {
+  "benefits" TEXT [default: NULL]
+  "createdAt" BIGINT [default: NULL, note: 'Offer created at unix time']
+  "disclosures" JSON [default: NULL, note: 'List of disclosures corresponding to offer.']
+  "error" TEXT [default: NULL, note: 'Error from provider']
+  "flights" JSON [default: NULL, note: 'Flight Segment information. Including departure, arrival and airline information.']
+  "maxNumberOfStops" BIGINT [default: NULL, note: 'Max number of stops']
+  "offerID" TEXT [default: NULL, note: 'Offer identifier']
+  "owner" CHAR(2) [default: NULL, note: '2 letter abbreviation of airline']
+  "paymentTimeLimit" TEXT [default: NULL, note: 'Offer payment time limit, after this time created order will become expired']
+  "price" TEXT [default: NULL]
+  "priceBreakdown" TEXT [default: NULL]
+  "provider" CHAR(2) [default: NULL, note: '2 letter abbreviation of airline']
+}
+
+Table "AirShoppingPayload" {
+  "corporateDiscountCodes" JSON [default: NULL, note: 'Corporate Discount Codes Map']
+  "metadata" TEXT [default: NULL]
+  "originDestinations" JSON [not null, note: 'Origin/Destination pair in a shopping search scenario']
+  "preferences" TEXT [default: NULL]
+  "travelers" TEXT [not null]
+  Note: 'AirShoppingPayload is the type for AirShopping endpoint request body'
+}
+
+Table "AllowedPaymentMethods" {
+  "agencyCard" TINYINT(1) [not null]
+  "agencyCash" TINYINT(1) [not null]
+  "card" TINYINT(1) [not null]
+  "none" TINYINT(1) [not null]
+  "unusedTicket" TINYINT(1) [not null]
+  Note: 'Allowed payment methods'
+}
+
+Table "AlternativePNR" {
+  "id" TEXT [default: NULL, note: 'The value of the PNR']
+  "providerID" TEXT [default: NULL, note: 'The id of the third party']
+  Note: 'Struct returned to the alternative pnrs not owner by the airlines, but for 3th parties.'
+}
+
+Table "AncillariesToRebook" {
+  "flightKey" TEXT [default: NULL]
+  "rebook" TINYINT(1) [default: NULL]
+}
+
+Table "ArrivalASRQ" {
+  "airportCode" CHAR(3) [not null, note: 'Departure/Arrival airport IATA three letter code.']
+  "date" TEXT [default: NULL, note: 'Arrival date in format YYYY-MM-DD.']
+  Note: 'AirShopping request arrival'
+}
+
+Table "BaggageAllowance" {
+  "carryOn" JSON [default: NULL]
+  "checked" JSON [default: NULL]
+}
+
+Table "BaggageAllowanceItem" {
+  "options" JSON [default: NULL, note: 'options to choose']
+  "passengerRefs" TEXT [default: NULL, note: 'Passenger references that access this baggage condition']
+}
+
+Table "BaggageAllowanceItemOption" {
+  "properties" JSON [default: NULL, note: 'Properties']
+  "quantity" BIGINT [default: NULL, note: 'baggage quantity']
+  "text" TEXT [default: NULL, note: 'description ']
+  Note: 'Baggage Allowance Item Option'
+}
+
+Table "Benefit" {
+  "amount" TEXT [default: NULL]
+  "application" TEXT [default: NULL, note: 'The reason of the discount']
+  "description" TEXT [default: NULL, note: 'A brief description of the discount']
+  "term" TEXT [default: NULL]
+}
+
+Table "BookingInstructions" {
+  "pattern" TEXT [default: NULL, note: 'The pattern that the text introduced by the customer should match to. This value can be empty']
+  "placeHolder" TEXT [default: NULL, note: 'The text in the input or the textarea which helps the customers knows what should write']
+  "type" TEXT [default: NULL, note: 'The type for the input used to be filled by the customer, it can be number or text']
+  Note: 'Indicates if there is an optional, a mandatory or a not allowed text from the customer´s side depending in the MandatoryText attribute value.'
+}
+
+Table "BookingReferenceResponse" {
+  "airlineID" TEXT [default: NULL, note: 'Airline ID']
+  "alternativeIDs" JSON [default: NULL]
+  "id" TEXT [default: NULL, note: 'Booking reference']
+  "otherID" TEXT [default: NULL, note: 'Other ID']
+  Note: 'BookingReferenceResponse'
+}
+
+Table "CarbonOffset" {
+  "destination" TEXT [default: NULL, note: 'Flight destination point']
+  "footprint" DECIMAL(20,9) [default: NULL, note: 'Footprint in kgs per passenger']
+  "origin" TEXT [default: NULL, note: 'Flight origin point']
+  "segmentKey" TEXT [default: NULL, note: 'Segment key']
+}
+
+Table "CardInformation" {
+  "cardCode" TEXT [default: NULL, note: 'The type of the card']
+  "cardNumber" TEXT [default: NULL, note: 'The last four numbers of the card']
+  "expirationDate" TEXT [default: NULL, note: 'The month and year of the expiration of the card']
+}
+
+Table "Characteristics" {
+  "code" TEXT [default: NULL]
+  "definition" TEXT [default: NULL]
+  Note: 'Characteristics info'
+}
+
+Table "ClassOfService" {
+  "cabinDesignator" TEXT [default: NULL, note: 'Cabin Type']
+  "code" TEXT [default: NULL, note: 'Code for class']
+  "disclosureRefs" JSON [default: NULL, note: 'Disclosures']
+  "fare" TEXT [default: NULL]
+  "fareRules" JSON [default: NULL, note: 'Fare rules for cancelability, changeability and the penalties.']
+  "generalClassCode" TEXT [default: NULL]
+  "refs" TEXT [default: NULL, note: 'Reference of class']
+  Note: 'Class of the service offered'
+}
+
+Table "DepartureASRQ" {
+  "airportCode" CHAR(3) [not null, note: 'Departure/Arrival airport IATA three letter code.']
+  "date" TEXT [not null, note: 'Departure/Arrival date in format YYYY-MM-DD.']
+  Note: 'AirShopping request departure'
+}
+
+Table "Disclosure" {
+  "descriptions" JSON [default: NULL, note: 'Disclosure details']
+  "listKey" TEXT [default: NULL, note: 'Disclosure Reference']
+}
+
+Table "DisclosureDescription" {
+  "category" TEXT [default: NULL, note: 'Category']
+  "item" TEXT [default: NULL, note: 'Item']
+  "media" TEXT [default: NULL]
+  "metadataToken" TEXT [default: NULL, note: 'MetadataToken']
+  "originDestinationReference" TEXT [default: NULL, note: 'A reference to the origin-destination']
+  "properties" JSON [default: NULL, note: 'Properties']
+  "text" TEXT [default: NULL, note: 'Text']
+  "units" TEXT [default: NULL, note: 'Units']
+  Note: 'Disclosure description'
+}
+
+Table "DisclosureProperty" {
+  "UOM" TEXT [default: NULL, note: 'Units of measurement']
+  "type" TEXT [default: NULL, note: 'Type']
+  "value" TEXT [default: NULL, note: 'Value']
+  Note: 'Disclosure properties'
+}
+
+Table "DiscountPreferences" {
+  "largeFamily" TEXT [default: NULL, note: 'IB Large Family Discount Code']
+  "residentCode" TEXT [default: NULL, note: 'IB Resident Code']
+}
+
+Table "Document" {
+  "documentID" TEXT [not null]
+  "expirationDate" TEXT [default: NULL, note: 'The expiration date of the document using format YYYY-MM-DD.']
+}
+
+Table "Equipment" {
+  "aircraftCode" TEXT [default: NULL]
+  "name" TEXT [default: NULL]
+}
+
+Table "error" {
+  "code" TEXT [default: NULL, note: 'an application-specific error code, expressed as a string value.']
+  "detail" TEXT [default: NULL, note: 'a human-readable explanation specific to this occurrence of the problem.']
+  "id" TEXT [default: NULL, note: 'a unique identifier for this particular occurrence of the problem.']
+  "meta" JSON [default: NULL, note: 'a meta object containing non-standard meta-information about the error.']
+  "status" TEXT [default: NULL, note: 'the HTTP status code applicable to this problem, expressed as a string value.']
+  Note: 'Error response media type (default view)'
+}
+
+Table "ExitSeat" {
+  "position" TEXT [default: NULL, note: 'If the exit is on the right or in the left of the plane']
+  "row" BIGINT [default: NULL, note: 'The row where the exit in placed']
+  "segmentID" TEXT [default: NULL, note: 'The resference to the segment ']
+}
+
+Table "FQTVAccount" {
+  "number" TEXT [default: NULL, note: 'Frequent traveler account number']
+  Note: 'Frequent traveler account'
+}
+
+Table "FQTVInfo" {
+  "account" TEXT [default: NULL]
+  "airlineID" TEXT [default: NULL, note: 'Airline ID']
+  Note: 'Frequent traveler information'
+}
+
+Table "Fare" {
+  "Code" TEXT [default: NULL, note: 'Fare code']
+  "Definition" TEXT [default: NULL, note: 'Fare Definition Code']
+}
+
+Table "FareRule" {
+  "passengerRef" TEXT [default: NULL, note: 'The references tot the passengers involved in the group of FareReules.']
+  "passengerType" TEXT [default: NULL, note: 'The type of the passengers related to this group of FareRule.']
+  "penalties" JSON [default: NULL, note: 'Fare rule penalties.']
+  Note: 'Fare Rules per segment and per each passenger type.'
+}
+
+Table "Flight" {
+  "arrival" TEXT [default: NULL]
+  "baggageAllowance" TEXT [default: NULL]
+  "departure" TEXT [default: NULL]
+  "duration" TEXT [default: NULL, note: 'Flight duration']
+  "key" TEXT [default: NULL, note: 'Key identificator']
+  "segments" JSON [default: NULL]
+}
+
+Table "FlightDetail" {
+  "classOfService" TEXT [default: NULL]
+  "duration" TEXT [default: NULL, note: 'Flight duration']
+  "seatsLeft" TEXT [default: NULL, note: 'How many seats left']
+  "segmentType" TEXT [default: NULL, note: 'The status of the segment -&gt; UN: Unconfirmed. TK: Change scheduled, contact center will confirm. HK: Confirmed.']
+  "stopLocations" JSON [default: NULL, note: 'Stop locations']
+  "stopQuantity" TEXT [default: NULL, note: 'Number of extra stops from Origin to Destination']
+}
+
+Table "FlightDetailFare" {
+  "basisCode" TEXT [default: NULL, note: 'Fare Basis Code']
+  "cabin" TEXT [default: NULL]
+  "code" TEXT [default: NULL, note: 'Fare information for this flight segment']
+  "marketingName" TEXT [default: NULL, note: 'Marketing name']
+  "priceClassName" TEXT [default: NULL, note: 'Price class name']
+  "standardName" TEXT [default: NULL]
+  "type" TEXT [default: NULL, note: 'Fare type']
+}
+
+Table "FlightPointData" {
+  "airportCode" TEXT [not null, note: 'Departure/Arrival airport IATA three letter code.']
+  "airportName" TEXT [default: NULL, note: 'Departure/Arrival airport name.']
+  "countryID" TEXT [default: NULL, note: 'Country ID data']
+  "date" TEXT [default: NULL, note: 'Departure/Arrival date in format YYYY-MM-DD.']
+  "parentLocation" TEXT [default: NULL, note: 'Parent Location data']
+  "terminalName" TEXT [default: NULL, note: 'Departure/Arrival terminal name.']
+  "time" TEXT [default: NULL, note: 'Preferred departure time in format HH:MM 24h.']
+}
+
+Table "FlightPointDataRSArrInner" {
+  "airportCode" TEXT [not null, note: 'Departure/Arrival airport IATA three letter code.']
+  "airportName" TEXT [default: NULL, note: 'Departure/Arrival airport name.']
+  "countryID" TEXT [default: NULL, note: 'Country ID data']
+  "date" TEXT [default: NULL, note: 'Departure/Arrival date in format YYYY-MM-DD.']
+  "parentLocation" TEXT [default: NULL, note: 'Parent Location data']
+  "terminalName" TEXT [default: NULL, note: 'Departure/Arrival terminal.']
+  "time" TEXT [default: NULL, note: 'Preferred departure time in format HH:MM 24h.']
+}
+
+Table "FlightPointDataRSDepInner" {
+  "airportCode" TEXT [not null, note: 'Departure/Arrival airport IATA three letter code.']
+  "airportName" TEXT [default: NULL, note: 'Departure/Arrival airport name.']
+  "countryID" TEXT [default: NULL, note: 'Country ID data']
+  "date" TEXT [default: NULL, note: 'Departure/Arrival date in format YYYY-MM-DD.']
+  "parentLocation" TEXT [default: NULL, note: 'Parent Location data']
+  "terminalName" TEXT [default: NULL, note: 'Departure/Arrival terminal.']
+  "time" TEXT [default: NULL, note: 'Preferred departure time in format HH:MM 24h.']
+}
+
+Table "FlightSegment" {
+  "ODRef" TEXT [default: NULL, note: 'Origin destination reference']
+  "detail" TEXT [default: NULL]
+  "equipment" TEXT [not null]
+  "fareCode" TEXT [default: NULL, note: 'The code of the fare']
+  "flightNumber" TEXT [default: NULL, note: 'Flight number of airline']
+  "marketingCarrier" TEXT [not null]
+  "operatingCarrier" TEXT [default: NULL]
+  "originDestination" TEXT [not null]
+  "segmentID" TEXT [default: NULL, note: 'Segment ID']
+}
+
+Table "Identity4Discount" {
+  "identityDocumentNumber" TEXT [default: NULL]
+  "identityDocumentType" TEXT [default: NULL]
+  "remark" TEXT [default: NULL]
+}
+
+Table "ItinShoppingMedia" {
+  "itinerary" TEXT [default: NULL]
+  "status" TEXT [default: NULL, note: 'Status of request: &#39;itinerary-found&#39;, &#39;itinerary-not-found&#39;']
+  Note: 'ItinShoppingMedia media type (default view)'
+}
+
+Table "ItinShoppingPayload" {
+  "itinerary" JSON [not null, note: 'List of itinerary routes']
+  "metadata" TEXT [default: NULL]
+  "travelers" TEXT [not null]
+  Note: 'ItinShoppingPayload is the type for ItinShopping endpoint request body'
+}
+
+Table "ItineraryFlight" {
+  "arrival" TEXT [default: NULL]
+  "departure" TEXT [default: NULL]
+  "duration" TEXT [default: NULL, note: 'Flight duration']
+  "key" TEXT [default: NULL, note: 'Key identificator']
+  "segments" JSON [default: NULL]
+}
+
+Table "ItineraryFlightSegment" {
+  "ODRef" TEXT [default: NULL, note: 'Origin destination reference']
+  "detail" TEXT [default: NULL]
+  "equipment" TEXT [default: NULL]
+  "flightNumber" TEXT [default: NULL, note: 'Flight number of airline']
+  "marketingCarrier" TEXT [default: NULL]
+  "operatingCarrier" TEXT [default: NULL]
+  "originDestination" TEXT [default: NULL]
+  "segmentID" TEXT [default: NULL, note: 'Segment ID']
+}
+
+Table "ItineraryFlightSegmentDetail" {
+  "duration" TEXT [default: NULL, note: 'Flight duration']
+  "segmentType" TEXT [default: NULL, note: 'The status of the segment -&gt; UN: Unconfirmed. TK: Change scheduled, contact center will confirm. HK: Confirmed.']
+  "stopLocations" JSON [default: NULL, note: 'Stop locations']
+  "stopQuantity" TEXT [default: NULL, note: 'Number of extra stops from Origin to Destination']
+}
+
+Table "ItineraryOption" {
+  "details" JSON [default: NULL]
+  "disclosures" JSON [default: NULL, note: 'List of disclosures corresponding to offer.']
+  "offerID" TEXT [default: NULL, note: 'Offer identifier']
+  "price" TEXT [default: NULL]
+  "priceBreakdown" TEXT [default: NULL]
+}
+
+Table "ItineraryOptionFlight" {
+  "baggageAllowance" TEXT [default: NULL]
+  "key" TEXT [default: NULL, note: 'Key identificator']
+  "segments" JSON [default: NULL]
+}
+
+Table "ItineraryOptionFlightSegmentDetail" {
+  "ODRef" TEXT [default: NULL, note: 'Origin destination reference']
+  "cabinDesignator" TEXT [default: NULL, note: 'Cabin Type']
+  "code" TEXT [default: NULL, note: 'Code for class']
+  "disclosureRefs" JSON [default: NULL, note: 'Disclosures']
+  "fare" TEXT [default: NULL]
+  "fareRules" JSON [default: NULL, note: 'Fare rules for cancelability, changeability and the penalties.']
+  "generalClassCode" TEXT [default: NULL]
+  "refs" TEXT [default: NULL, note: 'Reference of class']
+  "seatsLeft" TEXT [default: NULL, note: 'How many seats left']
+  "segmentID" TEXT [default: NULL, note: 'Segment ID']
+}
+
+Table "ItineraryRQ" {
+  "arrival" CHAR(3) [not null, note: 'Departure airport IATA 3-letter code']
+  "date" TEXT [not null, note: 'Departure/Arrival date in format YYYY-MM-DD.']
+  "departure" CHAR(3) [not null, note: 'Departure airport IATA 3-letter code']
+  "flightNumbers" JSON [default: NULL, note: 'Flight numbers for itinerary']
+  Note: 'ItineraryRQ is an object for flight'
+}
+
+Table "ItineraryRS" {
+  "createdAt" BIGINT [default: NULL, note: 'Created at unix time']
+  "flights" JSON [default: NULL, note: 'route details']
+  "maxNumberOfStops" BIGINT [default: NULL, note: 'Max number of stops']
+  "options" JSON [default: NULL, note: 'possible fare options for itinerary']
+  "owner" CHAR(2) [default: NULL, note: '2-letter code of provider']
+  "paymentTimeLimit" TEXT [default: NULL, note: 'Payment time limit, after this time created order will become expired']
+}
+
+Table "MarketingCarrier" {
+  "airlineID" CHAR(2) [not null, note: 'Two letter airline code']
+  "flightNumber" TEXT [not null]
+  "name" TEXT [not null, note: 'Airline Name']
+}
+
+Table "MediaData" {
+  "id" TEXT [default: NULL, note: 'ID']
+  "link" TEXT [default: NULL, note: 'Link']
+  Note: 'Some Disclosures have media types'
+}
+
+Table "metadata" {
+  "country" CHAR(2) [not null, note: 'Country code preference for the shopping ISO']
+  "currency" TEXT [not null, note: 'Currency for results in ISO format']
+  "locale" TEXT [not null, note: 'Language preferences']
+}
+
+Table "OfferPriceAllowedRequests" {
+  "OrderCreateWithPayment" TINYINT(1) [default: NULL]
+  "SeatAvailability" TINYINT(1) [default: NULL]
+  "ServiceList" TINYINT(1) [default: NULL]
+}
+
+Table "OfferPriceMedia" {
+  "agencyData" TEXT [default: NULL]
+  "allowedPaymentMethods" TEXT [default: NULL]
+  "allowedRequests" TEXT [default: NULL]
+  "benefits" TEXT [default: NULL]
+  "cardSurcharges" JSON [default: NULL, note: 'A hash of surcharges indexed by the credit card type.']
+  "createdAt" BIGINT [default: NULL, note: 'Unix time of created datetime']
+  "disclosures" JSON [default: NULL]
+  "discounts" TEXT [default: NULL]
+  "extraInfoMandatory" JSON [default: NULL, note: 'A Bundle of fields which are not mandatory for all airlines, in that way, the API will check the airline config and return them.']
+  "flights" JSON [default: NULL, note: 'Flight Segment information. Including departure, arrival and airline information.']
+  "instantPayment" TEXT [default: NULL, note: 'Instant payment field indicates agency has auto-issuing with &#39;agencyCash&#39; or &#39;agencyCard&#39; enabled. If this field is presented, payment method will be automatically selected']
+  "offerExpiration" TEXT [default: NULL, note: 'Offer expiration time']
+  "offerID" TEXT [default: NULL, note: 'The ID for this offer']
+  "owner" TEXT [default: NULL, note: 'The code of the provider that is really offering the flight']
+  "passengers" JSON [default: NULL, note: 'List of referenced travelers']
+  "paymentTimeLimit" TEXT [default: NULL, note: 'Payment time limit']
+  "price" TEXT [default: NULL]
+  "remarks" TEXT [default: NULL]
+  "shoppingResponseID" TEXT [default: NULL, note: 'The ID of the response. Usually needed on the OrderCreate request (few providers don´t need it).']
+  "specialServices" JSON [default: NULL, note: 'List of ancillaries allowed on pre-booking stage']
+  "warnings" JSON [default: NULL]
+  Note: 'OfferPriceMedia media type (default view)'
+}
+
+Table "OfferPricePayload" {
+  "offerID" TEXT [default: NULL]
+  "offerIDs" JSON [default: NULL]
+  "reshopOfferID" TEXT [default: NULL, note: 'The offerID provided in OrderReshopReprice response on the rebooking process. Used on the rebooking flow and order has services or seats to get the final real price of the re-offer and the services/seats.']
+  "services" JSON [default: NULL, note: 'List of service objects (used on the rebooking flow only with some airlines)']
+}
+
+Table "OfferPriceRemarks" {
+  "templates" JSON [default: NULL, note: 'Offer Price remark templates']
+}
+
+Table "OperatingCarrier" {
+  "airlineID" CHAR(2) [not null, note: 'Two letter airline code']
+  "flightNumber" TEXT [default: NULL]
+  "name" TEXT [not null, note: 'Airline Name']
+}
+
+Table "OrderCancelMedia" {
+  "orderID" TEXT [default: NULL, note: 'The unique identifier of the order.']
+  "warnings" JSON [default: NULL, note: 'Order cancel response warnings']
+  Note: 'OrderCancelMedia media type (default view)'
+}
+
+Table "OrderCancelPayload" {
+  "id" TEXT [not null, note: 'AirGateway order ID']
+}
+
+Table "OrderChangePayload" {
+  "action" TEXT [default: NULL, note: 'A flag used in some cases of the OrderChange like accept the disruption of an order or split the order']
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  "loyaltyProgramAccount" TEXT [default: NULL, note: 'Loyalty program account number for corporates']
+  "passengerUpdate" TEXT [default: NULL]
+  "passengers" JSON [default: NULL, note: 'List of passengers']
+  "payment" TEXT [default: NULL]
+  "reshopOfferID" TEXT [default: NULL, note: 'Reshop offer ID from OrderReshop response']
+  "services" JSON [default: NULL, note: 'List of service objects']
+}
+
+Table "OrderCommentsMedia" {
+  "ok" TINYINT(1) [default: NULL, note: 'API status']
+  Note: 'OrderCommentsMedia media type (default view)'
+}
+
+Table "OrderCommentsPayload" {
+  "comments" TEXT [default: NULL]
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  Note: 'OrderCommentsPayload is the type for OrderComments endpoint request body'
+}
+
+Table "OrderCreateAllowedRequests" {
+  "pending" TEXT [default: NULL]
+  "started" TEXT [default: NULL]
+  "ticketed" TEXT [default: NULL]
+}
+
+Table "OrderCreateAllowedRequestsPending" {
+  "OrderCancel" TINYINT(1) [default: NULL]
+  "OrderReprice" TINYINT(1) [default: NULL]
+  "OrderSplit" TINYINT(1) [default: NULL]
+  "SeatAvailability" TINYINT(1) [default: NULL]
+  "ServiceList" TINYINT(1) [default: NULL]
+  "TicketIssue" TINYINT(1) [default: NULL]
+}
+
+Table "OrderCreateAllowedRequestsStarted" {
+  "OrderCancel" TINYINT(1) [default: NULL]
+  "OrderReshop" TINYINT(1) [default: NULL]
+  "OrderReshopRefund" TINYINT(1) [default: NULL]
+}
+
+Table "OrderCreateAllowedRequestsTicketed" {
+  "OrderCancel" TINYINT(1) [default: NULL]
+  "OrderCancelToVoucher" TINYINT(1) [default: NULL]
+  "OrderReshop" TINYINT(1) [default: NULL]
+  "OrderReshopRefund" TINYINT(1) [default: NULL]
+  "OrderReshopRouteChange" TINYINT(1) [default: NULL]
+  "OrderSplit" TINYINT(1) [default: NULL]
+  "OrderVoid" TINYINT(1) [default: NULL]
+  "SeatAvailability" TINYINT(1) [default: NULL]
+  "ServiceList" TINYINT(1) [default: NULL]
+}
+
+Table "OrderCreateMedia" {
+  "agency" TEXT [default: NULL, note: 'Agency name']
+  "agencyData" TEXT [default: NULL]
+  "allowedPaymentMethods" TEXT [default: NULL]
+  "allowedRequests" TEXT [default: NULL]
+  "approvalStatus" TEXT [default: NULL, note: 'Approval status']
+  "approved" TINYINT(1) [default: NULL, note: 'Approved status']
+  "benefits" TEXT [default: NULL]
+  "bookingDate" TEXT [default: NULL]
+  "bookingReference" TEXT [default: NULL]
+  "bookingType" TEXT [default: NULL]
+  "carbonOffset" JSON [default: NULL, note: 'Order flights carbon offset']
+  "comments" TEXT [default: NULL]
+  "corporateID" TEXT [default: NULL, note: 'CorporateID for corporate orders']
+  "createdAt" TEXT [default: NULL]
+  "disclosures" JSON [default: NULL]
+  "disruptionMessage" TEXT [default: NULL, note: 'Disruption notification message']
+  "disruptionStatus" TEXT [default: NULL, note: 'Disruption status (FlightTimeChange/FlightNumberChange/FlightCancellation)']
+  "externalOrderID" TEXT [default: NULL, note: 'External order ID']
+  "files" JSON [default: NULL, note: 'Files information']
+  "flights" JSON [default: NULL, note: 'Flight Segment information. Including departure, arrival and airline information.']
+  "formOfPayment" TEXT [default: NULL]
+  "history" JSON [default: NULL]
+  "id" TEXT [default: NULL, note: 'AirGateway order ID']
+  "logs" JSON [default: NULL]
+  "metas" JSON [default: NULL, note: 'Order metadata']
+  "orderID" TEXT [default: NULL, note: 'External order ID (deprecated)']
+  "passengers" JSON [default: NULL]
+  "payment" TEXT [default: NULL]
+  "paymentTimeLimit" TEXT [default: NULL, note: 'Payment time limit']
+  "penalties" JSON [default: NULL, note: 'Type and the application (with the value for each application) for every penalties.']
+  "pnr" TEXT [default: NULL, note: 'The unique identifier of the order used on the old system and respected by some providers to maintain compatibility.']
+  "price" TEXT [default: NULL]
+  "priceGuaranteeTimeLimit" TEXT [default: NULL, note: 'Time limit, for an on hold order, during which airline guarantee the price doesn&#39;t vary']
+  "readyToTicketIssue" TINYINT(1) [default: NULL, note: 'Ready To Ticket Issue flag']
+  "refundType" TEXT [default: NULL, note: 'Refunds type can be: &#39;refund&#39;, &#39;voucher&#39;']
+  "refundedAmount" TEXT [default: NULL]
+  "remarks" TEXT [default: NULL]
+  "seats" JSON [default: NULL, note: 'List of seats']
+  "sendForApprovalAllowed" TINYINT(1) [default: NULL, note: 'Send for approval allowed']
+  "services" JSON [default: NULL, note: 'List of services']
+  "status" TEXT [default: NULL, note: 'Order status (Pending/Ticketed/Cancelled/Completed/Started/Expired)']
+  "ticketIssue" JSON [default: NULL, note: 'Ticket Issue object']
+  "tickets" JSON [default: NULL, note: 'Tickets information']
+  "updatedAt" TEXT [default: NULL]
+  "viewMode" TEXT [default: NULL, note: 'View mode for order']
+  "warnings" JSON [default: NULL]
+  Note: 'OrderCreateMedia media type (default view)'
+}
+
+Table "OrderCreatePayload" {
+  "corporateID" TEXT [default: NULL, note: 'CorporateID for corporate orders']
+  "loyaltyProgramAccount" TEXT [default: NULL, note: 'Loyalty program account number for corporates']
+  "metas" JSON [default: NULL, note: 'Order metadata']
+  "passengers" JSON [not null]
+  "payment" TEXT [default: NULL]
+  "remarks" TEXT [default: NULL]
+  "shoppingResponseID" TEXT [not null, note: 'The responseID provided in OfferPrice response']
+}
+
+Table "OrderCreatePayment" {
+  "amount" DECIMAL(20,9) [default: NULL, note: 'Payment amount (1000 or 1000.50)']
+  "cardInformation" TEXT [default: NULL]
+  "currency" TEXT [default: NULL, note: 'Payment currency']
+  "status" TEXT [default: NULL, note: 'Payment status']
+  "type" TEXT [default: NULL, note: 'Payment type']
+}
+
+Table "OrderCreateRemarks" {
+  "data" TEXT [default: NULL]
+  "result" TEXT [default: NULL, note: 'generated remarks text']
+}
+
+Table "OrderFile" {
+  "id" TEXT [default: NULL, note: 'File ID']
+  "type" TEXT [default: NULL, note: 'File Type']
+}
+
+Table "OrderHistoryItem" {
+  "agency" TEXT [default: NULL, note: 'Agency']
+  "agent" TEXT [default: NULL, note: 'Agent']
+  "details" JSON [default: NULL, note: 'Generic details object']
+  "eventID" TEXT [default: NULL, note: 'Event ID']
+  "eventTime" TEXT [default: NULL, note: 'Event time']
+  "id" TEXT [default: NULL, note: 'AirGateway order ID']
+  "price" TEXT [default: NULL]
+  "tickets" JSON [default: NULL, note: 'Newly added tickets']
+  "transactionType" TEXT [default: NULL, note: 'Transaction type']
+}
+
+Table "OrderHistoryMedia" {
+  "count" BIGINT [not null]
+  "history" JSON [not null]
+  Note: 'OrderHistoryMedia media type (default view)'
+}
+
+Table "OrderListCounters" {
+  "active" BIGINT [default: NULL]
+  "approved" BIGINT [default: NULL]
+  "cancelled" BIGINT [default: NULL]
+  "disrupted" BIGINT [default: NULL]
+  "pending" BIGINT [default: NULL]
+  "refused" BIGINT [default: NULL]
+  "ticketed" BIGINT [default: NULL]
+  "underApproval" BIGINT [default: NULL]
+  "unused" BIGINT [default: NULL]
+  "voided" BIGINT [default: NULL]
+}
+
+Table "OrderListItem" {
+  "agency" TEXT [default: NULL]
+  "approveStatus" TEXT [default: NULL, note: 'Order approve status (traveler_pending/traveler_rejected/manager_pending/manager_rejected/customer_ok)']
+  "bookingDate" TEXT [default: NULL]
+  "bookingType" TEXT [default: NULL]
+  "corporateID" TEXT [default: NULL, note: 'CorporateID for corporate orders']
+  "disruptionStatus" TEXT [default: NULL, note: 'Disruption status (ScheduledTimeChange/FlightCancellation)']
+  "flights" JSON [default: NULL, note: 'Flight Segment information. Including departure, arrival and airline information.']
+  "id" TEXT [default: NULL, note: 'AirGateway order ID']
+  "orderID" TEXT [default: NULL]
+  "owner" TEXT [default: NULL]
+  "passengers" JSON [default: NULL]
+  "paymentTimeLimit" TEXT [default: NULL, note: 'Payment time limit']
+  "pnr" TEXT [default: NULL, note: 'PNR']
+  "provider" TEXT [default: NULL]
+  "status" TEXT [default: NULL, note: 'Order status (Pending/Confirmed/Canceled/Voided/Refunded)']
+}
+
+Table "OrderListMedia" {
+  "agencies" JSON [default: NULL]
+  "count" BIGINT [default: NULL]
+  "counters" TEXT [default: NULL]
+  "orders" JSON [default: NULL]
+  Note: 'OrderListMedia media type (default view)'
+}
+
+Table "OrderLog" {
+  "severity" TEXT [default: NULL, note: 'Severity level']
+  "text" TEXT [default: NULL, note: 'Warning text']
+  "timestamp" TEXT [default: NULL, note: 'Warning timestamp']
+  "type" TEXT [default: NULL, note: 'Type of request which warning came from (FP, OC)']
+  Note: 'Order warning'
+}
+
+Table "OrderMetasMedia" {
+  "ok" TINYINT(1) [default: NULL, note: 'Order Metas save status']
+  Note: 'OrderMetasMedia media type (default view)'
+}
+
+Table "OrderMetasPayload" {
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  "metas" JSON [default: NULL, note: 'Metas object']
+  Note: 'OrderMetasPayload is the type for OrderMetas endpoint request body'
+}
+
+Table "OrderRemarkData" {
+  "template" TEXT [default: NULL, note: 'Selected template']
+  "variables" JSON [default: NULL, note: 'template variables']
+  Note: 'Order remarks data'
+}
+
+Table "OrderRemarkTemplate" {
+  "data" TEXT [default: NULL, note: 'multiline template string']
+  "name" TEXT [default: NULL, note: 'Name']
+  "neededOnCreation" TINYINT(1) [default: NULL, note: 'Needed on creation']
+  Note: 'Order remarks template'
+}
+
+Table "OrderRemarks" {
+  "data" TEXT [default: NULL]
+  "result" TEXT [default: NULL, note: 'generated remarks text']
+  "templates" JSON [default: NULL]
+  Note: 'Order remarks object. Created plain text is used in air files'
+}
+
+Table "OrderRemarksMedia" {
+  "ok" TINYINT(1) [default: NULL, note: 'API status']
+  Note: 'OrderRemarksMedia media type (default view)'
+}
+
+Table "OrderRemarksPayload" {
+  "data" TEXT [default: NULL]
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  "result" TEXT [default: NULL, note: 'generated remarks text']
+  Note: 'OrderRemarksPayload is the type for OrderRemarks endpoint request body'
+}
+
+Table "OrderReshopMedia" {
+  "offers" JSON [default: NULL]
+  Note: 'OrderReshopMedia media type (default view)'
+}
+
+Table "OrderReshopMediaType" {
+  "benefits" TEXT [default: NULL]
+  "disclosures" JSON [default: NULL, note: 'List of disclosures corresponding to offer.']
+  "flights" JSON [default: NULL, note: 'Flight Segment information. Including departure, arrival and airline information.']
+  "offerID" TEXT [default: NULL, note: 'Offer identifier']
+  "owner" CHAR(2) [default: NULL, note: '2 letter abbreviation of airline']
+  "price" TEXT [default: NULL]
+  "priceBreakdown" TEXT [default: NULL]
+  "priceChange" TINYINT(1) [default: NULL, note: 'Indicates if the price has change from the original in the hold order.']
+  "warnings" JSON [default: NULL]
+}
+
+Table "OrderReshopPayload" {
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  "originDestinations" JSON [not null, note: 'Origin/Destination pair in a shopping search scenario']
+  "preferences" TEXT [default: NULL]
+}
+
+Table "OrderReshopRefundMedia" {
+  "flights" JSON [default: NULL, note: 'Flight Segment information. Including departure, arrival and airline information.']
+  "originalOrder" TEXT [default: NULL]
+  "penalty" TEXT [default: NULL]
+  "refund" TEXT [default: NULL]
+  "seats" JSON [default: NULL, note: 'List of seats']
+  "services" JSON [default: NULL, note: 'List of services']
+  "tickets" JSON [default: NULL, note: 'Tickets information']
+  "voidPermited" TINYINT(1) [default: NULL, note: 'Some airlines returns the voiding option in the OrderReshop Refund. In this way, this field indicates if the OrderCancel will be executed.']
+  "warnings" JSON [default: NULL]
+  Note: 'OrderReshopRefundMedia media type (default view)'
+}
+
+Table "OrderReshopRefundPayload" {
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  "type" TEXT [note: 'Refund type, can be: \&quot;refund\&quot;, \&quot;voucher\&quot;']
+}
+
+Table "OrderReshopRepriceMedia" {
+  "benefits" TEXT [default: NULL]
+  "cardSurcharges" JSON [default: NULL, note: 'A hash of surcharges indexed by the credit card type.']
+  "disclosures" JSON [default: NULL]
+  "flights" JSON [default: NULL, note: 'Flight Segment information. Including departure, arrival and airline information.']
+  "offerID" TEXT [default: NULL, note: 'The ID for this offer']
+  "owner" TEXT [default: NULL, note: 'The code of the provider that is really offering the flight']
+  "price" TEXT [default: NULL]
+  "seatsToRebook" JSON [default: NULL, note: 'List of services that indicate for which segment the ancillaries must be re-booked']
+  "servicesToRebook" JSON [default: NULL, note: 'List of services that indicate for which segment the ancillaries must be re-booked']
+  "warnings" JSON [default: NULL]
+  Note: 'OrderReshopRepriceMedia media type (default view)'
+}
+
+Table "OrderReshopRepricePayload" {
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  "offerID" TEXT [default: NULL, note: 'OrderReshop offer ID for Reprice request']
+}
+
+Table "OrderRetrievePayload" {
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  Note: 'OrderRetrievePayload is the type for OrderRetrieve endpoint request body'
+}
+
+Table "OrderReviewMedia" {
+  "ok" TINYINT(1) [default: NULL, note: 'result']
+  Note: 'OrderReviewMedia media type (default view)'
+}
+
+Table "OrderReviewPayload" {
+  "action" TEXT [not null, note: 'Review action']
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  "reason" TEXT [default: NULL, note: 'Reason']
+  Note: 'OrderReviewPayload is the type for OrderReview endpoint request body'
+}
+
+Table "OrderUpdatePayload" {
+  "id" TEXT [not null, note: 'AirGateway order ID']
+  "passengersUpdate" JSON [not null, note: 'Passengers details to update for']
+}
+
+Table "OriginDestinationASRQ" {
+  "arrival" TEXT [not null]
+  "departure" TEXT [not null]
+  Note: 'Origin/Destination pair in a shopping search scenario'
+}
+
+Table "OriginDestinationRS_Inner" {
+  "arrival" TEXT [default: NULL]
+  "departure" TEXT [default: NULL]
+}
+
+Table "Passenger" {
+  "data" TEXT [default: NULL]
+  "document" TEXT [default: NULL]
+  "fareBasisCodes" JSON [default: NULL, note: 'FareBasisCodes']
+  "identity4Discount" JSON [default: NULL]
+  "infantReference" TEXT [default: NULL, note: 'Infant reference (if any)']
+  "passengerType" TEXT [default: NULL]
+  "seats" JSON [default: NULL]
+  "services" JSON [default: NULL]
+  "specialServices" JSON [default: NULL]
+  "travelerReference" TEXT [not null, note: 'Traveler reference from ServiceList response']
+}
+
+Table "PassengerData" {
+  "address" TEXT [default: NULL]
+  "birthdate" TEXT [default: NULL, note: 'Birthdate using format YYYY-MM-DD.']
+  "email" TEXT [default: NULL]
+  "fqtvInfo" TEXT [default: NULL]
+  "name" TEXT [not null]
+  "phone" TEXT [default: NULL, note: 'Phone number']
+  "surname" TEXT [default: NULL]
+}
+
+Table "Payment" {
+  "cardCode" TEXT [default: NULL, note: 'VI (Visa), CA (MasterCard), JCB (JCB), AX (American Express), DC (Diners Club), CB (Carte blanche), TP (UATP/AIRPLUS), GK (Lufthansa GK Card), AU (Carte Aurore), not all credit cards are supported by all airlines, required if method &#x3D;&#x3D; \&quot;card\&quot;']
+  "cardHolderEmail" TEXT [default: NULL]
+  "cardHolderName" TEXT [default: NULL]
+  "cardHolderSurname" TEXT [default: NULL]
+  "cardHolderTitle" TEXT [default: NULL, note: 'Valid Values: ']
+  "cardNumber" TEXT [default: NULL, note: 'CC Number, required if method &#x3D;&#x3D; \&quot;card\&quot;']
+  "cardType" TEXT [default: NULL, note: 'CC (Credit)/DB (Debit), required if method &#x3D;&#x3D; \&quot;card\&quot;']
+  "cashEmail" TEXT [default: NULL]
+  "cashName" TEXT [default: NULL]
+  "cashSurname" TEXT [default: NULL]
+  "cashTitle" TEXT [default: NULL, note: 'Valid Values: ']
+  "cityName" TEXT [default: NULL, note: 'Card Holder Billing city, required if method &#x3D;&#x3D; \&quot;card\&quot; ']
+  "countryCode" TEXT [default: NULL, note: 'Card Holder Billing country code , required if method &#x3D;&#x3D; \&quot;card\&quot;']
+  "expiration" TEXT [default: NULL]
+  "method" TEXT [not null, note: 'Possible values: \&quot;card\&quot;, \&quot;agencyCard\&quot;, \&quot;agencyCash\&quot;. Set this to \&quot;card\&quot; if you pay with card. Contact us to setup cash on file and card on file']
+  "passengerType" TEXT [default: NULL]
+  "phone" TEXT [default: NULL, note: 'Phone number']
+  "postalCode" TEXT [default: NULL, note: 'Card Holder Billing postal code, required if method &#x3D;&#x3D; \&quot;card\&quot;']
+  "remark" TEXT [default: NULL, note: 'A code used for special types of paying. In case your agency is allowed to pay with this special remark we will send you more information.']
+  "seriesCode" TEXT [default: NULL, note: 'CVV/CVC code, required if method &#x3D;&#x3D; \&quot;card\&quot;']
+  "stateProv" TEXT [default: NULL, note: 'The code of the state or province where the bank office issued the card, required if method &#x3D;&#x3D; \&quot;card\&quot;']
+  "street1" TEXT [default: NULL, note: 'Card Holder Billing address, required if method &#x3D;&#x3D; \&quot;card\&quot;']
+  "street2" TEXT [default: NULL]
+  "voucher" TEXT [default: NULL]
+}
+
+Table "PaymentVoucher" {
+  "amount" DECIMAL(20,9) [default: NULL, note: 'The amount paid with voucher (12 or 12.09)']
+  "currency" TEXT [default: NULL, note: 'Voucher currency']
+  "email" TEXT [default: NULL, note: 'Voucher owner&#39;s email']
+  "number" TEXT [default: NULL, note: 'Voucher number']
+  "surname" TEXT [default: NULL, note: 'Voucher owner&#39;s surname']
+}
+
+Table "Penalty" {
+  "amounts" JSON [default: NULL, note: 'Value and the application of this value for the penalty.']
+  "description" TEXT [default: NULL, note: 'A more extensive and explicit explanation of the penalty']
+  "type" TEXT [default: NULL, note: 'The code of the penalty']
+}
+
+Table "PenaltyAmount" {
+  "amount" DECIMAL(20,9) [default: NULL, note: 'The homogenised value of the penalty for the application case (35 or 30.65)']
+  "currency" TEXT [default: NULL, note: 'The consumer currency of this value']
+  "providerAmount" DECIMAL(20,9) [default: NULL, note: 'The provider value of the penalty for the application case (30 or 30.70)']
+  "providerCurrency" TEXT [default: NULL, note: 'The provider currency of this value']
+  "remark" TEXT [default: NULL, note: 'Penalty remark.']
+}
+
+Table "Preferences" {
+  "cabin" JSON [default: NULL, note: 'Cabin preference from PADIS 9873.&lt;br/&gt;  Please take note that not all airlines accept all attributes, check our &lt;a href&#x3D;https://github.com/AirGateway/NDC-Gateway-Developer-Guide#cabin-preferences&gt;developer guide&lt;/a&gt;.&lt;br/&gt;  1-First Class,&lt;br/&gt;  2-Second Class (Business),&lt;br/&gt;  3-Third class, economy,&lt;br/&gt;  4-Economy/coach premium,&lt;br/&gt;  5-Economy/coach,&lt;br/&gt;  6-Economy/coach discounted,&lt;br/&gt;  7-All']
+  "discounts" TEXT [default: NULL]
+  "fare" TEXT [default: NULL]
+  "fareList" JSON [default: NULL, note: 'List of fare preferences from PADIS 9910.&lt;/br&gt;   Please take note that not all airlines accept all attributes, check our &lt;a href&#x3D;https://github.com/AirGateway/NDC-Gateway-Developer-Guide#fare-preferences&gt;developer guide&lt;/a&gt;.&lt;br/&gt;   70J-Published fares,&lt;br/&gt;   749-Negotiated fares,&lt;br/&gt;   754-Flexible Fare,&lt;br/&gt;   758-Private Fare,&lt;br/&gt;   759-Restricted Fare']
+  "nonStop" TINYINT(1) [default: NULL, note: 'NonStop preferences for search. If this is present, it will search flights without stops.']
+}
+
+Table "PreferencesAS" {
+  "cabin" JSON [default: NULL, note: 'Cabin preference from PADIS 9873.&lt;br/&gt;  Please take note that not all airlines accept all attributes, check our &lt;a href&#x3D;https://github.com/AirGateway/NDC-Gateway-Developer-Guide#cabin-preferences&gt;developer guide&lt;/a&gt;.&lt;br/&gt;  1-First Class,&lt;br/&gt;  2-Second Class (Business),&lt;br/&gt;  3-Third class, economy,&lt;br/&gt;  4-Economy/coach premium,&lt;br/&gt;  5-Economy/coach,&lt;br/&gt;  6-Economy/coach discounted,&lt;br/&gt;  7-All']
+  "discounts" TEXT [default: NULL]
+  "fare" TEXT [default: NULL]
+  "fareList" JSON [default: NULL, note: 'List of fare preferences from PADIS 9910.&lt;/br&gt;   Please take note that not all airlines accept all attributes, check our &lt;a href&#x3D;https://github.com/AirGateway/NDC-Gateway-Developer-Guide#fare-preferences&gt;developer guide&lt;/a&gt;.&lt;br/&gt;   70J-Published fares,&lt;br/&gt;   749-Negotiated fares,&lt;br/&gt;   754-Flexible Fare,&lt;br/&gt;   758-Private Fare,&lt;br/&gt;   759-Restricted Fare']
+  "maxDuration" JSON [default: NULL, note: 'Maximum duration of the flight per O&amp;D in ISO-8601 format']
+  "maxDurationRatio" JSON [default: NULL, note: 'Maximum duration ratio of the flight per O&amp;D in float number factor']
+  "maxStops" JSON [default: NULL, note: 'Maximum stops number per O&amp;D']
+  "nonStop" TINYINT(1) [default: NULL, note: 'NonStop preferences for search. If this is present, it will search flights without stops.']
+}
+
+Table "Price" {
+  "consumer" TEXT [default: NULL]
+  "provider" TEXT [default: NULL]
+}
+
+Table "PriceBreakdown" {
+  "inbound" TEXT [default: NULL]
+  "outbound" TEXT [default: NULL]
+  Note: 'Airline Offer price breakdown of combined round trip offers'
+}
+
+Table "PriceDetail" {
+  "base" DECIMAL(20,9) [default: NULL, note: '670 or 670.41']
+  "breakdown" JSON [default: NULL, note: 'The price for each flight offer. There is an offer for each passenger (ADT, CHD, INF).']
+  "currency" TEXT [default: NULL]
+  "surcharge" DECIMAL(20,9) [default: NULL, note: 'The surcharges for the whole flight offer (6 or 6.05).']
+  "tax" TEXT [default: NULL]
+  "total" DECIMAL(20,9) [default: NULL, note: '720 or 720.62']
+}
+
+Table "PriceDetailBreakdown" {
+  "base" DECIMAL(20,9) [default: NULL, note: 'The base price, without any taxes (300 or 300.32)']
+  "offerItemID" TEXT [default: NULL, note: 'The ID for each offer']
+  "passengerRefs" TEXT [default: NULL, note: 'Passenger references']
+  "passengerType" TEXT [default: NULL, note: 'The passenger type']
+  "surcharge" DECIMAL(20,9) [default: NULL, note: 'The total sum of all surcharges (6 or 6.05)']
+  "tax" TEXT [default: NULL]
+}
+
+Table "PriceDetailTax" {
+  "breakdown" JSON [default: NULL, note: 'The value price, currency, code and description for each tax for each AirlineOffer']
+  "total" DECIMAL(20,9) [default: NULL, note: '120 or 120.62']
+}
+
+Table "PriceDetailTaxBreakdown" {
+  "code" TEXT [default: NULL, note: 'The code used for each tax']
+  "currency" TEXT [default: NULL, note: 'The currency code used for each tax']
+  "description" TEXT [default: NULL, note: 'The description of each tax']
+  "total" DECIMAL(20,9) [default: NULL, note: 'The price (12 or 12.09)']
+}
+
+Table "ProviderListMedia" {
+  "providers" JSON [default: NULL]
+  Note: 'ProviderListMedia media type (default view)'
+}
+
+Table "Rows" {
+  "first" BIGINT [default: NULL, note: 'First row']
+  "last" BIGINT [default: NULL, note: 'Last row']
+}
+
+Table "SSR" {
+  "bookingInstructions" TEXT [default: NULL]
+  "code" TEXT [default: NULL, note: 'Special service request code']
+  "desc" TEXT [default: NULL, note: 'Special service request description']
+  "passengerType" TEXT [default: NULL, note: 'Passenger type SSR applies to']
+  "text_required" TINYINT(1) [default: NULL, note: 'Special service request text required flag']
+}
+
+Table "Seat" {
+  "characteristics" JSON [default: NULL, note: 'A list of characteristics about the seat']
+  "description" TEXT [default: NULL, note: 'Seat description']
+  "listKey" TEXT [default: NULL, note: 'This is an attribute for each seat.']
+  "location" TEXT [default: NULL]
+  "passengerRefs" TEXT [default: NULL, note: 'Reference to passenger which can select the seat. Sometimes the same seat has different price depending on the type of passenger, some other times two passengers of the same type are not allowed to get the same seats, for example when two adults travel with an infant, one of those adults will have a few specific seats.']
+  "passengerType" TEXT [default: NULL, note: 'Type of passenger which can select the seat (sometimes the same seat has different price depending on the type of passenger)']
+  "price" TEXT [default: NULL]
+  "refs" TEXT [default: NULL, note: 'This is an attribute for each seat.']
+  "remarks" JSON [default: NULL, note: 'Some seats have restriction about the age, blindness, deafness, state of pregnancy, etc...']
+  "removable" TINYINT(1) [default: NULL, note: 'Points when a seats is removable or not. Used only in OrderViewRS']
+  "segment" TEXT [default: NULL, note: 'Flight Segment Reference Key']
+}
+
+Table "SeatAvailabilityMedia" {
+  "disclosures" JSON [default: NULL]
+  "exits" JSON [default: NULL, note: 'Exit rows position']
+  "owner" TEXT [default: NULL, note: 'The owner of the segment flight that the SeatAvailability is requesting']
+  "seatDisplay" JSON [default: NULL, note: 'Info about seat display (rows and columns)']
+  "seatList" JSON [default: NULL, note: 'Info about seats location, description, characteristics, price...']
+  "segments" JSON [default: NULL, note: 'Info about flight segments']
+  Note: 'SeatAvailabilityMedia media type (default view)'
+}
+
+Table "SeatAvailabilityPayload" {
+  "id" TEXT [default: NULL, note: 'AirGateway order ID']
+  "passengers" JSON [default: NULL]
+  "reshopOfferID" TEXT [default: NULL, note: 'The offerID provided in OrderReshopReprice response on the rebooking process. Used when request SeatAvailable is called on the rebooking stage because order has seats.']
+  "segmentID" TEXT [default: NULL, note: 'Segment ID. Use when need to fetch a certain segment of flight']
+  "shoppingResponseID" TEXT [default: NULL, note: 'The responseID provided in OfferPrice response. Use when request SeatAvailability on Pre-Booking stage']
+  Note: 'SeatAvailability data'
+}
+
+Table "SeatDisplay" {
+  "columns" TEXT [default: NULL, note: 'All available seat columns']
+  "rows" TEXT [default: NULL]
+  "segment" TEXT [default: NULL, note: 'Flight Segment Reference Key']
+}
+
+Table "SeatLocation" {
+  "column" TEXT [default: NULL, note: 'Column of the seat']
+  "row" BIGINT [default: NULL, note: 'Row of the seat']
+}
+
+Table "Service" {
+  "bookingInstructions" TEXT [default: NULL]
+  "descriptions" JSON [default: NULL, note: 'List of service descriptions']
+  "maximumQuantity" BIGINT [default: NULL, note: 'Maximum quantity of services']
+  "minimumQuantity" BIGINT [default: NULL, note: 'Minimum quantity of services']
+  "name" TEXT [default: NULL, note: 'Service name']
+  "objectKey" TEXT [default: NULL, note: 'Service object key']
+  "price" TEXT [default: NULL]
+  "properties" JSON [default: NULL, note: 'Properties']
+  "ref" TEXT [default: NULL, note: 'Service reference']
+  "removable" TINYINT(1) [default: NULL, note: 'Points when a service is removable or not. Used only in OrderViewRS']
+  "segmentReferences" TEXT [default: NULL, note: 'Segment references']
+  "serviceID" TEXT [default: NULL, note: 'Service ID']
+  "travelerReferences" TEXT [default: NULL, note: 'Traveler references']
+  Note: 'Service List'
+}
+
+Table "ServiceListMedia" {
+  "disclosures" JSON [default: NULL, note: 'List of disclosures']
+  "passengers" JSON [default: NULL, note: 'List of referenced travelers']
+  "segments" JSON [default: NULL]
+  "services" JSON [default: NULL, note: 'List of services']
+  "warnings" JSON [default: NULL]
+  Note: 'ServiceListMedia media type (default view)'
+}
+
+Table "ServiceListPayload" {
+  "id" TEXT [default: NULL, note: 'AirGateway order ID']
+  "passengers" JSON [default: NULL]
+  "reshopOfferID" TEXT [default: NULL, note: 'The offerID provided in OrderReshopReprice response on the rebooking process. Used when request ServiceList is called on the rebooking stage and order has services.']
+  "shoppingResponseID" TEXT [default: NULL, note: 'The responseID provided in OfferPrice response. Use when request ServiceList on Pre-Booking stage']
+  Note: 'ServiceListPayload is the type for ServiceList endpoint request body'
+}
+
+Table "ServiceRequest" {
+  "owner" TEXT [default: NULL, note: 'Service owner']
+  "quantity" DECIMAL(20,9) [default: NULL, note: 'Baggage type (deprecated)']
+  "seatLocation" TEXT [default: NULL]
+  "segmentReference" TEXT [default: NULL, note: 'Segment reference']
+  "serviceID" TEXT [default: NULL, note: 'Type of service (ID)']
+  "text" TEXT [default: NULL, note: 'Used in some services to indicate the quantity of some extra kilos in the baggage, the type of pet, etc...']
+  "travelerReference" TEXT [default: NULL, note: 'Traveler reference']
+  Note: 'Service Request'
+}
+
+Table "StopLocation" {
+  "airportCode" TEXT [default: NULL, note: 'Airport code']
+  "airportName" TEXT [default: NULL, note: 'Airport name']
+  "arrivalDate" TEXT [default: NULL, note: 'Arrival date']
+  "arrivalTime" TEXT [default: NULL, note: 'Arrival time']
+  "departureDate" TEXT [default: NULL, note: 'Departure date']
+  "departureTime" TEXT [default: NULL, note: 'Departure time']
+  Note: 'Stop location details'
+}
+
+Table "TicketCoupon" {
+  "dateOfService" TEXT [default: NULL, note: 'Coupon date of service']
+  "fareBasisCode" TEXT [default: NULL, note: 'Coupon fareBasisCode']
+  "media" TEXT [default: NULL, note: 'Coupon media']
+  "number" TEXT [default: NULL, note: 'Coupon number']
+  "price" TEXT [default: NULL]
+  "reference" TEXT [default: NULL, note: 'Coupon ref']
+  "remark" TEXT [default: NULL, note: 'Coupon remark']
+  "segment" TEXT [default: NULL]
+  "serviceReferences" TEXT [default: NULL, note: 'Coupon service references']
+  "status" TEXT [default: NULL, note: 'Coupon status code']
+  "statusDefinition" TEXT [default: NULL, note: 'Coupon status description']
+  "valid" TEXT [default: NULL]
+  "validatingAirline" TEXT [default: NULL, note: 'Coupon validating airline']
+}
+
+Table "TicketCouponAirlineInfo" {
+  "arrival" TEXT [default: NULL]
+  "arrivalDateTime" TEXT [default: NULL]
+  "departure" TEXT [default: NULL]
+  "departureDateTime" TEXT [default: NULL]
+  "equipment" TEXT [default: NULL]
+  "marketingCarrier" TEXT [default: NULL]
+  "status" TEXT [default: NULL, note: 'Flight Segment status']
+}
+
+Table "TicketCouponAirlineInfoDepartureArrivalDateTime" {
+  "date" TEXT [default: NULL, note: 'Flight Segment status']
+  "time" TEXT [default: NULL, note: 'Flight Segment status']
+}
+
+Table "TicketCouponValid" {
+  "effective" TEXT [default: NULL, note: 'Coupon effective date']
+  "expiration" TEXT [default: NULL, note: 'Coupon expiration date']
+}
+
+Table "TicketInfo" {
+  "coupons" JSON [default: NULL, note: 'Ticket coupons&#39; details']
+  "dateOfIssue" TEXT [default: NULL, note: 'Ticket issue date']
+  "numberOfBooklets" BIGINT [default: NULL, note: 'Number of tickets for passenger']
+  "passengerRef" TEXT [default: NULL, note: 'Passenger reference']
+  "price" TEXT [default: NULL]
+  "remark" TEXT [default: NULL, note: 'Remark text']
+  "ticketNumber" TEXT [default: NULL, note: 'Ticket number of passenger']
+  "timeOfIssue" TEXT [default: NULL, note: 'Ticket issue time']
+  "typeCode" TEXT [default: NULL, note: 'Type of ticket']
+  "typeCodeDefinition" TEXT [default: NULL, note: 'The meaning of the type of ticket']
+}
+
+Table "Travelers" {
+  "ADT" DECIMAL(20,9) [not null, note: 'Number of adult passengers - older than 12 yo']
+  "CHD" DECIMAL(20,9) [default: NULL, note: 'Number of children - older than 2 yo']
+  "INF" DECIMAL(20,9) [default: NULL, note: 'Number of infants - younger than 2 yo']
+  "V14" DECIMAL(20,9) [default: NULL, note: 'Number of young adults for Tour Operators - 12-16 yo']
+  "VFR" DECIMAL(20,9) [default: NULL, note: 'Number of adult passengers for Tour Operators - older than 12 yo']
+  "VNF" DECIMAL(20,9) [default: NULL, note: 'Number of infants for Tour Operators - younger than 2 yo']
+  "VNN" DECIMAL(20,9) [default: NULL, note: 'Number of children for Tour Operators - older than 2 yo']
+  "YAD" DECIMAL(20,9) [default: NULL, note: 'Number of young adults - 12-16 yo']
+}

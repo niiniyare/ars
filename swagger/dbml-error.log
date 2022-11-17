@@ -1,0 +1,121 @@
+2022-11-17T20:51:45.979Z
+SyntaxError: You have a syntax error at "mysql_schema.sql" line 1 column 1. Enum value must have a name
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+Error: Enum value must have a name
+    at EnumValue.error (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/element.js:77:13)
+    at new EnumValue (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enumValue.js:59:13)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:92:26
+    at Array.forEach (<anonymous>)
+    at Enum.processValues (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:91:17)
+    at new Enum (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:76:11)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:161:29
+    at Array.forEach (<anonymous>)
+    at Database.processSchemaElements (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:143:16)
+    at new Database (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:95:11)
+{"start":{"line":1,"column":1}}
+
+2022-11-17T20:54:13.108Z
+SyntaxError: You have a syntax error at "mysql_schema.sql" line 1 column 1. Enum value must have a name
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+Error: Enum value must have a name
+    at EnumValue.error (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/element.js:77:13)
+    at new EnumValue (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enumValue.js:59:13)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:92:26
+    at Array.forEach (<anonymous>)
+    at Enum.processValues (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:91:17)
+    at new Enum (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:76:11)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:161:29
+    at Array.forEach (<anonymous>)
+    at Database.processSchemaElements (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:143:16)
+    at new Database (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:95:11)
+{"start":{"line":1,"column":1}}
+
+2022-11-17T21:05:39.502Z
+SyntaxError: You have a syntax error at "mysql_schema.sql" line 1 column 1. Enum value must have a name
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+Error: Enum value must have a name
+    at EnumValue.error (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/element.js:77:13)
+    at new EnumValue (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enumValue.js:59:13)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:92:26
+    at Array.forEach (<anonymous>)
+    at Enum.processValues (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:91:17)
+    at new Enum (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:76:11)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:161:29
+    at Array.forEach (<anonymous>)
+    at Database.processSchemaElements (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:143:16)
+    at new Database (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:95:11)
+{"start":{"line":1,"column":1}}
+
+2022-11-17T21:18:56.407Z
+Error: ENOENT: no such file or directory, open '/storage/emulated/0/ARS/swagger/mysql/dbml.sql'
+    at Object.openSync (node:fs:600:3)
+    at Object.readFileSync (node:fs:468:35)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:49:32
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at exportHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/export.js:38:27)
+    at Object.dbml2sql (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:27:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/dbml2sql.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+
+2022-11-17T21:21:52.784Z
+SyntaxError: You have a syntax error at "mysql_schema.sql" line 1 column 1. Enum value must have a name
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+Error: Enum value must have a name
+    at EnumValue.error (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/element.js:77:13)
+    at new EnumValue (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enumValue.js:59:13)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:92:26
+    at Array.forEach (<anonymous>)
+    at Enum.processValues (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:91:17)
+    at new Enum (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/enum.js:76:11)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:161:29
+    at Array.forEach (<anonymous>)
+    at Database.processSchemaElements (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:143:16)
+    at new Database (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/model_structure/database.js:95:11)
+{"start":{"line":1,"column":1}}
+
