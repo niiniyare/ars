@@ -1,0 +1,32 @@
+Arguments: 
+  /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/bin/yarn add global openapi-to-graphql-cli
+
+PATH: 
+  /data/data/com.termux/files/usr/bin://data/data/com.termux/files/home/go/bin:/data/data/com.termux/files/home/go/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.10.0
+
+Platform: 
+  android arm64
+
+Trace: 
+  Error: EACCES: permission denied, symlink '../../../esprima/bin/esparse.js' -> '/storage/emulated/0/ARS/node_modules/js-yaml/node_modules/.bin/esparse'
+
+npm manifest: 
+  {
+    "name": "ARS",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Abdirahman Ahmed <abdirahman3878@gmail.com>",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

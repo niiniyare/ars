@@ -6,102 +6,92 @@
 |               |                   |                   |           |
 
 
-# 1. Introduction
+1. ### Introduction
+      
+  1. #### Purpose
+This document lists the requirement specifications for an Airline Ticket Reservation System **ATRS**. The document is subject the change as the project progresses. The given version of the document is the initial one. Further changes of the project will be recorded to the document.
 
-### 1.1 Purpose
-This document lists the requirement specifications for an Airline Ticket Reservation System (**ATRS**). The document is subject the change as the project progresses. The given version of the document is the initial one. Further changes of the project will be recorded to the document.
+  2. #### Document Conventions
+  The document is formatted according to IEEE standard
 
-#### 1.2 Document Conventions
+  3. #### Intended Audience
 
-The document is formatted according to IEEE standard.
+  The intended audience for this document consists of requirements engineers, software developers, designers, testers and project manager.
 
-#### 1.3 Intended Audience
+  4.  Product Scope
 
-The intended audience for this document consists of requirements engineers, software developers, designers, testers and project manager.
-
-### 1.4 Product Scope
-
-**Subject facet:** User Interface, Searching one-way flights, Searching round trip flights, Searching multiple destinations, Flight reservations, Reservation cancellation, Online payment, Request and response for reservation cancellation, Displaying warning messages.
-
-**Usage facet:** Searching, Sorting of flights, Reservation of tickets, Managing existing reservation, Managing flight details, Keeping the flights up to date.
-
-**IT facet:** Database, Web-based software system, AAS for logins, Performance maintenance. *Development facet:* Internal policy and culture of the airlines company should be taken under consideration.
-
-### 1.5 Reference Documents
+    - **Subject facet:** User Interface, Searching one-way flights, Searching round trip flights, Searching multiple destinations, Flight reservations, Reservation cancellation, Online payment, Request and response for reservation cancellation, Displaying warning messages.
+  
+    -  **Usage facet:** Searching, Sorting of flights, Reservation of tickets, Managing existing reservation, Managing flight details, Keeping the flights up to date.
+  
+    -  **IT facet:** Database, Web-based software system, AAS for logins, Performance maintenance. *Development facet:* Internal policy and culture of the airlines company should be taken under consideration.
+  
+  5. #### Reference Documents
   [** Reference Documents **](refs.md) 
 
-### 1.6 Overview
+  6. #### Overview
 
-The remaining part of the specification document is organized as follows.
+  The remaining part of the specification document is organized as follows.
+    - **Section 2** defines overall description of the system which defines product perspectives and functions, use-case diagrams, classes and characteristics of involved users, the environment that the system is going to be deployed, constraints on design and implementation of the system, user documentation, assumptions and dependencies.
 
--  **Section 2** defines overall description of the system which defines product perspectives and functions, use-case diagrams, classes and characteristics of involved users, the environment that the system is going to be deployed, constraints on design and implementation of the system, user documentation, assumptions and dependencies.
+    - **Section 3** focuses on requirements and goal modelling. Strategic dependency model, model of software-intensive system, goal and agent responsibility model are used to model goals, while class diagram, state models and sequence diagram are constructed to model requirements.
 
--   **Section 3** focuses on requirements and goal modelling. Strategic dependency model, model of software-intensive system, goal and agent responsibility model are used to model goals, while class diagram, state models and sequence diagram are constructed to model requirements.
-
--   **Section 4** contains all the specific requirements such as functional requirements, performance requirements and external interface requirements, which in turn includes user, software, hardware and communication interface requirements. Attributes of the software system and non-functional requirements are also specified in this section. Solution-oriented requirements extracted from requirements modelling part are documented in this section.
+    - **Section 4** contains all the specific requirements such as functional requirements, performance requirements and external interface requirements, which in turn includes user, software, hardware and communication interface requirements. Attributes of the software system and non-functional requirements are also specified in this section. Solution-oriented requirements extracted from requirements modelling part are documented in this section.
    Prioritization and traceability of requirements are also included in **Section 4**.
 
-# 2. Overall Description
+2. ### Overall Description
 
-### 2.1 Product Perspective
+  1. #### Product Perspective
 
-
-__Airline Ticketing reservation systems (ARS)__ are part of the so-called passenger service systems (PSS), which are applications supporting the direct contact with the passenger.
+**Airline reservation systems (ARS)**  are part of the so-called <strong><i>passenger service systems</i>
+ (PSS),</strong>which are applications supporting the direct contact with the passenger.
 Airline reservation systems incorporate airline schedules, fare tariffs, passenger reservations and ticket records.An airline's direct distribution works within their own reservation system, as well as pushing out information to the GDS.
 ARS eventually evolved into the computer reservations system (CRS). A computer reservation system is used for the reservations of a particular airline and interfaces with a global distribution system (GDS) which supports travel agencies and other distribution channels in making reservations for most major airlines in a single system
 
- **ATRS** is a direct distribution channel are consumers who use the internet or mobile applications to make their own reservations. Travel agencies and other indirect distribution channels access the same GDS as those accessed by the airline reservation systems.
- 
+**ATRS** is a direct distribution channel are consumers who use the internet or mobile applications to make their own reservations. Travel agencies and other indirect distribution channels access the same GDS as those accessed by the airline reservation systems. 
 Although the existing systems were performing the basic functions of the airlines and doing their best but not yet those who can meet the demand, There are a few systematic challenges that airlines are still facing that can be overcome.
- 
- currentlly systems can make schedules, search availability, book flights, Ticketing, refund, change date and arrenge departure basic. 
+Currentlly systems can make schedules, search availability, book flights, Ticketing, refund, change date and arrenge departure basic. 
 design of this  **ATRS** come to do this jobs easy and smooth plus add missing Features that are needed.
- 
- 
 The new system aims to overcome the above-mentioned drawbacks of the existing system. It will allow users to make reservations according their needs from different parts of the world without leaving their places. Furthermore, it will reduce the workload of the employees who are responsible to make reservations at the office.
-
 The system allows customers to check the availability of flights for specific dates and routes, get information about durations of available flights. It also allows customers to check the prices and the things that are included in the ticket such as baggage allowance, meal and etc. and booking the ticket. Administrator can modify, remove existing flights, also add new flights to the system. Furthermore, administrator can see customer requests about cancellation of bookings, and decide whether to accept and reject them.
 
-### 2.2 Product Functions
+ 2. #### Product Functions
 The system will have 10 functionalities for customers and administrators and they are listed below.
-
-#### 2.2.1 Search for flights
+  1. #### Search for flights
 
 Description: Using this function a customer is able to search for one-way, round-trip and multiple destination flights by choosing specific dates and destinations.
-
-#### 2.2.2 Specify passengers
+  1. #### Specify passengers
 
 Description: With the help of this function customer selects the number of passengers and their category, either adult, child or infant.
-
-#### 2.2.3 Sort flights
+   
+  1. #### Sort flights
 
 Description: Regarding to this functions, customer sorts flights either by price or duration of the flight.
 
-#### 2.2.4 Book flights
+  1. #### Book flights
 
 Description: This function allows customer to book flights by choosing ticket types and processing online payment.
 
-#### 2.2.5 Request cancellation
+  1. #### Request cancellation
 
-Description: This function indicates that customer can request the cancellation of the reserved ticket.
-
-**2.2.6 Add new flights**
+  Description: This function indicates that customer can request the cancellation of the reserved ticket.
+  1. #### Add new flights**
 
 Description: The function grants administrator the privilege of adding new flights to the system.
 
-**2.2.7 Modify flight details**
+  1. #### Modify flight details**
 
 Description: Using this functionality administrator can modify the details of the existing flights.
 
-#### 2.2.8 Remove flights
+  1. #### Remove flights
 
 Description: With the help of this function administrator removes the flights from the system that are cancelled for whatever reason.
 
-#### 2.2.9 See cancellation requests
+  1. #### See cancellation requests
 
 Description: This functionality allows administrator to overview the cancellation requests of customers, and approve or reject them.
 
-**2.2.10 See booking details**
+  1. #### See booking details**
 
 Description: This functionality enables administrator to view the customers' booking details.
 
