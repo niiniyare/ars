@@ -756,19 +756,19 @@ Figure 3. Software-intensive system model Below given table explains how *Figure
 <tbody>
 <tr class="odd">
 <td>T1.1</td>
-<td>**ARS** depends on administrator to add new flights</td>
+<td> **ARS** depends on administrator to add new flights</td>
 </tr>
 <tr class="even">
 <td>T1.2</td>
-<td>**ARS** depends on administrator to modify flights flight details</td>
+<td> **ARS** depends on administrator to modify flights flight details</td>
 </tr>
 <tr class="odd">
 <td>T1.3</td>
-<td>**ARS** depends on administrator to remove flights</td>
+<td> **ARS** depends on administrator to remove flights</td>
 </tr>
 <tr class="even">
 <td>T1.4</td>
-<td>**ARS** depends on administrator on management of cancellation requests</td>
+<td> **ARS** depends on administrator on management of cancellation requests</td>
 </tr>
 <tr class="odd">
 <td>T1.5</td>
@@ -776,19 +776,19 @@ Figure 3. Software-intensive system model Below given table explains how *Figure
 </tr>
 <tr class="even">
 <td>T2.1</td>
-<td>**ARS** depends on customer's query to search for flights</td>
+<td> **ARS** depends on customer's query to search for flights</td>
 </tr>
 <tr class="odd">
 <td>T2.2</td>
-<td>**ARS** depends on customer's request to book the ticket</td>
+<td> **ARS** depends on customer's request to book the ticket</td>
 </tr>
 <tr class="even">
 <td>T2.3</td>
-<td>**ARS** depends on customer's request to sort the flights</td>
+<td> **ARS** depends on customer's request to sort the flights</td>
 </tr>
 <tr class="odd">
 <td>T2.4</td>
-<td>**ARS** depends on customer for specification of passengers</td>
+<td> **ARS** depends on customer for specification of passengers</td>
 </tr>
 <tr class="even">
 <td>T2.5</td>
@@ -796,19 +796,19 @@ Figure 3. Software-intensive system model Below given table explains how *Figure
 </tr>
 <tr class="odd">
 <td>T3.1</td>
-<td>**ARS** depends on support staff to maintain performance of the system</td>
+<td> **ARS** depends on support staff to maintain performance of the system</td>
 </tr>
 <tr class="even">
 <td>T3.2</td>
-<td>**ARS** depends on support staff to ensure security of the system</td>
+<td> **ARS** depends on support staff to ensure security of the system</td>
 </tr>
 <tr class="odd">
 <td>T3.3</td>
-<td>**ARS** depends on support staff to ensure safety of the system</td>
+<td> **ARS** depends on support staff to ensure safety of the system</td>
 </tr>
 <tr class="even">
 <td>T3.4</td>
-<td>**ARS** depends on support staff to ensure reliability of the system</td>
+<td> **ARS** depends on support staff to ensure reliability of the system</td>
 </tr>
 <tr class="odd">
 <td>T4.1</td>
@@ -816,7 +816,7 @@ Figure 3. Software-intensive system model Below given table explains how *Figure
 </tr>
 <tr class="even">
 <td>T4.2</td>
-<td>**ARS** depends on bank to process the payment</td>
+<td> **ARS** depends on bank to process the payment</td>
 </tr>
 </tbody>
 </table>
