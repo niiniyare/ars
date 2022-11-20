@@ -1,0 +1,10 @@
+.openapi-generator-ignore
+Model/Airline.sql
+Model/CollectionLinks.sql
+Model/CollectionMeta.sql
+Model/Error400.sql
+Model/Error500.sql
+Model/Issue.sql
+Model/IssueSource.sql
+README.md
+mysql_schema.sql

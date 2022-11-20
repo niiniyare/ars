@@ -1,0 +1,122 @@
+
+<h2>Payment</h2>
+<ul class="parameter">
+  <li class="param-required-false">cardCode : String
+    <br/>VI (Visa), CA (MasterCard), JCB (JCB), AX (American Express), DC (Diners Club), CB (Carte blanche), TP (UATP/AIRPLUS), GK (Lufthansa GK Card), AU (Carte Aurore), not all credit cards are supported by all airlines, required if method &#x3D;&#x3D; \&quot;card\&quot;
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cardHolderEmail : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cardHolderName : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cardHolderSurname : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cardHolderTitle : String
+    <br/>Valid Values: 
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cardNumber : String
+    <br/>CC Number, required if method &#x3D;&#x3D; \&quot;card\&quot;
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cardType : String
+    <br/>CC (Credit)/DB (Debit), required if method &#x3D;&#x3D; \&quot;card\&quot;
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cashEmail : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cashName : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cashSurname : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cashTitle : String
+    <br/>Valid Values: 
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">cityName : String
+    <br/>Card Holder Billing city, required if method &#x3D;&#x3D; \&quot;card\&quot; 
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">countryCode : String
+    <br/>Card Holder Billing country code , required if method &#x3D;&#x3D; \&quot;card\&quot;
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">expiration : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">method : String
+    <br/>Possible values: \&quot;card\&quot;, \&quot;agencyCard\&quot;, \&quot;agencyCash\&quot;. Set this to \&quot;card\&quot; if you pay with card. Contact us to setup cash on file and card on file
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">passengerType : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">phone : String
+    <br/>Phone number
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">postalCode : String
+    <br/>Card Holder Billing postal code, required if method &#x3D;&#x3D; \&quot;card\&quot;
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">remark : String
+    <br/>A code used for special types of paying. In case your agency is allowed to pay with this special remark we will send you more information.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">seriesCode : String
+    <br/>CVV/CVC code, required if method &#x3D;&#x3D; \&quot;card\&quot;
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">stateProv : String
+    <br/>The code of the state or province where the bank office issued the card, required if method &#x3D;&#x3D; \&quot;card\&quot;
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">street1 : String
+    <br/>Card Holder Billing address, required if method &#x3D;&#x3D; \&quot;card\&quot;
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">street2 : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">voucher : PaymentVoucher
+    <br/>
+  </li>
+</ul>

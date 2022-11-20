@@ -1,0 +1,59 @@
+
+<h2>ServiceRequest</h2>
+<ul class="parameter">
+  <li class="param-required-true">action : String
+    <br/>Action (Create/Cancel)
+      <dl class="param-enum">
+        <dt>Enum:
+            <dd>Create</dd>
+            <dd>Cancel</dd>
+        </dt>
+      </dl>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">owner : String
+    <br/>Service owner
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">quantity : Double
+    <br/>Baggage type (deprecated)
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">seatLocation : SeatLocation
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">segmentReference : String
+    <br/>Segment reference
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">serviceID : String
+    <br/>Type of service (ID)
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">text : String
+    <br/>Used in some services to indicate the quantity of some extra kilos in the baggage, the type of pet, etc...
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">travelerReference : String
+    <br/>Traveler reference
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">type : String
+    <br/>Type of service object. Required for service object validation
+      <dl class="param-enum">
+        <dt>Enum:
+            <dd>seat</dd>
+            <dd>service</dd>
+        </dt>
+      </dl>
+  </li>
+</ul>

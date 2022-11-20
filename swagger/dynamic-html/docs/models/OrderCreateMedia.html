@@ -1,0 +1,232 @@
+
+<h2>OrderCreateMedia</h2>
+<ul class="parameter">
+  <li class="param-required-false">agency : String
+    <br/>Agency name
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">agencyData : AgencyData
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">allowedPaymentMethods : AllowedPaymentMethods
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">allowedRequests : OrderCreateAllowedRequests
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">approvalStatus : String
+    <br/>Approval status
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">approved : Boolean
+    <br/>Approved status
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">benefits : Benefit
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">bookingDate : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">bookingReference : BookingReferenceResponse
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">bookingType : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">carbonOffset : List
+    <br/>Order flights carbon offset
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">comments : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">corporateID : String
+    <br/>CorporateID for corporate orders
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">createdAt : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">disclosures : List
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">disruptionMessage : String
+    <br/>Disruption notification message
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">disruptionStatus : String
+    <br/>Disruption status (FlightTimeChange/FlightNumberChange/FlightCancellation)
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">externalOrderID : String
+    <br/>External order ID
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">files : List
+    <br/>Files information
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">flights : List
+    <br/>Flight Segment information. Including departure, arrival and airline information.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">formOfPayment : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">history : List
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">id : String
+    <br/>AirGateway order ID
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">logs : List
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">metas : Object
+    <br/>Order metadata
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">orderID : String
+    <br/>External order ID (deprecated)
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">passengers : List
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">payment : OrderCreatePayment
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">paymentTimeLimit : String
+    <br/>Payment time limit
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">penalties : List
+    <br/>Type and the application (with the value for each application) for every penalties.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">pnr : String
+    <br/>The unique identifier of the order used on the old system and respected by some providers to maintain compatibility.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">price : Price
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">priceGuaranteeTimeLimit : String
+    <br/>Time limit, for an on hold order, during which airline guarantee the price doesn&#39;t vary
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">readyToTicketIssue : Boolean
+    <br/>Ready To Ticket Issue flag
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">refundType : String
+    <br/>Refunds type can be: &#39;refund&#39;, &#39;voucher&#39;
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">refundedAmount : Price
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">remarks : OrderRemarks
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">seats : List
+    <br/>List of seats
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">sendForApprovalAllowed : Boolean
+    <br/>Send for approval allowed
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">services : List
+    <br/>List of services
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">status : String
+    <br/>Order status (Pending/Ticketed/Cancelled/Completed/Started/Expired)
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">ticketIssue : Object
+    <br/>Ticket Issue object
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">tickets : List
+    <br/>Tickets information
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">updatedAt : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">viewMode : String
+    <br/>View mode for order
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">warnings : List
+    <br/>
+  </li>
+</ul>

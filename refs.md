@@ -1,4 +1,4 @@
-## 1.5 Reference Documents
+# 1.5 Reference Documents
 
 1. [Lecture slides.
    Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Software
@@ -7,7 +7,7 @@
 
 1. [API functionalities AeroCRS](https://docs.aerocrs.com/reference/getairlines-1)
 
-1. [ARS Overview ](https://fasrsmall634.weebly.com/disadvantages-of-manual-airline-reservation-system.html)
+1. [ARS Overview](https://fasrsmall634.weebly.com/disadvantages-of-manual-airline-reservation-system.html)
 
 1. [AirGateway’s NDC JSON API](https://dev-guides.airgateway.net/)
 
@@ -21,14 +21,20 @@
 
 1. [postgis-intro](https://postgis.net/workshops/zh_Hans/postgis-intro/geography.html)
 
-1. [airport info ](https://www.airportcoder.com/)
+1. [airport info](https://www.airportcoder.com/)
 
 1. [Crane a (PSS) offering airlines Example](https://crane.aero/)
 
-1. [Crane a (PSS) promo video ](https://youtu.be/kppIlGPEYT4)
+1. [Crane a (PSS) promo video](https://youtu.be/kppIlGPEYT4)
 
 1. [yugabyte Free Course](https://university.yugabyte.com/enrollments)
 
 1. [somali dictionary book Cornell University Library](https://archive.org/details/cu31924026888820/page/143/mode/1up?view=theater)
 
-1. [somali dictionary ](https://www.lexilogos.com/english/somali_dictionary.htm)
+1. [somali dictionary](https://www.lexilogos.com/english/somali_dictionary.htm)
+
+1. [aircraft seat map](https://github.com/sjova/aircraft-seat-map)
+
+1. [react jsonschema form](https://github.com/rjsf-team/react-jsonschema-form)
+
+1. [react javascript data structures](https://profy.dev/article/javascript-data-structures)

@@ -1,0 +1,540 @@
+2022-11-20T12:31:00.072Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 52 column 67. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":1409,"line":52,"column":67},"end":{"offset":1410,"line":52,"column":68}}
+
+2022-11-20T12:31:36.598Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 53 column 30. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":1463,"line":53,"column":30},"end":{"offset":1464,"line":53,"column":31}}
+
+2022-11-20T12:39:19.806Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 53 column 30. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":1292,"line":53,"column":30},"end":{"offset":1293,"line":53,"column":31}}
+
+2022-11-20T12:39:45.105Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 54 column 38. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":1376,"line":54,"column":38},"end":{"offset":1377,"line":54,"column":39}}
+
+2022-11-20T12:40:01.163Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 57 column 33. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":1561,"line":57,"column":33},"end":{"offset":1562,"line":57,"column":34}}
+
+2022-11-20T12:40:22.547Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 173 column 29. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":4589,"line":173,"column":29},"end":{"offset":4590,"line":173,"column":30}}
+
+2022-11-20T12:41:20.767Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 176 column 1. Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but ")" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but ")" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":4951,"line":176,"column":1},"end":{"offset":4952,"line":176,"column":2}}
+
+2022-11-20T12:41:34.706Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 309 column 36. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":8167,"line":309,"column":36},"end":{"offset":8168,"line":309,"column":37}}
+
+2022-11-20T12:42:13.911Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 308 column 46. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":8104,"line":308,"column":46},"end":{"offset":8105,"line":308,"column":47}}
+
+2022-11-20T12:43:06.610Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 307 column 3. Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but "d" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but "d" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":8035,"line":307,"column":3},"end":{"offset":8036,"line":307,"column":4}}
+
+2022-11-20T12:43:21.697Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 310 column 1. Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but ")" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but ")" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":8243,"line":310,"column":1},"end":{"offset":8244,"line":310,"column":2}}
+
+2022-11-20T12:43:36.736Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 384 column 66. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":9752,"line":384,"column":66},"end":{"offset":9753,"line":384,"column":67}}
+
+2022-11-20T12:44:18.579Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 637 column 67. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":16687,"line":637,"column":67},"end":{"offset":16688,"line":637,"column":68}}
+
+2022-11-20T12:45:05.810Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 637 column 67. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":16691,"line":637,"column":67},"end":{"offset":16692,"line":637,"column":68}}
+
+2022-11-20T12:45:42.756Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 643 column 4. Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but "-" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but "-" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":16981,"line":643,"column":4},"end":{"offset":16982,"line":643,"column":5}}
+
+2022-11-20T12:45:58.076Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 643 column 4. Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but "-" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but "-" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":16981,"line":643,"column":4},"end":{"offset":16982,"line":643,"column":5}}
+
+2022-11-20T12:46:13.117Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 1269 column 82. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":32786,"line":1269,"column":82},"end":{"offset":32787,"line":1269,"column":83}}
+
+2022-11-20T12:46:44.959Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 1283 column 35. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":33290,"line":1283,"column":35},"end":{"offset":33291,"line":1283,"column":36}}
+
+2022-11-20T12:47:42.553Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 1325 column 50. Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")", ",", "CHECK", "CONSTRAINT", "DEFAULT", "DEFERRABLE", "GENERATED", "INITIALLY", "NOT", "NULL", "PRIMARY", "REFERENCES", or "UNIQUE" but "C" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":34487,"line":1325,"column":50},"end":{"offset":34488,"line":1325,"column":51}}
+
+2022-11-20T13:02:16.331Z
+SyntaxError: You have a syntax error at "psql_schema.sql" line 643 column 4. Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but "-" found.
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:55:13
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+    at Object.sql2dbml (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/index.js:38:23)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+
+ROOT_ERROR:
+SyntaxError: Expected "ALTER", "COMMENT", "CREATE", "DROP", "INSERT", "RESET", "SELECT", "SET", "USE", end of input, or space but "-" found.
+    at peg$buildStructuredError (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:34:7205)
+    at Object.peg$parse [as parse] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/postgresParser.js:43:598)
+    at Function.parsePostgresToJSON (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:49:41)
+    at Function.parse (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:77:32)
+    at Object._import [as import] (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:15:37)
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:68
+    at /data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:52:23
+    at Array.forEach (<anonymous>)
+    at generate (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/utils.js:48:14)
+    at importHandler (/data/data/com.termux/files/usr/lib/node_modules/@dbml/cli/lib/cli/import.js:40:27)
+{"start":{"offset":16981,"line":643,"column":4},"end":{"offset":16982,"line":643,"column":5}}
+

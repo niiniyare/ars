@@ -1,0 +1,44 @@
+
+<h2>ItineraryRS</h2>
+<ul class="parameter">
+  <li class="param-required-false">createdAt : Long
+    <br/>Created at unix time
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">flights : List
+    <br/>route details
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">maxNumberOfStops : Long
+    <br/>Max number of stops
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">offerType : String
+    <br/>Offer type
+      <dl class="param-enum">
+        <dt>Enum:
+            <dd>oneWay</dd>
+            <dd>roundTrip</dd>
+            <dd>multiCity</dd>
+        </dt>
+      </dl>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">options : List
+    <br/>possible fare options for itinerary
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">owner : String
+    <br/>2-letter code of provider
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">paymentTimeLimit : String
+    <br/>Payment time limit, after this time created order will become expired
+  </li>
+</ul>

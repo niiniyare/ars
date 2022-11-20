@@ -1,0 +1,63 @@
+pkg gh      
+pkg install gh     
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting && git clone https://github.com/zsh-users/zsh-autosuggestions.git
+pkg install man     
+pkg install ripgrep     
+pkg install lazygit ncdu htop node python 
+pkg install lazygit ncdu htop nodejs python 
+pkg install lazygit ncdu htop nodejs python golang
+git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim\nnvim +PackerSync   
+git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim && \nnvim +PackerSync 
+git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim && \nnvim +PackerSync 
+pkg install postgresql     
+goi github.com/sosedoff/pgweb@latest      
+"pkg install wget openssl-tool proot -y && hash
+"pkg install wget openssl-tool proot -y && hash
+pkg install wget     
+pkg install wget openssl-tool proot -y && hash
+pkg install wget openssl-tool proot -y && hash
+apt-get dselect-upgrade postgresql     
+apt-get unsins postgresql     
+apt-get uninstall postgresql     
+apt-get uninstall posgresql     
+apt-get uninstall postgresql     
+apt-get dselect-upgrade postgresql     
+apt-get purge postgresql     
+apt autoremove      
+apt autoclean      
+pkg install parallel     
+pkg       
+pkg autoclean      
+pkg clean      
+apt-get install build-essential     
+apt-get install build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev
+apt install build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev
+apt install build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev
+apt install build-essential libreadline-dev zlib1g-dev flex bison libxml2
+apt install build-essential libreadline-dev zlib1g-dev flex bison libxml2
+apt install build-essential libreadline-dev zlib1g flex bison libxml2
+apt install build-essential libreadline zlib1g-dev flex bison libxml2
+apt install build-essential libreadline-dev zlib1g-dev flex bison libxml2
+apt install build-essential libedit zlib1g-dev flex bison libxml2
+apt install build-essential libedit zlib1g-dev flex bison libxml2
+apt install build-essential libedit zlib1g-dev flex bison libxml2
+apt install build-essential libedit zlib flex bison libxml2
+git clone git://git.postgresql.org/git/postgresql.git     
+apt-get update --fix-missing     
+apt install build-essential libedit zlib flex bison libxml2
+pkg install binutils     
+pkg install postgresql     
+pkg install postgresql-14.5     
+pkg install postgresql14     
+pkg install postgresql     
+go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest   
+cd;git clone https://github.com/fatih/vim-go.git ~/.local/share/nvim/site/pack/plugins/start/vim-go    
+git commit -zvm "Change db url from locol
+git commit -vm "Change db url from locol
+git config --global user.email "abdirahman3878@gmail.com"   
+git config --global user.name "Abdirahman Ahmed"  
+git commit -vm "Change db url from locol
+history | egrep "pkg " | awk '{print
+history | egrep "pkg|apt " | awk '{print
+history | egrep "pkg|apt|apt-get " | awk '{print
+history | egrep "^pkg|apt|apt-get " | awk '{print
