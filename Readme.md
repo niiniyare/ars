@@ -5,10 +5,11 @@
 | Version 1.0.1 | December 16, 2021 | Abdirahman Ahmed  | Pending   |
 |               |                   |                   |           |
 
-### Introduction
+## Introduction
 
 1. Purpose
 This document lists the requirement specifications for an Airline Ticket Reservation System **ARS**. The document is subject the change as the project progresses, The given version of the document is the initial one, Further changes of the project will be recorded to the document.
+
 2. Document Conventions
 The document is formatted according to IEEE standard
 3. Intended Audience
@@ -20,10 +21,10 @@ The intended audience for this document consists of requirements engineers, soft
 - Usage facet: Searching, Sorting of flights, Reservation of tickets, Managing existing reservation, Managing flight details, Keeping the flights up to date.
 - IT facet: Database, Web-based software system, AAS for logins, Performance maintenance. *Development facet:* Internal policy and culture of the airlines company should be taken under consideration.
 
-5. Reference Documents
+5. Reference Documents.
 [Reference Documents](refs.md)
-6. Overview
 
+6. Overview
 The remaining part of the specification document is organized as follows.
 
 - Section 2 defines overall description of the system which defines product perspectives and functions, use-case diagrams, classes and characteristics of involved users, the environment that the system is going to be deployed, constraints on design and implementation of the system, user documentation, assumptions and dependencies.
@@ -52,49 +53,48 @@ The new system aims to overcome the above-mentioned drawbacks of the existing sy
 The system allows customers to check the availability of flights for specific dates and routes, get information about durations of available flights. It also allows customers to check the prices and the things that are included in the ticket such as baggage allowance, meal and etc. and booking the ticket. Administrator can modify, remove existing flights, also add new flights to the system. Furthermore, administrator can see customer requests about cancellation of bookings, and decide whether to accept and reject them.
 
 2. Product Functions
-The system will have 10 functionalities for customers and administrators and they are listed below.
-1. Search for flights
+The system will have more then 10 functionalities for customers and administrators and they are listed below.
+2. Search for flights
 
 Description: Using this function a customer is able to search for one-way, round-trip and multiple destination flights by choosing specific dates and destinations.
 
-1. Specify passengers
+3. Specify passengers
 
 Description: With the help of this function customer selects the number of passengers and their category, either adult, child or infant.
 
-1. Sort flights
+4. Sort flights
 
 Description: Regarding to this functions, customer sorts flights either by price or duration of the flight.
 
-1. Book flights
+5. Book flights
 
 Description: This function allows customer to book flights by choosing ticket types and processing online payment.
 
-1. Request cancellation
+6. Request cancellation
 
 Description: This function indicates that customer can request the cancellation of the reserved ticket.
 
-1. Add new flights
+7. Add new flights
 
 Description: The function grants administrator the privilege of adding new flights to the system.
 
-1. Modify flight details
+8. Modify flight details
 
 Description: Using this functionality administrator can modify the details of the existing flights.
 
-1. Remove flights
+9. Remove flights
 
 Description: With the help of this function administrator removes the flights from the system that are cancelled for whatever reason.
 
-1. See cancellation requests
+10. See cancellation requests
 
 Description: This functionality allows administrator to overview the cancellation requests of customers, and approve or reject them.
 
-1. See booking details
+11. See booking details
 
 Description: This functionality enables administrator to view the customers' booking details.
 
-2 ###
-
+2. Detailing.
 1. Use-case Diagram
 
 Description: In the use case diagram given below, we have displayed how our users interact with the system to accomplish their goals and responsibilities. Here in our diagram we have 4 actors (Customer, Administrator, Support Staff, Bank), 3 of which are the main users (Customer, Administrator, Support Staff). In every use case mentioned in the diagram, the actions of the users are described, and how these use cases are related to one another is represented by the help of arrows. In our Use case diagram all functionalities of the system are displayed. Customer can search for flights based on dates and destination, flights being one-way or round-trip, sort the displayed flights according to price or duration, specify the passengers (how many adults, children or infants), request cancellation, book flight, choose the ticket type and proceed with the payment. The payment is processed by the Bank. Another actor, Administrator, is responsible for adding new flights, modifying flight details and removing flights if needed, see the cancellation request, approve or deny them and see booking details. Our final actor, Support Staff, is responsible for maintenance of the system, ensuring the security of the system (by creating predefined users and maintaining AAS), safety of the system (by restoring and recovering data and assuring data integrity) and reliability of the system (by maintaining SLA).
@@ -756,19 +756,19 @@ Figure 3. Software-intensive system model Below given table explains how *Figure
 <tbody>
 <tr class="odd">
 <td>T1.1</td>
-<td> **ARS** depends on administrator to add new flights</td>
+<td><strong>ARS</strong> depends on administrator to add new flights</td>
 </tr>
 <tr class="even">
 <td>T1.2</td>
-<td> **ARS** depends on administrator to modify flights flight details</td>
+<td><strong>ARS</strong> depends on administrator to modify flights flight details</td>
 </tr>
 <tr class="odd">
 <td>T1.3</td>
-<td> **ARS** depends on administrator to remove flights</td>
+<td><strong>ARS</strong> depends on administrator to remove flights</td>
 </tr>
 <tr class="even">
 <td>T1.4</td>
-<td> **ARS** depends on administrator on management of cancellation requests</td>
+<td><strong>ARS</strong> depends on administrator on management of cancellation requests</td>
 </tr>
 <tr class="odd">
 <td>T1.5</td>
@@ -776,19 +776,19 @@ Figure 3. Software-intensive system model Below given table explains how *Figure
 </tr>
 <tr class="even">
 <td>T2.1</td>
-<td> **ARS** depends on customer's query to search for flights</td>
+<td><strong>ARS</strong> depends on customer's query to search for flights</td>
 </tr>
 <tr class="odd">
 <td>T2.2</td>
-<td> **ARS** depends on customer's request to book the ticket</td>
+<td><strong>ARS</strong> depends on customer's request to book the ticket</td>
 </tr>
 <tr class="even">
 <td>T2.3</td>
-<td> **ARS** depends on customer's request to sort the flights</td>
+<td><strong>ARS</strong> depends on customer's request to sort the flights</td>
 </tr>
 <tr class="odd">
 <td>T2.4</td>
-<td> **ARS** depends on customer for specification of passengers</td>
+<td><strong>ARS</strong> depends on customer for specification of passengers</td>
 </tr>
 <tr class="even">
 <td>T2.5</td>
@@ -796,19 +796,19 @@ Figure 3. Software-intensive system model Below given table explains how *Figure
 </tr>
 <tr class="odd">
 <td>T3.1</td>
-<td> **ARS** depends on support staff to maintain performance of the system</td>
+<td><strong>ARS</strong> depends on support staff to maintain performance of the system</td>
 </tr>
 <tr class="even">
 <td>T3.2</td>
-<td> **ARS** depends on support staff to ensure security of the system</td>
+<td><strong>ARS</strong> depends on support staff to ensure security of the system</td>
 </tr>
 <tr class="odd">
 <td>T3.3</td>
-<td> **ARS** depends on support staff to ensure safety of the system</td>
+<td><strong>ARS</strong> depends on support staff to ensure safety of the system</td>
 </tr>
 <tr class="even">
 <td>T3.4</td>
-<td> **ARS** depends on support staff to ensure reliability of the system</td>
+<td><strong>ARS</strong> depends on support staff to ensure reliability of the system</td>
 </tr>
 <tr class="odd">
 <td>T4.1</td>
@@ -816,7 +816,7 @@ Figure 3. Software-intensive system model Below given table explains how *Figure
 </tr>
 <tr class="even">
 <td>T4.2</td>
-<td> **ARS** depends on bank to process the payment</td>
+<td><strong>ARS</strong> depends on bank to process the payment</td>
 </tr>
 </tbody>
 </table>
