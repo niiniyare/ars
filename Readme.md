@@ -8,7 +8,7 @@
 ### Introduction
 
 1. Purpose
-This document lists the requirement specifications for an Airline Ticket Reservation System __ARS__. The document is subject the change as the project progresses, The given version of the document is the initial one, Further changes of the project will be recorded to the document.
+This document lists the requirement specifications for an Airline Ticket Reservation System **ARS**. The document is subject the change as the project progresses, The given version of the document is the initial one, Further changes of the project will be recorded to the document.
 2. Document Conventions
 The document is formatted according to IEEE standard
 3. Intended Audience
@@ -41,12 +41,12 @@ Airline reservation systems (ARS)  are part of the so-called <strong><i>passenge
 
 Airline reservation systems incorporate airline schedules, fare tariffs, passenger reservations and ticket records.An airline's direct distribution works within their own reservation system, as well as pushing out information to the GDS.
 ARS eventually evolved into the computer reservations system (CRS). A computer reservation system is used for the reservations of a particular airline and interfaces with a global distribution system (GDS) which supports travel agencies and other distribution channels in making reservations for most major airlines in a single system
-__ARS__ is a direct distribution channel are consumers who use the internet or mobile applications to make their own reservations. Travel agencies and other indirect distribution channels access the same GDS as those accessed by the airline reservation systems.
+**ARS** is a direct distribution channel are consumers who use the internet or mobile applications to make their own reservations. Travel agencies and other indirect distribution channels access the same GDS as those accessed by the airline reservation systems.
 
 Although the existing systems were performing the basic functions of the airlines and doing their best but not yet those who can meet the demand, There are a few systematic challenges that airlines are still facing that can be overcome.
 Currentlly systems can make schedules, search availability, book flights, Ticketing, refund, change date and arrenge departure basic.
 
-design of this  __ARS__ come to do this jobs easy and smooth plus add missing Features that are needed.
+design of this  **ARS** come to do this jobs easy and smooth plus add missing Features that are needed.
 
 The new system aims to overcome the above-mentioned drawbacks of the existing system. It will allow users to make reservations according their needs from different parts of the world without leaving their places. Furthermore, it will reduce the workload of the employees who are responsible to make reservations at the office.
 The system allows customers to check the availability of flights for specific dates and routes, get information about durations of available flights. It also allows customers to check the prices and the things that are included in the ticket such as baggage allowance, meal and etc. and booking the ticket. Administrator can modify, remove existing flights, also add new flights to the system. Furthermore, administrator can see customer requests about cancellation of bookings, and decide whether to accept and reject them.
@@ -636,7 +636,7 @@ Flight dates and hours should be displayed according to the city of departure an
 The instructions on how to book a flight will be provided on the website for inexperienced users.
 
 9. Assumptions and Dependencies
-It is assumed that the user has an internet access and can do online payments. The performance of __ARS__ depends on the quality and speed of the internet connection.
+It is assumed that the user has an internet access and can do online payments. The performance of **ARS** depends on the quality and speed of the internet connection.
 
 3. Requirements and Goal Modelling
 1. Goal Modelling
@@ -756,67 +756,67 @@ Figure 3. Software-intensive system model Below given table explains how *Figure
 <tbody>
 <tr class="odd">
 <td>T1.1</td>
-<td>__ARS__ depends on administrator to add new flights</td>
+<td>**ARS** depends on administrator to add new flights</td>
 </tr>
 <tr class="even">
 <td>T1.2</td>
-<td>__ARS__ depends on administrator to modify flights flight details</td>
+<td>**ARS** depends on administrator to modify flights flight details</td>
 </tr>
 <tr class="odd">
 <td>T1.3</td>
-<td>__ARS__ depends on administrator to remove flights</td>
+<td>**ARS** depends on administrator to remove flights</td>
 </tr>
 <tr class="even">
 <td>T1.4</td>
-<td>__ARS__ depends on administrator on management of cancellation requests</td>
+<td>**ARS** depends on administrator on management of cancellation requests</td>
 </tr>
 <tr class="odd">
 <td>T1.5</td>
-<td>Administrator depends on __ARS__ to display cancellation requests</td>
+<td>Administrator depends on **ARS** to display cancellation requests</td>
 </tr>
 <tr class="even">
 <td>T2.1</td>
-<td>__ARS__ depends on customer's query to search for flights</td>
+<td>**ARS** depends on customer's query to search for flights</td>
 </tr>
 <tr class="odd">
 <td>T2.2</td>
-<td>__ARS__ depends on customer's request to book the ticket</td>
+<td>**ARS** depends on customer's request to book the ticket</td>
 </tr>
 <tr class="even">
 <td>T2.3</td>
-<td>__ARS__ depends on customer's request to sort the flights</td>
+<td>**ARS** depends on customer's request to sort the flights</td>
 </tr>
 <tr class="odd">
 <td>T2.4</td>
-<td>__ARS__ depends on customer for specification of passengers</td>
+<td>**ARS** depends on customer for specification of passengers</td>
 </tr>
 <tr class="even">
 <td>T2.5</td>
-<td>Customer depends on __ARS__ to display information about flights</td>
+<td>Customer depends on **ARS** to display information about flights</td>
 </tr>
 <tr class="odd">
 <td>T3.1</td>
-<td>__ARS__ depends on support staff to maintain performance of the system</td>
+<td>**ARS** depends on support staff to maintain performance of the system</td>
 </tr>
 <tr class="even">
 <td>T3.2</td>
-<td>__ARS__ depends on support staff to ensure security of the system</td>
+<td>**ARS** depends on support staff to ensure security of the system</td>
 </tr>
 <tr class="odd">
 <td>T3.3</td>
-<td>__ARS__ depends on support staff to ensure safety of the system</td>
+<td>**ARS** depends on support staff to ensure safety of the system</td>
 </tr>
 <tr class="even">
 <td>T3.4</td>
-<td>__ARS__ depends on support staff to ensure reliability of the system</td>
+<td>**ARS** depends on support staff to ensure reliability of the system</td>
 </tr>
 <tr class="odd">
 <td>T4.1</td>
-<td>Bank depends on __ARS__ to fetch the card details of customer to handle the payment</td>
+<td>Bank depends on **ARS** to fetch the card details of customer to handle the payment</td>
 </tr>
 <tr class="even">
 <td>T4.2</td>
-<td>__ARS__ depends on bank to process the payment</td>
+<td>**ARS** depends on bank to process the payment</td>
 </tr>
 </tbody>
 </table>
@@ -1085,9 +1085,9 @@ Description: In sequence diagram we have displayed how the objects of classes in
 
 #### 4.1.1 User Interfaces
 
-4.1.1.1 __ARS__ should have a customer user interface.
+4.1.1.1 **ARS** should have a customer user interface.
 
-4.1.1.2 __ARS__ should have an administrator user interface.
+4.1.1.2 **ARS** should have an administrator user interface.
 
 4.1.1.3 Customer user interface should have a graphical user interface (GUI).
 
@@ -1099,7 +1099,7 @@ No hardware interface is required for the Airline Ticket Reservation system.
 
 #### 4.1.3 Software Interfaces
 
-4.1.3.1 __ARS__ should be a web-based system.
+4.1.3.1 **ARS** should be a web-based system.
 
 4.1.3.2 It should be possible to open and use the website on the computers with operating systems of Microsoft 7, Microsoft 8, Microsoft 10, Mac Os, Linux, Ubuntu.
 
@@ -1330,7 +1330,7 @@ Features of the system are the followings:
 
 17. See and change the details of bookings
 
-18. Performance of __ARS__
+18. Performance of **ARS**
 
 19. Guarantee security of communication channel
 
@@ -1348,7 +1348,7 @@ Features of the system are the followings:
 
 26. Booking Tickets
 
-27. Reliability of __ARS__
+27. Reliability of **ARS**
 
 28. Customizing administrator passwords
 
@@ -1419,7 +1419,7 @@ See and change the details of bookings
 </p>
 </li>
 <li><p>
-Performance of __ARS__
+Performance of **ARS**
 </p>
 </li>
 <li><p>
@@ -1732,7 +1732,7 @@ We try to visualize website of ITM Airlines and while customers using this websi
 | *IEEE*             | The Institute of Electrical and Electronics Engineers                                |
 |-----------------------|-------------------------------------------------|
 | *HTTP*             | Hypertext Transfer Protocol                                                          |
-| __ARS__             | Airline Ticket Reservation System                                                    |
+| **ARS**             | Airline Ticket Reservation System                                                    |
 | *Authentication*   | The process of identifying an individual, usually based on username and password     |
 | *Authorization*    | The process of granting defined privileges to successfully authenticated individuals |
 | *AAS*              | Authentication and Authorization System                                              |
