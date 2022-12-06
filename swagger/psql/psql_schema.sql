@@ -1,82 +1,42 @@
-
 CREATE TABLE IF NOT EXISTS Address (
-  cityName TEXT DEFAULT NULL ,
-  countryCode TEXT DEFAULT NULL ,
-  postalCode TEXT DEFAULT NULL ,
-  street TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `AgencyData` generated from model 'AgencyData'
---
-
-
+  cityName text,
+  countryCode text,
+  postalCode text,
+  street text 
+);
 CREATE TABLE IF NOT EXISTS AgencyData (
-  countryCode TEXT DEFAULT NULL ,
-  iataCode TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `AirDocIssuePayloadPayload` generated from model 'AirDocIssuePayloadPayload'
---
-
-
+  countryCode text,
+  iataCode text 
+);
 CREATE TABLE IF NOT EXISTS AirDocIssuePayloadPayload (
-  id TEXT NOT NULL ,
-  payment TEXT NOT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `AirShoppingMedia` generated from model 'AirShoppingMedia'
--- SQLINES DEMO *** media type (default view)
---
-
-
+  id text NOT NULL,
+  payment text NOT NULL
+);
 CREATE TABLE IF NOT EXISTS AirShoppingMedia (
-  result JSON DEFAULT NULL
+  result text
 );
-
---
--- SQLINES DEMO *** or table `AirShoppingOffer` generated from model 'AirShoppingOffer'
---
-
-
 CREATE TABLE IF NOT EXISTS AirShoppingOffer (
-  benefits TEXT DEFAULT NULL,
-  createdAt BIGINT DEFAULT NULL ,
-  disclosures JSON DEFAULT NULL ,
-  error TEXT DEFAULT NULL ,
-  flights JSON DEFAULT NULL ,
-  maxNumberOfStops BIGINT DEFAULT NULL ,
-  offerID TEXT DEFAULT NULL ,
-  -- offerType ENUM('oneWay', 'roundTrip', 'multiCity') DEFAULT NULL COMMENT 'Offer type',
-  -- owner CHAR(2) DEFAULT NULL COMMENT '2 letter abbreviation of airline',
-  -- paymentTimeLimit TEXT DEFAULT NULL COMMENT 'Offer payment time limit, after this time created order will become expired',
-  price TEXT DEFAULT NULL,
-  priceBreakdown TEXT DEFAULT NULL
-  -- provider CHAR(2) DEFAULT NULL COMMENT '2 letter abbreviation of airline'
-) ;
-
---
--- SQLINES DEMO *** or table `AirShoppingPayload` generated from model 'AirShoppingPayload'
--- SQLINES DEMO *** d is the type for AirShopping endpoint request body
---
-
-
-CREATE TABLE IF NOT EXISTS AirShoppingPayload (
-  corporateDiscountCodes JSON DEFAULT NULL ,
-  metadata TEXT DEFAULT NULL,
-  originDestinations JSON NOT NULL ,
-  preferences TEXT DEFAULT NULL,
-  travelers TEXT NOT NULL
+  benefits text,
+  createdAt bigint,
+  disclosures text,
+  error text,
+  flights text,
+  maxNumberOfStops bigint,
+  offerID text,
+  -- offerType ENUM('oneWay', 'roundTrip', 'multiCity') COMMENT 'Offer type',
+  -- owner CHAR(2) COMMENT '2 letter abbreviation of airline',
+  -- paymentTimeLimit text COMMENT 'Offer payment time limit, after this time created order will become expired',
+  price text,
+  priceBreakdown text
+  -- provider CHAR(2) COMMENT '2 letter abbreviation of airline'
 );
-
---
--- SQLINES DEMO *** or table `AllowedPaymentMethods` generated from model 'AllowedPaymentMethods'
--- SQLINES DEMO *** ethods
---
-
-
+CREATE TABLE IF NOT EXISTS AirShoppingPayload (
+  corporateDiscountCodes text,
+  metadata text,
+  originDestinations text NOT NULL,
+  preferences text,
+  travelers text NOT NULL
+);
 CREATE TABLE IF NOT EXISTS AllowedPaymentMethods (
   agencyCard SMALLINT NOT NULL,
   agencyCash SMALLINT NOT NULL,
@@ -84,1690 +44,900 @@ CREATE TABLE IF NOT EXISTS AllowedPaymentMethods (
   none SMALLINT NOT NULL,
   unusedTicket SMALLINT NOT NULL
 );
-
---
--- SQLINES DEMO *** or table `AlternativePNR` generated from model 'AlternativePNR'
--- SQLINES DEMO *** o the alternative pnrs not owner by the airlines, but for 3th parties.
---
-
-
 CREATE TABLE IF NOT EXISTS AlternativePNR (
-  id TEXT DEFAULT NULL ,
-  providerID TEXT DEFAULT NULL 
+  id text,
+  providerID text 
 );
-
---
--- SQLINES DEMO *** or table `AncillariesToRebook` generated from model 'AncillariesToRebook'
---
-
-
 CREATE TABLE IF NOT EXISTS AncillariesToRebook (
-  flightKey TEXT DEFAULT NULL,
-  rebook SMALLINT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `ArrivalASRQ` generated from model 'ArrivalASRQ'
--- SQLINES DEMO *** st arrival
---
-
-
+  flightKey text,
+  rebook SMALLINT
+);
 CREATE TABLE IF NOT EXISTS ArrivalASRQ (
-  airportCode CHAR(3) NOT NULL ,
-  date TEXT DEFAULT NULL 
+  airportCode CHAR(3) NOT NULL,
+  date text 
 );
-
---
--- SQLINES DEMO *** or table `BaggageAllowance` generated from model 'BaggageAllowance'
---
-
-
 CREATE TABLE IF NOT EXISTS BaggageAllowance (
-  carryOn JSON DEFAULT NULL,
-  checked JSON DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `BaggageAllowanceItem` generated from model 'BaggageAllowanceItem'
---
-
-
+  carryOn text,
+  checked text
+);
 CREATE TABLE IF NOT EXISTS BaggageAllowanceItem (
-  -- chooseType ENUM('one', 'many') DEFAULT NULL ,
-  options JSON DEFAULT NULL ,
-  passengerRefs TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `BaggageAllowanceItemOption` generated from model 'BaggageAllowanceItemOption'
--- SQLINES DEMO ***  Item Option
---
-
-
+  -- chooseType ENUM('one', 'many'),
+  options text,
+  passengerRefs text 
+);
 CREATE TABLE IF NOT EXISTS BaggageAllowanceItemOption (
-  properties JSON DEFAULT NULL ,
-  quantity BIGINT DEFAULT NULL ,
-  text TEXT DEFAULT NULL 
+  properties text,
+  quantity bigint,
+  text text 
 );
-
---
--- SQLINES DEMO *** or table `Benefit` generated from model 'Benefit'
---
-
-
 CREATE TABLE IF NOT EXISTS Benefit (
-  amount TEXT DEFAULT NULL,
-  application TEXT DEFAULT NULL ,
-  description TEXT DEFAULT NULL ,
-  term TEXT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `BookingInstructions` generated from model 'BookingInstructions'
--- SQLINES DEMO *** e is an optional, a mandatory or a not allowed text from the customer´s side depending in the MandatoryText attribute value.
---
-
-
---CREATE TABLE IF NOT EXISTS BookingInstructions (
-  -- mandatoryText ENUM('not_allowed', 'mandatory', 'optional') DEFAULT NULL COMMENT 'This attribute indicates the optional, mandatory or not allowed need for the text',
- -- pattern TEXT DEFAULT NULL COMMENT 'The pattern that the text introduced by the customer should match to. This value can be empty',
- -- placeHolder TEXT DEFAULT NULL COMMENT 'The text in the input or the textarea which helps the customers knows what should write',
- -- type TEXT DEFAULT NULL COMMENT 'The type for the input used to be filled by the customer, it can be number or text'
---)  COMMENT='Indicates if there is an optional, a mandatory or a not allowed text from the customer´s side depending in the MandatoryText attribute value.';
-
---
--- SQLINES DEMO *** or table `BookingReferenceResponse` generated from model 'BookingReferenceResponse'
--- SQLINES DEMO *** esponse
---
-
-
+  amount text,
+  application text,
+  description text,
+  term text
+);
+CREATE TABLE IF NOT EXISTS BookingInstructions (
+  -- mandatoryText ENUM('not_allowed', 'mandatory', 'optional') COMMENT 'This attribute indicates the optional, mandatory or not allowed need for the text',
+ -- pattern text COMMENT 'The pattern that the text introduced by the customer should match to. This value can be empty',
+ -- placeHolder text COMMENT 'The text in the input or the textarea which helps the customers knows what should write',
+ -- type text COMMENT 'The type for the input used to be filled by the customer, it can be number or text'
+)  COMMENT='Indicates if there is an optional, a mandatory or a not allowed text from the customer´s side depending in the MandatoryText attribute value.';
 CREATE TABLE IF NOT EXISTS BookingReferenceResponse (
-  airlineID TEXT DEFAULT NULL ,
-  alternativeIDs JSON DEFAULT NULL,
-  id TEXT DEFAULT NULL ,
-  otherID TEXT DEFAULT NULL 
+  airlineID text,
+  alternativeIDs text,
+  id text,
+  otherID text 
 );
-
---
--- SQLINES DEMO *** or table `CarbonOffset` generated from model 'CarbonOffset'
---
-
-
 CREATE TABLE IF NOT EXISTS CarbonOffset (
-  destination TEXT DEFAULT NULL ,
-  footprint DECIMAL(20, 9) DEFAULT NULL ,
-  origin TEXT DEFAULT NULL ,
-  segmentKey TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `CardInformation` generated from model 'CardInformation'
---
-
-
+  destination text,
+  footprint numeric(20, 9),
+  origin text,
+  segmentKey text 
+);
 CREATE TABLE IF NOT EXISTS CardInformation (
-  cardCode TEXT DEFAULT NULL ,
-  cardNumber TEXT DEFAULT NULL ,
-  expirationDate TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `Characteristics` generated from model 'Characteristics'
--- SQLINES DEMO *** nfo
---
-
-
+  cardCode text,
+  cardNumber text,
+  expirationDate text 
+);
 CREATE TABLE IF NOT EXISTS Characteristics (
-  code TEXT DEFAULT NULL,
-  definition TEXT DEFAULT NULL
+  code text,
+  definition text
 );
-
---
--- SQLINES DEMO *** or table `ClassOfService` generated from model 'ClassOfService'
--- SQLINES DEMO *** ice offered
---
-
-
 CREATE TABLE IF NOT EXISTS ClassOfService (
-  cabinDesignator TEXT DEFAULT NULL ,
-  code TEXT DEFAULT NULL ,
-  disclosureRefs JSON DEFAULT NULL ,
-  fare TEXT DEFAULT NULL,
-  fareRules JSON DEFAULT NULL ,
-  generalClassCode TEXT DEFAULT NULL,
-  refs TEXT DEFAULT NULL 
+  cabinDesignator text,
+  code text,
+  disclosureRefs text,
+  fare text,
+  fareRules text,
+  generalClassCode text,
+  refs text 
 );
-
---
--- SQLINES DEMO *** or table `DepartureASRQ` generated from model 'DepartureASRQ'
--- SQLINES DEMO *** st departure
---
-
-
 CREATE TABLE IF NOT EXISTS DepartureASRQ (
-  airportCode CHAR(3) NOT NULL ,
-  date TEXT NOT NULL 
+  airportCode CHAR(3) NOT NULL,
+  date text NOT NULL 
 );
-
---
--- SQLINES DEMO *** or table `Disclosure` generated from model 'Disclosure'
---
-
-
 CREATE TABLE IF NOT EXISTS Disclosure (
-  descriptions JSON DEFAULT NULL ,
-  listKey TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `DisclosureDescription` generated from model 'DisclosureDescription'
--- SQLINES DEMO *** ption
---
-
-
+  descriptions text,
+  listKey text 
+);
 CREATE TABLE IF NOT EXISTS DisclosureDescription (
-  category TEXT DEFAULT NULL ,
-  item TEXT DEFAULT NULL ,
-  media TEXT DEFAULT NULL,
-  metadataToken TEXT DEFAULT NULL ,
-  originDestinationReference TEXT DEFAULT NULL ,
-  properties JSON DEFAULT NULL ,
-  text TEXT DEFAULT NULL ,
-  units TEXT DEFAULT NULL 
+  category text,
+  item text,
+  media text,
+  metadataToken text,
+  originDestinationReference text,
+  properties text,
+  text text,
+  units text 
 );
-
---
--- SQLINES DEMO *** or table `DisclosureProperty` generated from model 'DisclosureProperty'
--- SQLINES DEMO *** ties
---
-
-
 CREATE TABLE IF NOT EXISTS DisclosureProperty (
-  UOM TEXT DEFAULT NULL ,
-  type TEXT DEFAULT NULL ,
-  value TEXT DEFAULT NULL 
+  UOM text,
+  type text,
+  value text 
 );
-
---
--- SQLINES DEMO *** or table `DiscountPreferences` generated from model 'DiscountPreferences'
---
-
-
 CREATE TABLE IF NOT EXISTS DiscountPreferences (
-  largeFamily TEXT DEFAULT NULL ,
-  residentCode TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `Document` generated from model 'Document'
---
-
-
---CREATE TABLE IF NOT EXISTS Document (
-  --documentID TEXT NOT NULL,
+  largeFamily text,
+  residentCode text 
+);
+CREATE TABLE IF NOT EXISTS Document (
+  documentID text NOT NULL,
 -- documentType ENUM('PP', 'NI', '') NOT NULL COMMENT 'Valid values: ',
- -- expirationDate TEXT DEFAULT NULL COMMENT 'The expiration date of the document using format YYYY-MM-DD.') ;
-
---
--- SQLINES DEMO *** or table `Equipment` generated from model 'Equipment'
---
-
-
+ -- expirationDate text COMMENT 'The expiration date of the document using format YYYY-MM-DD.');
 CREATE TABLE IF NOT EXISTS Equipment (
-  aircraftCode TEXT DEFAULT NULL,
-  name TEXT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `error` generated from model 'error'
--- SQLINES DEMO *** dia type (default view)
---
-
-
+  aircraftCode text,
+  name text
+);
 CREATE TABLE IF NOT EXISTS error (
-  code TEXT DEFAULT NULL ,
-  detail TEXT DEFAULT NULL ,
-  id TEXT DEFAULT NULL ,
-  meta JSON DEFAULT NULL ,
-  status TEXT DEFAULT NULL 
+  code text,
+  detail text,
+  id text,
+  meta text,
+  status text 
 );
-
---
--- SQLINES DEMO *** or table `ExitSeat` generated from model 'ExitSeat'
---
-
-
 CREATE TABLE IF NOT EXISTS ExitSeat (
-  position TEXT DEFAULT NULL ,
-  row BIGINT DEFAULT NULL ,
-  segmentID TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `FQTVAccount` generated from model 'FQTVAccount'
--- SQLINES DEMO ***  account
---
-
-
+  position text,
+  row bigint,
+  segmentID text 
+);
 CREATE TABLE IF NOT EXISTS FQTVAccount (
-  number TEXT DEFAULT NULL 
+  number text 
 );
-
---
--- SQLINES DEMO *** or table `FQTVInfo` generated from model 'FQTVInfo'
--- SQLINES DEMO ***  information
---
-
-
 CREATE TABLE IF NOT EXISTS FQTVInfo (
-  account TEXT DEFAULT NULL,
-  airlineID TEXT DEFAULT NULL 
+  account text,
+  airlineID text 
 );
-
---
--- SQLINES DEMO *** or table `Fare` generated from model 'Fare'
---
-
-
 CREATE TABLE IF NOT EXISTS Fare (
-  Code TEXT DEFAULT NULL ,
-  Definition TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `FareRule` generated from model 'FareRule'
--- SQLINES DEMO *** gment and per each passenger type.
---
-
+  Code text,
+  Definition text 
+);
 /*
 CREATE TABLE IF NOT EXISTS FareRule (
-  cancel ENUM( 'Allowed', 'For Fee', 'Not Allowed') DEFAULT NULL COMMENT 'The fare rule for the cancelability.',
-  cancelEnum ENUM( 'allowed', 'for_fee', 'not_allowed') DEFAULT NULL COMMENT 'The fare rule for the cancelability with a very structure format.',
-  change ENUM( 'Allowed', 'For Fee', 'Not Allowed') DEFAULT NULL COMMENT 'The fare rule for the changeability.',
-  changeEnum ENUM( 'allowed', 'for_fee', 'not_allowed') DEFAULT NULL COMMENT 'The fare rule for the changeability with a very structure format.',
-  passengerRef TEXT DEFAULT NULL COMMENT 'The references tot the passengers involved in the group of FareReules.',
-  passengerType TEXT DEFAULT NULL COMMENT 'The type of the passengers related to this group of FareRule.',
-  penalties JSON DEFAULT NULL COMMENT 'Fare rule penalties.'
+  cancel ENUM( 'Allowed', 'For Fee', 'Not Allowed') COMMENT 'The fare rule for the cancelability.',
+  cancelEnum ENUM( 'allowed', 'for_fee', 'not_allowed') COMMENT 'The fare rule for the cancelability with a very structure format.',
+  change ENUM( 'Allowed', 'For Fee', 'Not Allowed') COMMENT 'The fare rule for the changeability.',
+  changeEnum ENUM( 'allowed', 'for_fee', 'not_allowed') COMMENT 'The fare rule for the changeability with a very structure format.',
+  passengerRef text COMMENT 'The references tot the passengers involved in the group of FareReules.',
+  passengerType text COMMENT 'The type of the passengers related to this group of FareRule.',
+  penalties text COMMENT 'Fare rule penalties.'
 )  COMMENT='Fare Rules per segment and per each passenger type.';
 */
---
--- SQLINES DEMO *** or table `Flight` generated from model 'Flight'
---
-
 /*
 CREATE TABLE IF NOT EXISTS Flight (
-  arrival TEXT DEFAULT NULL,
-  baggageAllowance TEXT DEFAULT NULL,
-  departure TEXT DEFAULT NULL,
-  duration TEXT DEFAULT NULL ,
-  key TEXT DEFAULT NULL ,
-  segments JSON DEFAULT NULL
-)  ;
-
---*/
--- SQLINES DEMO *** or table `FlightDetail` generated from model 'FlightDetail'
---
-
-
+  arrival text,
+  baggageAllowance text,
+  departure text,
+  duration text,
+  key text,
+  segments text
+);
+*/
 CREATE TABLE IF NOT EXISTS FlightDetail (
-  classOfService TEXT DEFAULT NULL,
-  duration TEXT DEFAULT NULL ,
-  seatsLeft TEXT DEFAULT NULL ,
-  segmentType TEXT DEFAULT NULL ,
-  stopLocations JSON DEFAULT NULL ,
-  stopQuantity TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `FlightDetailFare` generated from model 'FlightDetailFare'
---
-
-
+  classOfService text,
+  duration text,
+  seatsLeft text,
+  segmentType text,
+  stopLocations text,
+  stopQuantity text 
+);
 CREATE TABLE IF NOT EXISTS FlightDetailFare (
-  basisCode TEXT DEFAULT NULL ,
-  cabin TEXT DEFAULT NULL,
-  code TEXT DEFAULT NULL ,
-  marketingName TEXT DEFAULT NULL ,
-  priceClassName TEXT DEFAULT NULL ,
-  standardName TEXT DEFAULT NULL,
-  type TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `FlightPointData` generated from model 'FlightPointData'
---
-
-
+  basisCode text,
+  cabin text,
+  code text,
+  marketingName text,
+  priceClassName text,
+  standardName text,
+  type text 
+);
 CREATE TABLE IF NOT EXISTS FlightPointData (
-  airportCode TEXT NOT NULL ,
-  airportName TEXT DEFAULT NULL ,
-  countryID TEXT DEFAULT NULL ,
-  date TEXT DEFAULT NULL ,
-  parentLocation TEXT DEFAULT NULL ,
-  terminalName TEXT DEFAULT NULL ,
-  time TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `FlightPointDataRSArrInner` generated from model 'FlightPointDataRSArrInner'
---
-
-
+  airportCode text NOT NULL,
+  airportName text,
+  countryID text,
+  date text,
+  parentLocation text,
+  terminalName text,
+  time timestampz 
+);
 CREATE TABLE IF NOT EXISTS FlightPointDataRSArrInner (
-  airportCode TEXT NOT NULL ,
-  airportName TEXT DEFAULT NULL ,
-  countryID TEXT DEFAULT NULL ,
-  date TEXT DEFAULT NULL ,
-  parentLocation TEXT DEFAULT NULL ,
-  terminalName TEXT DEFAULT NULL ,
-  time TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `FlightPointDataRSDepInner` generated from model 'FlightPointDataRSDepInner'
---
-
-
+  airportCode text NOT NULL,
+  airportName text,
+  countryID text,
+  date text,
+  parentLocation text,
+  terminalName text,
+  time timestampz 
+);
 CREATE TABLE IF NOT EXISTS FlightPointDataRSDepInner (
-  airportCode TEXT NOT NULL ,
-  airportName TEXT DEFAULT NULL ,
-  countryID TEXT DEFAULT NULL ,
-  date TEXT DEFAULT NULL ,
-  parentLocation TEXT DEFAULT NULL ,
-  terminalName TEXT DEFAULT NULL ,
-  time TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `FlightSegment` generated from model 'FlightSegment'
---
-
-
+  airportCode text NOT NULL,
+  airportName text,
+  countryID text,
+  date text,
+  parentLocation text,
+  terminalName text,
+  time timestampz 
+);
 CREATE TABLE IF NOT EXISTS FlightSegment (
-  ODRef TEXT DEFAULT NULL ,
-  detail TEXT DEFAULT NULL,
-  equipment TEXT NOT NULL,
-  fareCode TEXT DEFAULT NULL ,
-  flightNumber TEXT DEFAULT NULL ,
-  marketingCarrier TEXT NOT NULL,
-  operatingCarrier TEXT DEFAULT NULL,
-  originDestination TEXT NOT NULL,
-  segmentID TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `Identity4Discount` generated from model 'Identity4Discount'
---
-
-
+  ODRef text,
+  detail text,
+  equipment text NOT NULL,
+  fareCode text,
+  flightNumber text,
+  marketingCarrier text NOT NULL,
+  operatingCarrier text,
+  originDestination text NOT NULL,
+  segmentID text 
+);
 CREATE TABLE IF NOT EXISTS Identity4Discount (
-  identityDocumentNumber TEXT DEFAULT NULL,
-  identityDocumentType TEXT DEFAULT NULL,
-  remark TEXT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `ItinShoppingMedia` generated from model 'ItinShoppingMedia'
--- SQLINES DEMO ***  media type (default view)
---
-
-
+  identityDocumentNumber text,
+  identityDocumentType text,
+  remark text
+);
 CREATE TABLE IF NOT EXISTS ItinShoppingMedia (
-  itinerary TEXT DEFAULT NULL,
-  status TEXT DEFAULT NULL 
+  itinerary text,
+  status text 
 );
-
---
--- SQLINES DEMO *** or table `ItinShoppingPayload` generated from model 'ItinShoppingPayload'
--- SQLINES DEMO *** ad is the type for ItinShopping endpoint request body
---
-
-
 CREATE TABLE IF NOT EXISTS ItinShoppingPayload (
-  itinerary JSON NOT NULL ,
-  metadata TEXT DEFAULT NULL,
-  travelers TEXT NOT NULL
+  itinerary text NOT NULL,
+  metadata text,
+  travelers text NOT NULL
 );
-
---
--- SQLINES DEMO *** or table `ItineraryFlight` generated from model 'ItineraryFlight'
---
-
-
 CREATE TABLE IF NOT EXISTS ItineraryFlight (
-  arrival TEXT DEFAULT NULL,
-  departure TEXT DEFAULT NULL,
-  duration TEXT DEFAULT NULL ,
-  key TEXT DEFAULT NULL ,
-  segments JSON DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `ItineraryFlightSegment` generated from model 'ItineraryFlightSegment'
---
-
-
-CREATE TABLE IF NOT EXISTS ItineraryFlightSegment (
-  ODRef TEXT DEFAULT NULL ,
-  detail TEXT DEFAULT NULL,
-  equipment TEXT DEFAULT NULL,
-  flightNumber TEXT DEFAULT NULL ,
-  marketingCarrier TEXT DEFAULT NULL,
-  operatingCarrier TEXT DEFAULT NULL,
-  originDestination TEXT DEFAULT NULL,
-  segmentID TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `ItineraryFlightSegmentDetail` generated from model 'ItineraryFlightSegmentDetail'
---
-
-
-CREATE TABLE IF NOT EXISTS ItineraryFlightSegmentDetail (
-  duration TEXT DEFAULT NULL ,
-  segmentType TEXT DEFAULT NULL ,
-  stopLocations JSON DEFAULT NULL ,
-  stopQuantity TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `ItineraryOption` generated from model 'ItineraryOption'
---
-
-
-CREATE TABLE IF NOT EXISTS ItineraryOption (
-  details JSON DEFAULT NULL,
-  disclosures JSON DEFAULT NULL ,
-  offerID TEXT DEFAULT NULL ,
-  price TEXT DEFAULT NULL,
-  priceBreakdown TEXT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `ItineraryOptionFlight` generated from model 'ItineraryOptionFlight'
---
-
-
-CREATE TABLE IF NOT EXISTS ItineraryOptionFlight (
-  baggageAllowance TEXT DEFAULT NULL,
-  key TEXT DEFAULT NULL ,
-  segments JSON DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `ItineraryOptionFlightSegmentDetail` generated from model 'ItineraryOptionFlightSegmentDetail'
---
-
-
-CREATE TABLE IF NOT EXISTS ItineraryOptionFlightSegmentDetail (
-  ODRef TEXT DEFAULT NULL ,
-  cabinDesignator TEXT DEFAULT NULL ,
-  code TEXT DEFAULT NULL ,
-  disclosureRefs JSON DEFAULT NULL ,
-  fare TEXT DEFAULT NULL,
-  fareRules JSON DEFAULT NULL ,
-  generalClassCode TEXT DEFAULT NULL,
-  refs TEXT DEFAULT NULL ,
-  seatsLeft TEXT DEFAULT NULL ,
-  segmentID TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `ItineraryRQ` generated from model 'ItineraryRQ'
--- SQLINES DEMO ***  object for flight
---
-
-
-CREATE TABLE IF NOT EXISTS ItineraryRQ (
-  arrival CHAR(3) NOT NULL ,
-  date TEXT NOT NULL ,
-  departure CHAR(3) NOT NULL ,
-  flightNumbers JSON DEFAULT NULL 
+  arrival text,
+  departure text,
+  duration text,
+  key text,
+  segments text
 );
-
---
--- SQLINES DEMO *** or table `ItineraryRS` generated from model 'ItineraryRS'
---
-
+CREATE TABLE IF NOT EXISTS ItineraryFlightSegment (
+  ODRef text,
+  detail text,
+  equipment text,
+  flightNumber text,
+  marketingCarrier text,
+  operatingCarrier text,
+  originDestination text,
+  segmentID text 
+);
+CREATE TABLE IF NOT EXISTS ItineraryFlightSegmentDetail (
+  duration text,
+  segmentType text,
+  stopLocations text,
+  stopQuantity text 
+);
+CREATE TABLE IF NOT EXISTS ItineraryOption (
+  details text,
+  disclosures text,
+  offerID text,
+  price text,
+  priceBreakdown text
+);
+CREATE TABLE IF NOT EXISTS ItineraryOptionFlight (
+  baggageAllowance text,
+  key text,
+  segments text
+);
+CREATE TABLE IF NOT EXISTS ItineraryOptionFlightSegmentDetail (
+  ODRef text,
+  cabinDesignator text,
+  code text,
+  disclosureRefs text,
+  fare text,
+  fareRules text,
+  generalClassCode text,
+  refs text,
+  seatsLeft text,
+  segmentID text 
+);
+CREATE TABLE IF NOT EXISTS ItineraryRQ (
+  arrival CHAR(3) NOT NULL,
+  date text NOT NULL,
+  departure CHAR(3) NOT NULL,
+  flightNumbers text 
+);
 /*
 CREATE TABLE IF NOT EXISTS ItineraryRS (
-  createdAt BIGINT DEFAULT NULL ,
-  flights JSON DEFAULT NULL ,
-  maxNumberOfStops BIGINT DEFAULT NULL ,
-  offerType ENUM('oneWay', 'roundTrip', 'multiCity') DEFAULT NULL COMMENT 'Offer type',
-  options JSON DEFAULT NULL COMMENT 'possible fare options for itinerary',
-  owner CHAR(2) DEFAULT NULL COMMENT '2-letter code of provider',
-  paymentTimeLimit TEXT DEFAULT NULL COMMENT 'Payment time limit, after this time created order will become expired'
-) ;
-
+  createdAt bigint,
+  flights text,
+  maxNumberOfStops bigint,
+  offerType ENUM('oneWay', 'roundTrip', 'multiCity') COMMENT 'Offer type',
+  options text COMMENT 'possible fare options for itinerary',
+  owner CHAR(2) COMMENT '2-letter code of provider',
+  paymentTimeLimit text COMMENT 'Payment time limit, after this time created order will become expired'
+);
 -*/-
--- SQLINES DEMO *** or table `MarketingCarrier` generated from model 'MarketingCarrier'
---
-
-
 CREATE TABLE IF NOT EXISTS MarketingCarrier (
-  airlineID CHAR(2) NOT NULL ,
-  flightNumber TEXT NOT NULL,
-  name TEXT NOT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `MediaData` generated from model 'MediaData'
--- SQLINES DEMO *** have media types
---
-
-
+  airlineID CHAR(2) NOT NULL,
+  flightNumber text NOT NULL,
+  name text NOT NULL 
+);
 CREATE TABLE IF NOT EXISTS MediaData (
-  id TEXT DEFAULT NULL ,
-  link TEXT DEFAULT NULL 
+  id text,
+  link text 
 );
-
---
--- SQLINES DEMO *** or table `metadata` generated from model 'metadata'
---
-
-
 CREATE TABLE IF NOT EXISTS metadata (
-  country CHAR(2) NOT NULL ,
-  currency TEXT NOT NULL ,
-  locale TEXT NOT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OfferPriceAllowedRequests` generated from model 'OfferPriceAllowedRequests'
---
-
-
+  country CHAR(2) NOT NULL,
+  currency text NOT NULL,
+  locale text NOT NULL 
+);
 CREATE TABLE IF NOT EXISTS OfferPriceAllowedRequests (
-  OrderCreateWithPayment SMALLINT DEFAULT NULL,
-  SeatAvailability SMALLINT DEFAULT NULL,
-  ServiceList SMALLINT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `OfferPriceMedia` generated from model 'OfferPriceMedia'
--- SQLINES DEMO *** edia type (default view)
---
-
-
+  OrderCreateWithPayment SMALLINT,
+  SeatAvailability SMALLINT,
+  ServiceList SMALLINT
+);
 CREATE TABLE IF NOT EXISTS OfferPriceMedia (
-  agencyData TEXT DEFAULT NULL,
-  allowedPaymentMethods TEXT DEFAULT NULL,
-  allowedRequests TEXT DEFAULT NULL,
-  benefits TEXT DEFAULT NULL,
-  cardSurcharges JSON DEFAULT NULL ,
-  createdAt BIGINT DEFAULT NULL ,
-  disclosures JSON DEFAULT NULL,
-  discounts TEXT DEFAULT NULL,
-  extraInfoMandatory JSON DEFAULT NULL ,
-  flights JSON DEFAULT NULL ,
-  instantPayment TEXT DEFAULT NULL ,
-  offerExpiration TEXT DEFAULT NULL ,
-  offerID TEXT DEFAULT NULL ,
-  owner TEXT DEFAULT NULL ,
-  passengers JSON DEFAULT NULL ,
-  paymentTimeLimit TEXT DEFAULT NULL ,
-  price TEXT DEFAULT NULL,
-  remarks TEXT DEFAULT NULL,
-  shoppingResponseID TEXT DEFAULT NULL ,
-  specialServices JSON DEFAULT NULL ,
-  warnings JSON DEFAULT NULL
+  agencyData text,
+  allowedPaymentMethods text,
+  allowedRequests text,
+  benefits text,
+  cardSurcharges text,
+  createdAt bigint,
+  disclosures text,
+  discounts text,
+  extraInfoMandatory text,
+  flights text,
+  instantPayment text,
+  offerExpiration text,
+  offerID text,
+  owner text,
+  passengers text,
+  paymentTimeLimit text,
+  price text,
+  remarks text,
+  shoppingResponseID text,
+  specialServices text,
+  warnings text
 );
-
---
--- SQLINES DEMO *** or table `OfferPricePayload` generated from model 'OfferPricePayload'
---
-
-
 CREATE TABLE IF NOT EXISTS OfferPricePayload (
-  offerID TEXT DEFAULT NULL,
-  offerIDs JSON DEFAULT NULL,
-  reshopOfferID TEXT DEFAULT NULL ,
-  services JSON DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OfferPriceRemarks` generated from model 'OfferPriceRemarks'
---
-
-
+  offerID text,
+  offerIDs text,
+  reshopOfferID text,
+  services text 
+);
 CREATE TABLE IF NOT EXISTS OfferPriceRemarks (
-  templates JSON DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OperatingCarrier` generated from model 'OperatingCarrier'
---
-
-
+  templates text 
+);
 CREATE TABLE IF NOT EXISTS OperatingCarrier (
-  airlineID CHAR(2) NOT NULL ,
-  flightNumber TEXT DEFAULT NULL,
-  name TEXT NOT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderCancelMedia` generated from model 'OrderCancelMedia'
--- SQLINES DEMO *** media type (default view)
---
-
-
+  airlineID CHAR(2) NOT NULL,
+  flightNumber text,
+  name text NOT NULL 
+);
 CREATE TABLE IF NOT EXISTS OrderCancelMedia (
-  orderID TEXT DEFAULT NULL ,
-  warnings JSON DEFAULT NULL 
+  orderID text,
+  warnings text 
 );
-
---
--- SQLINES DEMO *** or table `OrderCancelPayload` generated from model 'OrderCancelPayload'
---
-
-
 CREATE TABLE IF NOT EXISTS OrderCancelPayload (
-  id TEXT NOT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderChangePayload` generated from model 'OrderChangePayload'
---
-
-
+  id text NOT NULL 
+);
 CREATE TABLE IF NOT EXISTS OrderChangePayload (
-  action TEXT DEFAULT NULL ,
-  id TEXT NOT NULL ,
-  loyaltyProgramAccount TEXT DEFAULT NULL ,
-  passengerUpdate TEXT DEFAULT NULL,
-  passengers JSON DEFAULT NULL ,
-  payment TEXT DEFAULT NULL,
-  reshopOfferID TEXT DEFAULT NULL ,
-  services JSON DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderCommentsMedia` generated from model 'OrderCommentsMedia'
--- SQLINES DEMO *** a media type (default view)
---
-
-
+  action text,
+  id text NOT NULL,
+  loyaltyProgramAccount text,
+  passengerUpdate text,
+  passengers text,
+  payment text,
+  reshopOfferID text,
+  services text 
+);
 CREATE TABLE IF NOT EXISTS OrderCommentsMedia (
-  ok SMALLINT DEFAULT NULL 
+  ok SMALLINT 
 );
-
---
--- SQLINES DEMO *** or table `OrderCommentsPayload` generated from model 'OrderCommentsPayload'
--- SQLINES DEMO *** oad is the type for OrderComments endpoint request body
---
-
-
 CREATE TABLE IF NOT EXISTS OrderCommentsPayload (
-  comments TEXT DEFAULT NULL,
-  id TEXT NOT NULL 
+  comments text,
+  id text NOT NULL 
 );
-
---
--- SQLINES DEMO *** or table `OrderCreateAllowedRequests` generated from model 'OrderCreateAllowedRequests'
---
-
-
 CREATE TABLE IF NOT EXISTS OrderCreateAllowedRequests (
-  pending TEXT DEFAULT NULL,
-  started TEXT DEFAULT NULL,
-  ticketed TEXT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderCreateAllowedRequestsPending` generated from model 'OrderCreateAllowedRequestsPending'
---
-
-
+  pending text,
+  started text,
+  ticketed text
+);
 CREATE TABLE IF NOT EXISTS OrderCreateAllowedRequestsPending (
-  OrderCancel SMALLINT DEFAULT NULL,
-  OrderReprice SMALLINT DEFAULT NULL,
-  OrderSplit SMALLINT DEFAULT NULL,
-  SeatAvailability SMALLINT DEFAULT NULL,
-  ServiceList SMALLINT DEFAULT NULL,
-  TicketIssue SMALLINT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderCreateAllowedRequestsStarted` generated from model 'OrderCreateAllowedRequestsStarted'
---
-
-
+  OrderCancel SMALLINT,
+  OrderReprice SMALLINT,
+  OrderSplit SMALLINT,
+  SeatAvailability SMALLINT,
+  ServiceList SMALLINT,
+  TicketIssue SMALLINT
+);
 CREATE TABLE IF NOT EXISTS OrderCreateAllowedRequestsStarted (
-  OrderCancel SMALLINT DEFAULT NULL,
-  OrderReshop SMALLINT DEFAULT NULL,
-  OrderReshopRefund SMALLINT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderCreateAllowedRequestsTicketed` generated from model 'OrderCreateAllowedRequestsTicketed'
---
-
-
+  OrderCancel SMALLINT,
+  OrderReshop SMALLINT,
+  OrderReshopRefund SMALLINT
+);
 CREATE TABLE IF NOT EXISTS OrderCreateAllowedRequestsTicketed (
-  OrderCancel SMALLINT DEFAULT NULL,
-  OrderCancelToVoucher SMALLINT DEFAULT NULL,
-  OrderReshop SMALLINT DEFAULT NULL,
-  OrderReshopRefund SMALLINT DEFAULT NULL,
-  OrderReshopRouteChange SMALLINT DEFAULT NULL,
-  OrderSplit SMALLINT DEFAULT NULL,
-  OrderVoid SMALLINT DEFAULT NULL,
-  SeatAvailability SMALLINT DEFAULT NULL,
-  ServiceList SMALLINT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderCreateMedia` generated from model 'OrderCreateMedia'
--- SQLINES DEMO *** media type (default view)
---
-
-
+  OrderCancel SMALLINT,
+  OrderCancelToVoucher SMALLINT,
+  OrderReshop SMALLINT,
+  OrderReshopRefund SMALLINT,
+  OrderReshopRouteChange SMALLINT,
+  OrderSplit SMALLINT,
+  OrderVoid SMALLINT,
+  SeatAvailability SMALLINT,
+  ServiceList SMALLINT
+);
 CREATE TABLE IF NOT EXISTS OrderCreateMedia (
-  agency TEXT DEFAULT NULL ,
-  agencyData TEXT DEFAULT NULL,
-  allowedPaymentMethods TEXT DEFAULT NULL,
-  allowedRequests TEXT DEFAULT NULL,
-  approvalStatus TEXT DEFAULT NULL ,
-  approved SMALLINT DEFAULT NULL ,
-  benefits TEXT DEFAULT NULL,
-  bookingDate TEXT DEFAULT NULL,
-  bookingReference TEXT DEFAULT NULL,
-  bookingType TEXT DEFAULT NULL,
-  carbonOffset JSON DEFAULT NULL ,
-  comments TEXT DEFAULT NULL,
-  corporateID TEXT DEFAULT NULL ,
-  createdAt TEXT DEFAULT NULL,
-  disclosures JSON DEFAULT NULL,
-  disruptionMessage TEXT DEFAULT NULL ,
-  disruptionStatus TEXT DEFAULT NULL ,
-  externalOrderID TEXT DEFAULT NULL ,
-  files JSON DEFAULT NULL ,
-  flights JSON DEFAULT NULL ,
-  formOfPayment TEXT DEFAULT NULL,
-  history JSON DEFAULT NULL,
-  id TEXT DEFAULT NULL ,
-  logs JSON DEFAULT NULL,
-  metas JSON DEFAULT NULL ,
-  orderID TEXT DEFAULT NULL ,
-  passengers JSON DEFAULT NULL,
-  payment TEXT DEFAULT NULL,
-  paymentTimeLimit TEXT DEFAULT NULL ,
-  penalties JSON DEFAULT NULL ,
-  pnr TEXT DEFAULT NULL ,
-  price TEXT DEFAULT NULL,
-  priceGuaranteeTimeLimit TEXT DEFAULT NULL ,
-  readyToTicketIssue SMALLINT DEFAULT NULL ,
-  refundType TEXT DEFAULT NULL ,
-  refundedAmount TEXT DEFAULT NULL,
-  remarks TEXT DEFAULT NULL,
-  seats JSON DEFAULT NULL ,
-  sendForApprovalAllowed SMALLINT DEFAULT NULL ,
-  services JSON DEFAULT NULL ,
-  status TEXT DEFAULT NULL ,
-  ticketIssue JSON DEFAULT NULL ,
-  tickets JSON DEFAULT NULL ,
-  updatedAt TEXT DEFAULT NULL,
-  viewMode TEXT DEFAULT NULL ,
-  warnings JSON DEFAULT NULL
+  agency text,
+  agencyData text,
+  allowedPaymentMethods text,
+  allowedRequests text,
+  approvalStatus text,
+  approved SMALLINT,
+  benefits text,
+  bookingDate text,
+  bookingReference text,
+  bookingType text,
+  carbonOffset text,
+  comments text,
+  corporateID text,
+  createdAt text,
+  disclosures text,
+  disruptionMessage text,
+  disruptionStatus text,
+  externalOrderID text,
+  files text,
+  flights text,
+  formOfPayment text,
+  history text,
+  id text,
+  logs text,
+  metas text,
+  orderID text,
+  passengers text,
+  payment text,
+  paymentTimeLimit text,
+  penalties text,
+  pnr text,
+  price text,
+  priceGuaranteeTimeLimit text,
+  readyToTicketIssue SMALLINT,
+  refundType text,
+  refundedAmount text,
+  remarks text,
+  seats text,
+  sendForApprovalAllowed SMALLINT,
+  services text,
+  status text,
+  ticketIssue text,
+  tickets text,
+  updatedAt text,
+  viewMode text,
+  warnings text
 );
-
---
--- SQLINES DEMO *** or table `OrderCreatePayload` generated from model 'OrderCreatePayload'
---
-
-
 CREATE TABLE IF NOT EXISTS OrderCreatePayload (
-  corporateID TEXT DEFAULT NULL ,
-  loyaltyProgramAccount TEXT DEFAULT NULL ,
-  metas JSON DEFAULT NULL ,
-  passengers JSON NOT NULL,
-  payment TEXT DEFAULT NULL,
-  remarks TEXT DEFAULT NULL,
-  shoppingResponseID TEXT NOT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderCreatePayment` generated from model 'OrderCreatePayment'
---
-
-
+  corporateID text,
+  loyaltyProgramAccount text,
+  metas text,
+  passengers text NOT NULL,
+  payment text,
+  remarks text,
+  shoppingResponseID text NOT NULL 
+);
 CREATE TABLE IF NOT EXISTS OrderCreatePayment (
-  amount DECIMAL(20, 9) DEFAULT NULL ,
-  cardInformation TEXT DEFAULT NULL,
-  currency TEXT DEFAULT NULL ,
-  status TEXT DEFAULT NULL ,
-  type TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderCreateRemarks` generated from model 'OrderCreateRemarks'
---
-
-
+  amount numeric(20, 9),
+  cardInformation text,
+  currency text,
+  status text,
+  type text 
+);
 CREATE TABLE IF NOT EXISTS OrderCreateRemarks (
-  data TEXT DEFAULT NULL,
-  result TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderFile` generated from model 'OrderFile'
---
-
-
+  data text,
+  result text 
+);
 CREATE TABLE IF NOT EXISTS OrderFile (
-  id TEXT DEFAULT NULL ,
-  type TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderHistoryItem` generated from model 'OrderHistoryItem'
---
-
-
+  id text,
+  type text 
+);
 CREATE TABLE IF NOT EXISTS OrderHistoryItem (
-  agency TEXT DEFAULT NULL ,
-  agent TEXT DEFAULT NULL ,
-  details JSON DEFAULT NULL ,
-  eventID TEXT DEFAULT NULL ,
-  eventTime TEXT DEFAULT NULL ,
-  id TEXT DEFAULT NULL ,
-  price TEXT DEFAULT NULL,
-  tickets JSON DEFAULT NULL ,
-  transactionType TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderHistoryMedia` generated from model 'OrderHistoryMedia'
--- SQLINES DEMO ***  media type (default view)
---
-
-
+  agency text,
+  agent text,
+  details text,
+  eventID text,
+  eventtime timestampz,
+  id text,
+  price text,
+  tickets text,
+  transactionType text 
+);
 CREATE TABLE IF NOT EXISTS OrderHistoryMedia (
-  count BIGINT NOT NULL,
-  history JSON NOT NULL
+  count bigint NOT NULL,
+  history text NOT NULL
 );
-
---
--- SQLINES DEMO *** or table `OrderListCounters` generated from model 'OrderListCounters'
---
-
-
 CREATE TABLE IF NOT EXISTS OrderListCounters (
-  active BIGINT DEFAULT NULL,
-  approved BIGINT DEFAULT NULL,
-  cancelled BIGINT DEFAULT NULL,
-  disrupted BIGINT DEFAULT NULL,
-  pending BIGINT DEFAULT NULL,
-  refused BIGINT DEFAULT NULL,
-  ticketed BIGINT DEFAULT NULL,
-  underApproval BIGINT DEFAULT NULL,
-  unused BIGINT DEFAULT NULL,
-  voided BIGINT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderListItem` generated from model 'OrderListItem'
---
-
-
+  active bigint,
+  approved bigint,
+  cancelled bigint,
+  disrupted bigint,
+  pending bigint,
+  refused bigint,
+  ticketed bigint,
+  underApproval bigint,
+  unused bigint,
+  voided bigint
+);
 CREATE TABLE IF NOT EXISTS OrderListItem (
-  agency TEXT DEFAULT NULL,
-  approveStatus TEXT DEFAULT NULL ,
-  bookingDate TEXT DEFAULT NULL,
-  bookingType TEXT DEFAULT NULL,
-  corporateID TEXT DEFAULT NULL ,
-  disruptionStatus TEXT DEFAULT NULL ,
-  flights JSON DEFAULT NULL ,
-  id TEXT DEFAULT NULL ,
-  orderID TEXT DEFAULT NULL,
-  owner TEXT DEFAULT NULL,
-  passengers JSON DEFAULT NULL,
-  paymentTimeLimit TEXT DEFAULT NULL ,
-  pnr TEXT DEFAULT NULL ,
-  provider TEXT DEFAULT NULL,
-  status TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderListMedia` generated from model 'OrderListMedia'
--- SQLINES DEMO *** dia type (default view)
---
-
-
+  agency text,
+  approveStatus text,
+  bookingDate text,
+  bookingType text,
+  corporateID text,
+  disruptionStatus text,
+  flights text,
+  id text,
+  orderID text,
+  owner text,
+  passengers text,
+  paymentTimeLimit text,
+  pnr text,
+  provider text,
+  status text 
+);
 CREATE TABLE IF NOT EXISTS OrderListMedia (
-  agencies JSON DEFAULT NULL,
-  count BIGINT DEFAULT NULL,
-  counters TEXT DEFAULT NULL,
-  orders JSON DEFAULT NULL
+  agencies text,
+  count bigint,
+  counters text,
+  orders text
 );
-
---
--- SQLINES DEMO *** or table `OrderLog` generated from model 'OrderLog'
--- Order warning
---
-
-
+ Order warning
 CREATE TABLE IF NOT EXISTS OrderLog (
-  severity TEXT DEFAULT NULL ,
-  text TEXT DEFAULT NULL ,
-  timestamp TEXT DEFAULT NULL ,
-  type TEXT DEFAULT NULL 
+  severity text,
+  text text,
+  timestamp text,
+  type text 
 );
-
---
--- SQLINES DEMO *** or table `OrderMetasMedia` generated from model 'OrderMetasMedia'
--- SQLINES DEMO *** edia type (default view)
---
-
-
 CREATE TABLE IF NOT EXISTS OrderMetasMedia (
-  ok SMALLINT DEFAULT NULL 
+  ok SMALLINT 
 );
-
---
--- SQLINES DEMO *** or table `OrderMetasPayload` generated from model 'OrderMetasPayload'
--- SQLINES DEMO ***  is the type for OrderMetas endpoint request body
---
-
-
 CREATE TABLE IF NOT EXISTS OrderMetasPayload (
-  id TEXT NOT NULL ,
-  metas JSON DEFAULT NULL 
+  id text NOT NULL,
+  metas text 
 );
-
---
--- SQLINES DEMO *** or table `OrderRemarkData` generated from model 'OrderRemarkData'
--- Order remarks data
---
-
-
+ Order remarks data
 CREATE TABLE IF NOT EXISTS OrderRemarkData (
-  template TEXT DEFAULT NULL ,
-  variables JSON DEFAULT NULL 
+  template text,
+  variables text 
 );
-
---
--- SQLINES DEMO *** or table `OrderRemarkTemplate` generated from model 'OrderRemarkTemplate'
--- SQLINES DEMO *** plate
---
-
-
 CREATE TABLE IF NOT EXISTS OrderRemarkTemplate (
-  data TEXT DEFAULT NULL ,
-  name TEXT DEFAULT NULL ,
-  neededOnCreation SMALLINT DEFAULT NULL 
+  data text,
+  name text,
+  neededOnCreation SMALLINT 
 );
-
---
--- SQLINES DEMO *** or table `OrderRemarks` generated from model 'OrderRemarks'
--- SQLINES DEMO *** ect. Created plain text is used in air files
---
-
-
 CREATE TABLE IF NOT EXISTS OrderRemarks (
-  data TEXT DEFAULT NULL,
-  result TEXT DEFAULT NULL ,
-  templates JSON DEFAULT NULL
+  data text,
+  result text,
+  templates text
 );
-
---
--- SQLINES DEMO *** or table `OrderRemarksMedia` generated from model 'OrderRemarksMedia'
--- SQLINES DEMO ***  media type (default view)
---
-
-
 CREATE TABLE IF NOT EXISTS OrderRemarksMedia (
-  ok SMALLINT DEFAULT NULL 
+  ok SMALLINT 
 );
-
---
--- SQLINES DEMO *** or table `OrderRemarksPayload` generated from model 'OrderRemarksPayload'
--- SQLINES DEMO *** ad is the type for OrderRemarks endpoint request body
---
-
-
 CREATE TABLE IF NOT EXISTS OrderRemarksPayload (
-  data TEXT DEFAULT NULL,
-  id TEXT NOT NULL ,
-  result TEXT DEFAULT NULL 
+  data text,
+  id text NOT NULL,
+  result text 
 );
-
---
--- SQLINES DEMO *** or table `OrderReshopMedia` generated from model 'OrderReshopMedia'
--- SQLINES DEMO *** media type (default view)
---
-
-
 CREATE TABLE IF NOT EXISTS OrderReshopMedia (
-  offers JSON DEFAULT NULL
+  offers text
 );
-
---
--- SQLINES DEMO *** or table `OrderReshopMediaType` generated from model 'OrderReshopMediaType'
---
-
-
 CREATE TABLE IF NOT EXISTS OrderReshopMediaType (
-  benefits TEXT DEFAULT NULL,
-  disclosures JSON DEFAULT NULL ,
-  flights JSON DEFAULT NULL ,
-  offerID TEXT DEFAULT NULL ,
-  offerType ENUM('oneWay', 'roundTrip', 'outbound', 'return') DEFAULT NULL ,
-  owner CHAR(2) DEFAULT NULL ,
-  price TEXT DEFAULT NULL,
-  priceBreakdown TEXT DEFAULT NULL,
-  priceChange SMALLINT DEFAULT NULL ,
-  warnings JSON DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderReshopPayload` generated from model 'OrderReshopPayload'
---
-
-
+  benefits text,
+  disclosures text,
+  flights text,
+  offerID text,
+  offerType ENUM('oneWay', 'roundTrip', 'outbound', 'return'),
+  owner CHAR(2),
+  price text,
+  priceBreakdown text,
+  priceChange SMALLINT,
+  warnings text
+);
 CREATE TABLE IF NOT EXISTS OrderReshopPayload (
-  id TEXT NOT NULL ,
-  originDestinations JSON NOT NULL ,
-  preferences TEXT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderReshopRefundMedia` generated from model 'OrderReshopRefundMedia'
--- SQLINES DEMO *** Media media type (default view)
---
-
-
+  id text NOT NULL,
+  originDestinations text NOT NULL,
+  preferences text
+);
 CREATE TABLE IF NOT EXISTS OrderReshopRefundMedia (
-  flights JSON DEFAULT NULL ,
-  originalOrder TEXT DEFAULT NULL,
-  penalty TEXT DEFAULT NULL,
-  refund TEXT DEFAULT NULL,
-  seats JSON DEFAULT NULL ,
-  services JSON DEFAULT NULL ,
-  tickets JSON DEFAULT NULL ,
-  voidPermited SMALLINT DEFAULT NULL ,
-  warnings JSON DEFAULT NULL
+  flights text,
+  originalOrder text,
+  penalty text,
+  refund text,
+  seats text,
+  services text,
+  tickets text,
+  voidPermited SMALLINT,
+  warnings text
 );
-
---
--- SQLINES DEMO *** or table `OrderReshopRefundPayload` generated from model 'OrderReshopRefundPayload'
---
-
-
 CREATE TABLE IF NOT EXISTS OrderReshopRefundPayload (
-  id TEXT NOT NULL ,
-  type TEXT 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderReshopRepriceMedia` generated from model 'OrderReshopRepriceMedia'
--- SQLINES DEMO *** eMedia media type (default view)
---
-
-
+  id text NOT NULL,
+  type text 
+);
 CREATE TABLE IF NOT EXISTS OrderReshopRepriceMedia (
-  benefits TEXT DEFAULT NULL,
-  cardSurcharges JSON DEFAULT NULL ,
-  disclosures JSON DEFAULT NULL,
-  flights JSON DEFAULT NULL ,
-  offerID TEXT DEFAULT NULL ,
-  owner TEXT DEFAULT NULL ,
-  price TEXT DEFAULT NULL,
-  seatsToRebook JSON DEFAULT NULL ,
-  servicesToRebook JSON DEFAULT NULL ,
-  warnings JSON DEFAULT NULL
+  benefits text,
+  cardSurcharges text,
+  disclosures text,
+  flights text,
+  offerID text,
+  owner text,
+  price text,
+  seatsToRebook text,
+  servicesToRebook text,
+  warnings text
 );
-
---
--- SQLINES DEMO *** or table `OrderReshopRepricePayload` generated from model 'OrderReshopRepricePayload'
---
-
-
 CREATE TABLE IF NOT EXISTS OrderReshopRepricePayload (
-  id TEXT NOT NULL ,
-  offerID TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `OrderRetrievePayload` generated from model 'OrderRetrievePayload'
--- SQLINES DEMO *** oad is the type for OrderRetrieve endpoint request body
---
-
-
+  id text NOT NULL,
+  offerID text 
+);
 CREATE TABLE IF NOT EXISTS OrderRetrievePayload (
-  id TEXT NOT NULL 
+  id text NOT NULL 
 );
-
---
--- SQLINES DEMO *** or table `OrderReviewMedia` generated from model 'OrderReviewMedia'
--- SQLINES DEMO *** media type (default view)
---
-
-
 CREATE TABLE IF NOT EXISTS OrderReviewMedia (
-  ok SMALLINT DEFAULT NULL 
+  ok SMALLINT 
 );
-
---
--- SQLINES DEMO *** or table `OrderReviewPayload` generated from model 'OrderReviewPayload'
--- SQLINES DEMO *** d is the type for OrderReview endpoint request body
---
-
-
 CREATE TABLE IF NOT EXISTS OrderReviewPayload (
-  action TEXT NOT NULL ,
-  id TEXT NOT NULL ,
-  reason TEXT DEFAULT NULL 
+  action text NOT NULL,
+  id text NOT NULL,
+  reason text 
 );
-
---
--- SQLINES DEMO *** or table `OrderUpdatePayload` generated from model 'OrderUpdatePayload'
---
-
-
 CREATE TABLE IF NOT EXISTS OrderUpdatePayload (
-  action ENUM('add_fqtv', 'name_correction', 'add_contact_details') DEFAULT NULL COMMENT 'A flag used to indicate qhet type of update is being made',
-  id TEXT NOT NULL COMMENT 'AirGateway order ID',
-  passengersUpdate JSON NOT NULL COMMENT 'Passengers details to update for'
-) ;
-
---
--- SQLINES DEMO *** or table `OriginDestinationASRQ` generated from model 'OriginDestinationASRQ'
--- SQLINES DEMO *** n pair in a shopping search scenario
---
-
-
+  action ENUM('add_fqtv', 'name_correction', 'add_contact_details') COMMENT 'A flag used to indicate qhet type of update is being made',
+  id text NOT NULL COMMENT 'AirGateway order ID',
+  passengersUpdate text NOT NULL COMMENT 'Passengers details to update for'
+);
 CREATE TABLE IF NOT EXISTS OriginDestinationASRQ (
-  arrival TEXT NOT NULL,
-  departure TEXT NOT NULL,
-  type ENUM( 'keep') DEFAULT NULL COMMENT 'To be used in the OrederReshop, on the Rebooking process. If &#39;keep&#39; is set the OD will be retained.'
+  arrival text NOT NULL,
+  departure text NOT NULL,
+  type ENUM( 'keep') COMMENT 'To be used in the OrederReshop, on the Rebooking process. If &#39;keep&#39; is set the OD will be retained.'
 )  COMMENT='Origin/Destination pair in a shopping search scenario';
-
---
--- SQLINES DEMO *** or table `OriginDestinationRS_Inner` generated from model 'OriginDestinationRSUnderscoreInner'
---
-
-
 CREATE TABLE IF NOT EXISTS OriginDestinationRS_Inner (
-  arrival TEXT DEFAULT NULL,
-  departure TEXT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `Passenger` generated from model 'Passenger'
---
-
-
+  arrival text,
+  departure text
+);
 CREATE TABLE IF NOT EXISTS Passenger (
-  data TEXT DEFAULT NULL,
-  document TEXT DEFAULT NULL,
-  fareBasisCodes JSON DEFAULT NULL ,
-  identity4Discount JSON DEFAULT NULL,
-  infantReference TEXT DEFAULT NULL ,
-  passengerType TEXT DEFAULT NULL,
-  seats JSON DEFAULT NULL,
-  services JSON DEFAULT NULL,
-  specialServices JSON DEFAULT NULL,
-  travelerReference TEXT NOT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `PassengerData` generated from model 'PassengerData'
---
-
-
+  data text,
+  document text,
+  fareBasisCodes text,
+  identity4Discount text,
+  infantReference text,
+  passengerType text,
+  seats text,
+  services text,
+  specialServices text,
+  travelerReference text NOT NULL 
+);
 CREATE TABLE IF NOT EXISTS PassengerData (
-  address TEXT DEFAULT NULL,
-  birthdate TEXT DEFAULT NULL ,
-  email TEXT DEFAULT NULL,
-  fqtvInfo TEXT DEFAULT NULL,
-  gender ENUM('Male', 'Female', '') DEFAULT NULL COMMENT 'Valid values: ',
-  name TEXT NOT NULL,
-  phone TEXT DEFAULT NULL COMMENT 'Phone number',
-  surname TEXT DEFAULT NULL,
-  title ENUM('MR', 'MS', 'MRS', 'MSTR') DEFAULT NULL COMMENT 'Valid Values: '
-) ;
-
---
--- SQLINES DEMO *** or table `Payment` generated from model 'Payment'
---
-
-
+  address text,
+  birthdate text,
+  email text,
+  fqtvInfo text,
+  gender ENUM('Male', 'Female', '') COMMENT 'Valid values: ',
+  name text NOT NULL,
+  phone text COMMENT 'Phone number',
+  surname text,
+  title ENUM('MR', 'MS', 'MRS', 'MSTR') COMMENT 'Valid Values: '
+);
 CREATE TABLE IF NOT EXISTS Payment (
-  cardCode TEXT DEFAULT NULL ,
-  cardHolderEmail TEXT DEFAULT NULL,
-  cardHolderName TEXT DEFAULT NULL,
-  cardHolderSurname TEXT DEFAULT NULL,
-  cardHolderTitle TEXT DEFAULT NULL ,
-  cardNumber TEXT DEFAULT NULL ,
-  cardType TEXT DEFAULT NULL ,
-  cashEmail TEXT DEFAULT NULL,
-  cashName TEXT DEFAULT NULL,
-  cashSurname TEXT DEFAULT NULL,
-  cashTitle TEXT DEFAULT NULL ,
-  cityName TEXT DEFAULT NULL ,
-  countryCode TEXT DEFAULT NULL ,
-  expiration TEXT DEFAULT NULL,
-  method TEXT NOT NULL ,
-  passengerType TEXT DEFAULT NULL,
-  phone TEXT DEFAULT NULL ,
-  postalCode TEXT DEFAULT NULL ,
-  remark TEXT DEFAULT NULL ,
-  seriesCode TEXT DEFAULT NULL ,
-  stateProv TEXT DEFAULT NULL ,
-  street1 TEXT DEFAULT NULL ,
-  street2 TEXT DEFAULT NULL,
-  voucher TEXT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `PaymentVoucher` generated from model 'PaymentVoucher'
---
-
-
+  cardCode text,
+  cardHolderEmail text,
+  cardHolderName text,
+  cardHolderSurname text,
+  cardHolderTitle text,
+  cardNumber text,
+  cardType text,
+  cashEmail text,
+  cashName text,
+  cashSurname text,
+  cashTitle text,
+  cityName text,
+  countryCode text,
+  expiration text,
+  method text NOT NULL,
+  passengerType text,
+  phone text,
+  postalCode text,
+  remark text,
+  seriesCode text,
+  stateProv text,
+  street1 text,
+  street2 text,
+  voucher text
+);
 CREATE TABLE IF NOT EXISTS PaymentVoucher (
-  amount DECIMAL(20, 9) DEFAULT NULL ,
-  currency TEXT DEFAULT NULL ,
-  email TEXT DEFAULT NULL ,
-  number TEXT DEFAULT NULL ,
-  surname TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `Penalty` generated from model 'Penalty'
---
-
-
+  amount numeric(20, 9),
+  currency text,
+  email text,
+  number text,
+  surname text 
+);
 CREATE TABLE IF NOT EXISTS Penalty (
-  amounts JSON DEFAULT NULL ,
-  description TEXT DEFAULT NULL ,
-  type TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `PenaltyAmount` generated from model 'PenaltyAmount'
---
-
-
+  amounts text,
+  description text,
+  type text 
+);
 CREATE TABLE IF NOT EXISTS PenaltyAmount (
-  amount DECIMAL(20, 9) DEFAULT NULL ,
-  currency TEXT DEFAULT NULL ,
-  providerAmount DECIMAL(20, 9) DEFAULT NULL ,
-  providerCurrency TEXT DEFAULT NULL ,
-  remark TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `Preferences` generated from model 'Preferences'
---
-
-
+  amount numeric(20, 9),
+  currency text,
+  providerAmount numeric(20, 9),
+  providerCurrency text,
+  remark text 
+);
 CREATE TABLE IF NOT EXISTS Preferences (
-  cabin JSON DEFAULT NULL ,
-  discounts TEXT DEFAULT NULL,
-  fare TEXT DEFAULT NULL,
-  fareList JSON DEFAULT NULL ,
-  nonStop SMALLINT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `PreferencesAS` generated from model 'PreferencesAS'
---
-
-
+  cabin text,
+  discounts text,
+  fare text,
+  fareList text,
+  nonStop SMALLINT 
+);
 CREATE TABLE IF NOT EXISTS PreferencesAS (
-  cabin JSON DEFAULT NULL ,
-  discounts TEXT DEFAULT NULL,
-  fare TEXT DEFAULT NULL,
-  fareList JSON DEFAULT NULL ,
-  maxDuration JSON DEFAULT NULL ,
-  maxDurationRatio JSON DEFAULT NULL ,
-  maxStops JSON DEFAULT NULL ,
-  nonStop SMALLINT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `Price` generated from model 'Price'
---
-
-
+  cabin text,
+  discounts text,
+  fare text,
+  fareList text,
+  maxDuration text,
+  maxDurationRatio text,
+  maxStops text,
+  nonStop SMALLINT 
+);
 CREATE TABLE IF NOT EXISTS Price (
-  consumer TEXT DEFAULT NULL,
-  provider TEXT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `PriceBreakdown` generated from model 'PriceBreakdown'
--- SQLINES DEMO *** ce breakdown of combined round trip offers
---
-
-
+  consumer text,
+  provider text
+);
 CREATE TABLE IF NOT EXISTS PriceBreakdown (
-  inbound TEXT DEFAULT NULL,
-  outbound TEXT DEFAULT NULL
+  inbound text,
+  outbound text
 );
-
---
--- SQLINES DEMO *** or table `PriceDetail` generated from model 'PriceDetail'
---
-
-
 CREATE TABLE IF NOT EXISTS PriceDetail (
-  base DECIMAL(20, 9) DEFAULT NULL ,
-  breakdown JSON DEFAULT NULL ,
-  currency TEXT DEFAULT NULL,
-  surcharge DECIMAL(20, 9) DEFAULT NULL ,
-  tax TEXT DEFAULT NULL,
-  total DECIMAL(20, 9) DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `PriceDetailBreakdown` generated from model 'PriceDetailBreakdown'
---
-
-
+  base numeric(20, 9),
+  breakdown text,
+  currency text,
+  surcharge numeric(20, 9),
+  tax text,
+  total numeric(20, 9) 
+);
 CREATE TABLE IF NOT EXISTS PriceDetailBreakdown (
-  base DECIMAL(20, 9) DEFAULT NULL ,
-  offerItemID TEXT DEFAULT NULL ,
-  passengerRefs TEXT DEFAULT NULL ,
-  passengerType TEXT DEFAULT NULL ,
-  surcharge DECIMAL(20, 9) DEFAULT NULL ,
-  tax TEXT DEFAULT NULL
-)  ;
-
---
--- SQLINES DEMO *** or table `PriceDetailTax` generated from model 'PriceDetailTax'
---
-
-
+  base numeric(20, 9),
+  offerItemID text,
+  passengerRefs text,
+  passengerType text,
+  surcharge numeric(20, 9),
+  tax text
+);
 CREATE TABLE IF NOT EXISTS PriceDetailTax (
-  breakdown JSON DEFAULT NULL ,
-  total DECIMAL(20, 9) DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `PriceDetailTaxBreakdown` generated from model 'PriceDetailTaxBreakdown'
---
-
-
+  breakdown text,
+  total numeric(20, 9) 
+);
 CREATE TABLE IF NOT EXISTS PriceDetailTaxBreakdown (
-  code TEXT DEFAULT NULL ,
-  currency TEXT DEFAULT NULL ,
-  description TEXT DEFAULT NULL ,
-  total DECIMAL(20, 9) DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `ProviderListMedia` generated from model 'ProviderListMedia'
--- SQLINES DEMO ***  media type (default view)
---
-
-
+  code text,
+  currency text,
+  description text,
+  total numeric(20, 9) 
+);
 CREATE TABLE IF NOT EXISTS ProviderListMedia (
-  providers JSON DEFAULT NULL
+  providers text
 );
-
---
--- SQLINES DEMO *** or table `Rows` generated from model 'Rows'
---
-
-
 CREATE TABLE IF NOT EXISTS Rows (
-  first BIGINT DEFAULT NULL ,
-  last BIGINT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `SSR` generated from model 'SSR'
---
-
-
+  first bigint,
+  last bigint 
+);
 CREATE TABLE IF NOT EXISTS SSR (
-  bookingInstructions TEXT DEFAULT NULL,
-  code TEXT DEFAULT NULL ,
-  desc TEXT DEFAULT NULL ,
-  passengerType TEXT DEFAULT NULL ,
-  text_required SMALLINT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `Seat` generated from model 'Seat'
---
-
-
+  bookingInstructions text,
+  code text,
+  desc text,
+  passengerType text,
+  text_required SMALLINT 
+);
 CREATE TABLE IF NOT EXISTS Seat (
-  characteristics JSON DEFAULT NULL ,
-  description TEXT DEFAULT NULL ,
-  listKey TEXT DEFAULT NULL ,
-  location TEXT DEFAULT NULL,
-  passengerRefs TEXT DEFAULT NULL ,
-  passengerType TEXT DEFAULT NULL ,
-  price TEXT DEFAULT NULL,
-  refs TEXT DEFAULT NULL ,
-  remarks JSON DEFAULT NULL ,
-  removable SMALLINT DEFAULT NULL ,
-  segment TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `SeatAvailabilityMedia` generated from model 'SeatAvailabilityMedia'
--- SQLINES DEMO *** edia media type (default view)
---
-
-
+  characteristics text,
+  description text,
+  listKey text,
+  location text,
+  passengerRefs text,
+  passengerType text,
+  price text,
+  refs text,
+  remarks text,
+  removable SMALLINT,
+  segment text 
+);
 CREATE TABLE IF NOT EXISTS SeatAvailabilityMedia (
-  disclosures JSON DEFAULT NULL,
-  exits JSON DEFAULT NULL ,
-  owner TEXT DEFAULT NULL ,
-  seatDisplay JSON DEFAULT NULL ,
-  seatList JSON DEFAULT NULL ,
-  segments JSON DEFAULT NULL 
+  disclosures text,
+  exits text,
+  owner text,
+  seatDisplay text,
+  seatList text,
+  segments text 
 );
-
---
--- SQLINES DEMO *** or table `SeatAvailabilityPayload` generated from model 'SeatAvailabilityPayload'
--- SQLINES DEMO *** data
---
-
-
 CREATE TABLE IF NOT EXISTS SeatAvailabilityPayload (
-  id TEXT DEFAULT NULL ,
-  passengers JSON DEFAULT NULL,
-  reshopOfferID TEXT DEFAULT NULL ,
-  segmentID TEXT DEFAULT NULL ,
-  shoppingResponseID TEXT DEFAULT NULL 
+  id text,
+  passengers text,
+  reshopOfferID text,
+  segmentID text,
+  shoppingResponseID text 
 );
-
---
--- SQLINES DEMO *** or table `SeatDisplay` generated from model 'SeatDisplay'
---
-
-
 CREATE TABLE IF NOT EXISTS SeatDisplay (
-  columns TEXT DEFAULT NULL ,
-  rows TEXT DEFAULT NULL,
-  segment TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `SeatLocation` generated from model 'SeatLocation'
---
-
-
+  columns text,
+  rows text,
+  segment text 
+);
 CREATE TABLE IF NOT EXISTS SeatLocation (
-  column TEXT DEFAULT NULL ,
-  row BIGINT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `Service` generated from model 'Service'
--- Service List
---
-
-
+  column text,
+  row bigint 
+);
+ Service List
 CREATE TABLE IF NOT EXISTS Service (
-  bookingInstructions TEXT DEFAULT NULL,
-  descriptions JSON DEFAULT NULL ,
-  maximumQuantity BIGINT DEFAULT NULL ,
-  minimumQuantity BIGINT DEFAULT NULL ,
-  name TEXT DEFAULT NULL ,
-  objectKey TEXT DEFAULT NULL ,
-  price TEXT DEFAULT NULL,
-  properties JSON DEFAULT NULL ,
-  ref TEXT DEFAULT NULL ,
-  removable SMALLINT DEFAULT NULL ,
-  segmentReferences TEXT DEFAULT NULL ,
-  serviceID TEXT DEFAULT NULL ,
-  travelerReferences TEXT DEFAULT NULL 
+  bookingInstructions text,
+  descriptions text,
+  maximumQuantity bigint,
+  minimumQuantity bigint,
+  name text,
+  objectKey text,
+  price text,
+  properties text,
+  ref text,
+  removable SMALLINT,
+  segmentReferences text,
+  serviceID text,
+  travelerReferences text 
 );
-
---
--- SQLINES DEMO *** or table `ServiceListMedia` generated from model 'ServiceListMedia'
--- SQLINES DEMO *** media type (default view)
---
-
-
 CREATE TABLE IF NOT EXISTS ServiceListMedia (
-  disclosures JSON DEFAULT NULL ,
-  passengers JSON DEFAULT NULL ,
-  segments JSON DEFAULT NULL,
-  services JSON DEFAULT NULL ,
-  warnings JSON DEFAULT NULL
+  disclosures text,
+  passengers text,
+  segments text,
+  services text,
+  warnings text
 );
-
---
--- SQLINES DEMO *** or table `ServiceListPayload` generated from model 'ServiceListPayload'
--- SQLINES DEMO *** d is the type for ServiceList endpoint request body
---
-
-
 CREATE TABLE IF NOT EXISTS ServiceListPayload (
-  id TEXT DEFAULT NULL ,
-  passengers JSON DEFAULT NULL,
-  reshopOfferID TEXT DEFAULT NULL ,
-  shoppingResponseID TEXT DEFAULT NULL 
+  id text,
+  passengers text,
+  reshopOfferID text,
+  shoppingResponseID text 
 );
-
---
--- SQLINES DEMO *** or table `ServiceRequest` generated from model 'ServiceRequest'
--- Service Request
---
-
-
+ Service Request
 CREATE TABLE IF NOT EXISTS ServiceRequest (
-  action ENUM('Create', 'Cancel') NOT NULL ,
-  owner TEXT DEFAULT NULL ,
-  quantity DECIMAL(20, 9) DEFAULT NULL ,
-  seatLocation TEXT DEFAULT NULL,
-  segmentReference TEXT DEFAULT NULL ,
-  serviceID TEXT DEFAULT NULL ,
-  text TEXT DEFAULT NULL ,
-  travelerReference TEXT DEFAULT NULL 
+  action ENUM('Create', 'Cancel') NOT NULL,
+  owner text,
+  quantity numeric(20, 9),
+  seatLocation text,
+  segmentReference text,
+  serviceID text,
+  text text,
+  travelerReference text 
   -- type ENUM('seat', 'service') NOT NULL 
 );
-
---
--- SQLINES DEMO *** or table `StopLocation` generated from model 'StopLocation'
--- SQLINES DEMO *** ails
---
-
-
 CREATE TABLE IF NOT EXISTS StopLocation (
-  airportCode TEXT DEFAULT NULL ,
-  airportName TEXT DEFAULT NULL ,
-  arrivalDate TEXT DEFAULT NULL ,
-  arrivalTime TEXT DEFAULT NULL ,
-  departureDate TEXT DEFAULT NULL ,
-  departureTime TEXT DEFAULT NULL 
+  airportCode text,
+  airportName text,
+  arrivalDate text,
+  arrivaltime timestampz,
+  departureDate text,
+  departuretime timestampz 
 );
-
---
--- SQLINES DEMO *** or table `TicketCoupon` generated from model 'TicketCoupon'
---
-
-
 CREATE TABLE IF NOT EXISTS TicketCoupon (
-  dateOfService TEXT DEFAULT NULL ,
-  fareBasisCode TEXT DEFAULT NULL ,
-  media TEXT DEFAULT NULL ,
-  number TEXT DEFAULT NULL ,
-  price TEXT DEFAULT NULL,
-  reference TEXT DEFAULT NULL ,
-  remark TEXT DEFAULT NULL ,
-  segment TEXT DEFAULT NULL,
-  serviceReferences TEXT DEFAULT NULL ,
-  status TEXT DEFAULT NULL ,
-  statusDefinition TEXT DEFAULT NULL ,
-  valid TEXT DEFAULT NULL,
-  validatingAirline TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `TicketCouponAirlineInfo` generated from model 'TicketCouponAirlineInfo'
---
-
-
+  dateOfService text,
+  fareBasisCode text,
+  media text,
+  number text,
+  price text,
+  reference text,
+  remark text,
+  segment text,
+  serviceReferences text,
+  status text,
+  statusDefinition text,
+  valid text,
+  validatingAirline text 
+);
 CREATE TABLE IF NOT EXISTS TicketCouponAirlineInfo (
-  arrival TEXT DEFAULT NULL,
-  arrivalDateTime TEXT DEFAULT NULL,
-  departure TEXT DEFAULT NULL,
-  departureDateTime TEXT DEFAULT NULL,
-  equipment TEXT DEFAULT NULL,
-  marketingCarrier TEXT DEFAULT NULL,
-  status TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `TicketCouponAirlineInfoDepartureArrivalDateTime` generated from model 'TicketCouponAirlineInfoDepartureArrivalDateTime'
---
-
-
+  arrival text,
+  arrivalDatetime timestampz,
+  departure text,
+  departureDatetime timestampz,
+  equipment text,
+  marketingCarrier text,
+  status text 
+);
 CREATE TABLE IF NOT EXISTS TicketCouponAirlineInfoDepartureArrivalDateTime (
-  date TEXT DEFAULT NULL ,
-  time TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `TicketCouponValid` generated from model 'TicketCouponValid'
---
-
-
+  date text,
+  time timestampz 
+);
 CREATE TABLE IF NOT EXISTS TicketCouponValid (
-  effective TEXT DEFAULT NULL ,
-  expiration TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `TicketInfo` generated from model 'TicketInfo'
---
-
-
+  effective text,
+  expiration text 
+);
 CREATE TABLE IF NOT EXISTS TicketInfo (
-  coupons JSON DEFAULT NULL ,
-  dateOfIssue TEXT DEFAULT NULL ,
-  numberOfBooklets BIGINT DEFAULT NULL ,
-  passengerRef TEXT DEFAULT NULL ,
-  price TEXT DEFAULT NULL,
-  remark TEXT DEFAULT NULL ,
-  ticketNumber TEXT DEFAULT NULL ,
-  timeOfIssue TEXT DEFAULT NULL ,
-  typeCode TEXT DEFAULT NULL ,
-  typeCodeDefinition TEXT DEFAULT NULL 
-)  ;
-
---
--- SQLINES DEMO *** or table `Travelers` generated from model 'Travelers'
---
-
-
+  coupons text,
+  dateOfIssue text,
+  numberOfBooklets bigint,
+  passengerRef text,
+  price text,
+  remark text,
+  ticketNumber text,
+  timeOfIssue text,
+  typeCode text,
+  typeCodeDefinition text 
+);
 CREATE TABLE IF NOT EXISTS Travelers (
-  ADT DECIMAL(20, 9) NOT NULL ,
-  CHD DECIMAL(20, 9) DEFAULT NULL ,
-  INF DECIMAL(20, 9) DEFAULT NULL ,
-  V14 DECIMAL(20, 9) DEFAULT NULL ,
-  VFR DECIMAL(20, 9) DEFAULT NULL ,
-  VNF DECIMAL(20, 9) DEFAULT NULL ,
-  VNN DECIMAL(20, 9) DEFAULT NULL ,
-  YAD DECIMAL(20, 9) DEFAULT NULL 
-)  ;
-
+  ADT numeric(20, 9) NOT NULL,
+  CHD numeric(20, 9),
+  INF numeric(20, 9),
+  V14 numeric(20, 9),
+  VFR numeric(20, 9),
+  VNF numeric(20, 9),
+  VNN numeric(20, 9),
+  YAD numeric(20, 9) 
+);

@@ -3,11 +3,11 @@
 1. [Lecture slides.
    Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Software
    ](https://pdfcoffee.com/download/software-requirements-specification-for-airline-flight-booking-system-software-requirements-specification-for-airline-flight-booking-system-pdf-free.html)
-1. [Example of the final goal system](https://www.lemax.net/)
+2. [Example of the final goal system](https://www.lemax.net/)
 
-1. [API functionalities AeroCRS](https://docs.aerocrs.com/reference/getairlines-1)
+3. [API functionalities AeroCRS](https://docs.aerocrs.com/reference/getairlines-1)
 
-1. [ARS Overview](https://fasrsmall634.weebly.com/disadvantages-of-manual-airline-reservation-system.html)
+3. [ARS Overview](https://fasrsmall634.weebly.com/disadvantages-of-manual-airline-reservation-system.html)
 
 1. [AirGateway’s NDC JSON API](https://dev-guides.airgateway.net/)
 
@@ -38,3 +38,5 @@
 1. [react jsonschema form](https://github.com/rjsf-team/react-jsonschema-form)
 
 1. [react javascript data structures](https://profy.dev/article/javascript-data-structures)
+
+1. [Airline booking system UML diagram](https://www.freeprojectz.com/uml-diagram/airline-booking-system-uml-diagram) 
