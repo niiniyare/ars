@@ -7,36 +7,40 @@
 
 3. [API functionalities AeroCRS](https://docs.aerocrs.com/reference/getairlines-1)
 
-3. [ARS Overview](https://fasrsmall634.weebly.com/disadvantages-of-manual-airline-reservation-system.html)
+4. [ARS Overview](https://fasrsmall634.weebly.com/disadvantages-of-manual-airline-reservation-system.html)
 
-1. [AirGateway’s NDC JSON API](https://dev-guides.airgateway.net/)
+5. [AirGateway’s NDC JSON API](https://dev-guides.airgateway.net/)
 
-1. [Best Travelport Universal API wrapper](https://github.com/Travelport-Ukraine/uapi-json)
+6. [Best Travelport Universal API wrapper](https://github.com/Travelport-Ukraine/uapi-json)
 
-1. [Sample data](http://www.lsv.fr/~sirangel/teaching/dataset/index.html)
+7. [Sample data](http://www.lsv.fr/~sirangel/teaching/dataset/index.html)
 
-1. [security Documentation Sample](https://duffel.com/security)
+8. [security Documentation Sample](https://duffel.com/security)
 
-1. [PNR genetation sample](https://sive.rs/rand1)(<https://sive.rs/code/rand1.sql>)
+9. [PNR genetation sample](https://sive.rs/rand1)(<https://sive.rs/code/rand1.sql>)
 
-1. [postgis-intro](https://postgis.net/workshops/zh_Hans/postgis-intro/geography.html)
+10. [postgis-intro](https://postgis.net/workshops/zh_Hans/postgis-intro/geography.html)
 
-1. [airport info](https://www.airportcoder.com/)
+11. [airport info](https://www.airportcoder.com/)
 
-1. [Crane a (PSS) offering airlines Example](https://crane.aero/)
+12. [Crane a (PSS) offering airlines Example](https://crane.aero/)
 
-1. [Crane a (PSS) promo video](https://youtu.be/kppIlGPEYT4)
+13. [Crane a (PSS) promo video](https://youtu.be/kppIlGPEYT4)
 
-1. [yugabyte Free Course](https://university.yugabyte.com/enrollments)
+14. [yugabyte Free Course](https://university.yugabyte.com/enrollments)
 
-1. [somali dictionary book Cornell University Library](https://archive.org/details/cu31924026888820/page/143/mode/1up?view=theater)
+15. [somali dictionary book Cornell University Library](https://archive.org/details/cu31924026888820/page/143/mode/1up?view=theater)
 
-1. [somali dictionary](https://www.lexilogos.com/english/somali_dictionary.htm)
+16. [somali dictionary](https://www.lexilogos.com/english/somali_dictionary.htm)
 
-1. [aircraft seat map](https://github.com/sjova/aircraft-seat-map)
+17. [aircraft seat map](https://github.com/sjova/aircraft-seat-map)
 
-1. [react jsonschema form](https://github.com/rjsf-team/react-jsonschema-form)
+18. [react jsonschema form](https://github.com/rjsf-team/react-jsonschema-form)
 
-1. [react javascript data structures](https://profy.dev/article/javascript-data-structures)
+19. [react javascript data structures](https://profy.dev/article/javascript-data-structures)
 
-1. [Airline booking system UML diagram](https://www.freeprojectz.com/uml-diagram/airline-booking-system-uml-diagram) 
+20. [Airline booking system UML diagram](https://www.freeprojectz.com/uml-diagram/airline-booking-system-uml-diagram)
+
+21. [Pnr confirmation codes randomly generated](https://www.flyertalk.com/forum/travelbuzz/1858116-pnr-confirmation-codes-randomly-generated.html)
+
+22. [mantine UI datatable](https://icflorescu.github.io/mantine-datatable)

@@ -6,25 +6,31 @@
 |               |                   |                   |           |
 
 ## Introduction
+  
+#### Purpose
 
-1. Purpose
-This document lists the requirement specifications for an Airline Ticket Reservation System **ARS**. The document is subject the change as the project progresses, The given version of the document is the initial one, Further changes of the project will be recorded to the document.
+  This document lists the requirement specifications for an Airline Ticket Reservation System **ARS**. The document is subject the change as the project progresses, The given version of the document is the initial one, Further changes of the project will be recorded to the document.
 
-2. Document Conventions
-The document is formatted according to IEEE standard
-3. Intended Audience
-The intended audience for this document consists of requirements engineers, software developers, designers, testers and project manager.
+#### Document Conventions
 
-4. Product Scope
+  The document is formatted according to IEEE standard
+
+#### Intended Audience
+
+  The intended audience for this document consists of requirements engineers, software developers, designers, testers and project manager.
+
+#### Product Scope
 
 - Subject facet: User Interface, Searching one-way flights, Searching round trip flights, Searching multiple destinations, Flight reservations, Reservation cancellation, Online payment, Request and response for reservation cancellation, Displaying warning messages.
 - Usage facet: Searching, Sorting of flights, Reservation of tickets, Managing existing reservation, Managing flight details, Keeping the flights up to date.
 - IT facet: Database, Web-based software system, AAS for logins, Performance maintenance. *Development facet:* Internal policy and culture of the airlines company should be taken under consideration.
 
-5. Reference Documents.
+#### Reference Documents
+
 [Reference Documents](refs.md)
 
-6. Overview
+#### Overview
+
 The remaining part of the specification document is organized as follows.
 
 - Section 2 defines overall description of the system which defines product perspectives and functions, use-case diagrams, classes and characteristics of involved users, the environment that the system is going to be deployed, constraints on design and implementation of the system, user documentation, assumptions and dependencies.
@@ -33,9 +39,9 @@ The remaining part of the specification document is organized as follows.
 
 Prioritization and traceability of requirements are also included in Section 4.
 
-2. Overall Description.
+#### Overall Description
 
-1. Product Perspective.
+#### Product Perspective
 
 Airline reservation systems (ARS)  are part of the so-called <strong><i>passenger service systems</i>
   (PSS),</strong>which are applications supporting the direct contact with the passenger.
@@ -52,50 +58,51 @@ design of this  **ARS** come to do this jobs easy and smooth plus add missing Fe
 The new system aims to overcome the above-mentioned drawbacks of the existing system. It will allow users to make reservations according their needs from different parts of the world without leaving their places. Furthermore, it will reduce the workload of the employees who are responsible to make reservations at the office.
 The system allows customers to check the availability of flights for specific dates and routes, get information about durations of available flights. It also allows customers to check the prices and the things that are included in the ticket such as baggage allowance, meal and etc. and booking the ticket. Administrator can modify, remove existing flights, also add new flights to the system. Furthermore, administrator can see customer requests about cancellation of bookings, and decide whether to accept and reject them.
 
-2. Product Functions
+### Product Functions
+
 The system will have more then 10 functionalities for customers and administrators and they are listed below.
-2. Search for flights
+
+#### - Search for flights
 
 Description: Using this function a customer is able to search for one-way, round-trip and multiple destination flights by choosing specific dates and destinations.
 
-3. Specify passengers
+#### - Specify passengers
 
 Description: With the help of this function customer selects the number of passengers and their category, either adult, child or infant.
 
-4. Sort flights
+#### - Sort flights
 
 Description: Regarding to this functions, customer sorts flights either by price or duration of the flight.
 
-5. Book flights
+#### - Book flights
 
 Description: This function allows customer to book flights by choosing ticket types and processing online payment.
 
-6. Request cancellation
+#### - Request cancellation
 
 Description: This function indicates that customer can request the cancellation of the reserved ticket.
 
-7. Add new flights
+#### - Add new flights
 
 Description: The function grants administrator the privilege of adding new flights to the system.
 
-8. Modify flight details
+#### - Modify flight details
 
 Description: Using this functionality administrator can modify the details of the existing flights.
 
-9. Remove flights
+#### - Remove flights
 
 Description: With the help of this function administrator removes the flights from the system that are cancelled for whatever reason.
 
-10. See cancellation requests
+#### - See cancellation requests
 
 Description: This functionality allows administrator to overview the cancellation requests of customers, and approve or reject them.
 
-11. See booking details
+#### - See booking details
 
 Description: This functionality enables administrator to view the customers' booking details.
 
-2. Detailing.
-1. Use-case Diagram
+### Use-case Diagram
 
 Description: In the use case diagram given below, we have displayed how our users interact with the system to accomplish their goals and responsibilities. Here in our diagram we have 4 actors (Customer, Administrator, Support Staff, Bank), 3 of which are the main users (Customer, Administrator, Support Staff). In every use case mentioned in the diagram, the actions of the users are described, and how these use cases are related to one another is represented by the help of arrows. In our Use case diagram all functionalities of the system are displayed. Customer can search for flights based on dates and destination, flights being one-way or round-trip, sort the displayed flights according to price or duration, specify the passengers (how many adults, children or infants), request cancellation, book flight, choose the ticket type and proceed with the payment. The payment is processed by the Bank. Another actor, Administrator, is responsible for adding new flights, modifying flight details and removing flights if needed, see the cancellation request, approve or deny them and see booking details. Our final actor, Support Staff, is responsible for maintenance of the system, ensuring the security of the system (by creating predefined users and maintaining AAS), safety of the system (by restoring and recovering data and assuring data integrity) and reliability of the system (by maintaining SLA).
 
