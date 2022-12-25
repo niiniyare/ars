@@ -44,3 +44,7 @@
 21. [Pnr confirmation codes randomly generated](https://www.flyertalk.com/forum/travelbuzz/1858116-pnr-confirmation-codes-randomly-generated.html)
 
 22. [mantine UI datatable](https://icflorescu.github.io/mantine-datatable)
+
+23. [sear flight "demo" On recursive queries ](https://habr.com/en/company/postgrespro/blog/490228/) 
+
+24. [SQL flight recursive queries IBM](https://www.ibm.com/docs/en/i/7.4?topic=optimization-example) 
