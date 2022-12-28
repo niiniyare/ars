@@ -1,8 +1,8 @@
 # 1.5 Reference Documents
 
 1. [Lecture slides.
-   Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Software
-   ](https://pdfcoffee.com/download/software-requirements-specification-for-airline-flight-booking-system-software-requirements-specification-for-airline-flight-booking-system-pdf-free.html)
+Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Software
+](https://pdfcoffee.com/download/software-requirements-specification-for-airline-flight-booking-system-software-requirements-specification-for-airline-flight-booking-system-pdf-free.html)
 2. [Example of the final goal system](https://www.lemax.net/)
 
 3. [API functionalities AeroCRS](https://docs.aerocrs.com/reference/getairlines-1)
@@ -45,6 +45,73 @@
 
 22. [mantine UI datatable](https://icflorescu.github.io/mantine-datatable)
 
-23. [sear flight "demo" On recursive queries ](https://habr.com/en/company/postgrespro/blog/490228/) 
+23. [sear flight "demo" On recursive queries ](https://habr.com/en/company/postgrespro/blog/490228/)
 
-24. [SQL flight recursive queries IBM](https://www.ibm.com/docs/en/i/7.4?topic=optimization-example) 
+24. [SQL flight recursive queries IBM](https://www.ibm.com/docs/en/i/7.4?topic=optimization-example)
+
+25. [Airline reservation system devoloped to PHP and MYSQL](https://youtu.be/CyeMNYzvkFg) 
+
+
+<!---->
+<!-- ```SQL -->
+<!-- CREATE TABLE flights ( -->
+<!-- flight_id bigint NOT NULL DEFAULT nextval('flights_flight_id_seq'::regclass), -->
+<!-- flight_no character varying(6) NOT NULL, -->
+<!-- company_id bigint NOT NULL DEFAULT nextval('flights_company_id_seq'::regclass), -->
+<!-- scheduled_departure timestamp with time zone NOT NULL, -->
+<!-- scheduled_arrival timestamp with time zone NOT NULL, -->
+<!-- departure_airport character varying(3) NOT NULL, -->
+<!-- arrival_airport character varying(3) NOT NULL, -->
+<!-- status character varying(20) NOT NULL, -->
+<!-- aircraft_id bigint NOT NULL DEFAULT nextval('flights_aircraft_id_seq'::regclass), -->
+<!-- actual_departure timestamp with time zone NULL, -->
+<!-- actual_arrival timestamp with time zone NULL, -->
+<!-- CONSTRAINT flights_pkey PRIMARY KEY (flight_id), -->
+<!-- CONSTRAINT flights_flight_no_scheduled_departure_key UNIQUE (flight_no, scheduled_departure), -->
+<!-- CONSTRAINT flights_check_airlines_key UNIQUE (flight_id, company_id), -->
+<!-- CONSTRAINT flights_company_id_fkey FOREIGN KEY (company_id) REFERENCES airlines(id), -->
+<!-- CONSTRAINT flights_check1 CHECK (((actual_arrival IS NULL) OR ((actual_departure IS NOT NULL) AND (actual_arrival IS NOT NULL) AND (actual_arrival > actual_departure)))), -->
+<!-- CONSTRAINT flights_status_check CHECK (((status)::text = ANY (ARRAY[('On Time'::character varying)::text, ('Delayed'::character varying)::text, ('Departed'::character varying)::text, ('Arrived'::character varying)::text, ('Scheduled'::character varying)::text, ('Cancelled'::character varying)::text]))), -->
+<!-- CONSTRAINT flights_check CHECK ((scheduled_arrival > scheduled_departure)) -->
+<!-- ); -->
+<!-- CREATE UNIQUE INDEX flights_pkey ON public.flights USING btree (flight_id); -->
+<!-- CREATE UNIQUE INDEX flights_flight_no_scheduled_departure_key ON public.flights USING btree (flight_no, scheduled_departure); -->
+<!-- CREATE UNIQUE INDEX flights_check_airlines_key ON public.flights USING btree (flight_id, company_id); -->
+<!---->
+<!-- ``` -->
+<!-- flight.sql -->
+<!-- ```sql -->
+<!-- WITH RECURSIVE search(arrival_airport, depth, path) AS ( -->
+<!---->
+<!-- -- everywhere you can fly from starting airport -->
+<!---->
+<!-- SELECT arrival_airport, 1, ARRAY[departure_airport, arrival_airport] -->
+<!---->
+<!-- FROM  flights -->
+<!-- -- WHERE airline = 'WN' -- Southwest -->
+<!-- WHERE -->
+<!---->
+<!-- AND departure_airport = 'DRM' -->
+<!---->
+<!-- UNION ALL -->
+<!---->
+<!-- -- everywhere you can fly from previous airport -->
+<!---->
+<!-- SELECT r.arrival_airport, depth + 1, path || r.arrival_airport -->
+<!---->
+<!-- FROM search AS s -- from the work table -->
+<!---->
+<!-- JOIN flights_v AS r ON s.arrival_airport = r.departure_airport -->
+<!---->
+<!-- WHERE r.scheduled_departure = 2022-09-28 03:32:47 -- Southwest -->
+<!---->
+<!-- AND depth < 3 -->
+<!---->
+<!-- AND NOT r.arrival_airport = ANY(path) -- no cycles -->
+<!---->
+<!-- ) -->
+<!---->
+<!-- SELECT * FROM search -->
+<!---->
+<!-- ORDER BY depth, arrival_airport; -->
+<!-- ``` -->
