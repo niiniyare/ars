@@ -53,6 +53,22 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 25. [goa api development](https://www.toptal.com/go/goa-api-development) 
 
+26. [root samsung A22- 5G](https://forum.xda-developers.com/t/guide-to-root-galaxy-a22-5g-unlock-bootloader-and-flash-official-firmware-noob-friendly.4404371/) 
+
+27. [airport info api](https://rapidapi.com/Active-api/api/airport-info) 
+
+28. [AirLabs Data API is designed to provide an easy way to get real-time global flight positioning data, flight schedules, and an impressive set of airlines, routes, airports, and other relevant aviation-related information](https://airlabs.co/docs) 
+
+
+
+
+
+
+
+
+
+
+
 <!---->
 <!-- ```SQL -->
 <!-- CREATE TABLE flights ( -->

@@ -5,22 +5,22 @@
 
 
 --
--- SELECT template for table `Collection_Meta`
+-- SELECT template for table Collection_Meta
 --
-SELECT `count`, `links` FROM `Collection_Meta` WHERE 1;
+SELECT count, links FROM Collection_Meta WHERE 1;
 
 --
--- INSERT template for table `Collection_Meta`
+-- INSERT template for table Collection_Meta
 --
-INSERT INTO `Collection_Meta`(`count`, `links`) VALUES (?, ?);
+INSERT INTO Collection_Meta(count, links) VALUES (?, ?);
 
 --
--- UPDATE template for table `Collection_Meta`
+-- UPDATE template for table Collection_Meta
 --
-UPDATE `Collection_Meta` SET `count` = ?, `links` = ? WHERE 1;
+UPDATE Collection_Meta SET count = ?, links = ? WHERE 1;
 
 --
--- DELETE template for table `Collection_Meta`
+-- DELETE template for table Collection_Meta
 --
-DELETE FROM `Collection_Meta` WHERE 0;
+DELETE FROM Collection_Meta WHERE 0;
 
