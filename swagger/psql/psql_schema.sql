@@ -170,18 +170,19 @@ CREATE TABLE IF NOT EXISTS Fare (
   Code text,
   Definition text 
 );
-/*
+CREATE TYPE FareRuleOptions AS  ENUM( 'Allowed', 'For Fee', 'Not Allowed');
+
 CREATE TABLE IF NOT EXISTS FareRule (
-  cancel ENUM( 'Allowed', 'For Fee', 'Not Allowed') COMMENT 'The fare rule for the cancelability.',
-  cancelEnum ENUM( 'allowed', 'for_fee', 'not_allowed') COMMENT 'The fare rule for the cancelability with a very structure format.',
-  change ENUM( 'Allowed', 'For Fee', 'Not Allowed') COMMENT 'The fare rule for the changeability.',
-  changeEnum ENUM( 'allowed', 'for_fee', 'not_allowed') COMMENT 'The fare rule for the changeability with a very structure format.',
+  cancel FareRuleOptions COMMENT 'The fare rule for the cancelability.',
+  cancelEnum FareRuleOptions COMMENT 'The fare rule for the cancelability with a very structure format.',
+  change FareRuleOptions COMMENT 'The fare rule for the changeability.',
+  changeEnum FareRuleOptions COMMENT 'The fare rule for the changeability with a very structure format.',
   passengerRef text COMMENT 'The references tot the passengers involved in the group of FareReules.',
   passengerType text COMMENT 'The type of the passengers related to this group of FareRule.',
   penalties text COMMENT 'Fare rule penalties.'
-)  COMMENT='Fare Rules per segment and per each passenger type.';
-*/
-/*
+)  ;
+-- COMMENT='Fare Rules per segment and per each passenger type.'
+
 CREATE TABLE IF NOT EXISTS Flight (
   arrival text,
   baggageAllowance text,
@@ -313,7 +314,7 @@ CREATE TABLE IF NOT EXISTS ItineraryRQ (
   departure CHAR(3) NOT NULL,
   flightNumbers text 
 );
-/*
+
 CREATE TABLE IF NOT EXISTS ItineraryRS (
   createdAt bigint,
   flights text,
@@ -322,8 +323,7 @@ CREATE TABLE IF NOT EXISTS ItineraryRS (
   options text COMMENT 'possible fare options for itinerary',
   owner CHAR(2) COMMENT '2-letter code of provider',
   paymentTimeLimit text COMMENT 'Payment time limit, after this time created order will become expired'
-);
--*/-
+
 CREATE TABLE IF NOT EXISTS MarketingCarrier (
   airlineID CHAR(2) NOT NULL,
   flightNumber text NOT NULL,

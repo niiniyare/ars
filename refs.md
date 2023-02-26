@@ -67,7 +67,9 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 32. [[us gov U.S. Web Design System](https://designsystem.digital.gov/)
 
-
+33. **Copa Connect Web interface tutorials.**  
+    [youtube Copa Connect Web interface tutorials](https://youtube.com/playlist?list=PL47HO1V-U0AmRhWAErb1-JnB-o8qsKOcB) 
+     [or web ](https://www.copaair.com/en/web/gs/agencias-sprk-interface-tutorials) 
 
 
 
