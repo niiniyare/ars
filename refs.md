@@ -71,7 +71,7 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
     [youtube Copa Connect Web interface tutorials](https://youtube.com/playlist?list=PL47HO1V-U0AmRhWAErb1-JnB-o8qsKOcB) 
      [or web ](https://www.copaair.com/en/web/gs/agencias-sprk-interface-tutorials) 
 
-
+34. [This web site has been setup to help you cut through the jungle of all those codes and abbreviations used in and around the Airline Industry. Whether it be an Aircraft Type Code in a printed timetable or an Airline Code in online Booking system or on your ticket this site has been designed to help you find out what that code stands for. So if you want to know what type of Aircraft an AB6 is that your bookings says you will be flying on or what Airport YYZ is that you are flying from or to, this is the place to look.](https://www.avcodes.co.uk/) 
 
 
 
