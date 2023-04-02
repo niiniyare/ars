@@ -69,10 +69,14 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 33. **Copa Connect Web interface tutorials.**  
     [youtube Copa Connect Web interface tutorials](https://youtube.com/playlist?list=PL47HO1V-U0AmRhWAErb1-JnB-o8qsKOcB) 
-     [or web ](https://www.copaair.com/en/web/gs/agencias-sprk-interface-tutorials) 
+     [or web ](https://www.copaair.com/en/web/gs/agencias-sprk-inter/face-tutorials) 
 
 34. [This web site has been setup to help you cut through the jungle of all those codes and abbreviations used in and around the Airline Industry. Whether it be an Aircraft Type Code in a printed timetable or an Airline Code in online Booking system or on your ticket this site has been designed to help you find out what that code stands for. So if you want to know what type of Aircraft an AB6 is that your bookings says you will be flying on or what Airport YYZ is that you are flying from or to, this is the place to look.](https://www.avcodes.co.uk/) 
 
+35. [sap ticketing system Example](https://help.sap.com/docs/CONCUR_TRAVEL/8b8fdc56b55b47b09e9d2b820045e641/c43bb2fa51c310159ddcc8b1519c2583.html?locale=en-GB) 
+
+36. [This is a web-based program to find direct routes for flight simulators that match specified filters. It can be useful when you are not sure where you want to fly from and/or to.The frontend is made with `Svelte` and the backend with `Rust` and `Rocket`.](https://github.com/Acizza/srfinder) 
+37. [This project provides the scripts necessary to set up the OLTP part of the go-to database used in training classes and for sample apps on the Microsoft stack](https://github.com/oslabs-beta/dbhive/tree/main/db-sample-data) 
 
 
 <!---->
