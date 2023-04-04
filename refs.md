@@ -78,7 +78,9 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 36. [This is a web-based program to find direct routes for flight simulators that match specified filters. It can be useful when you are not sure where you want to fly from and/or to.The frontend is made with `Svelte` and the backend with `Rust` and `Rocket`.](https://github.com/Acizza/srfinder) 
 37. [This project provides the scripts necessary to set up the OLTP part of the go-to database used in training classes and for sample apps on the Microsoft stack](https://github.com/oslabs-beta/dbhive/tree/main/db-sample-data) 
 
+38. [How we have developed an online ticket booking system?](https://ddi-dev.com/blog/case/how-we-have-developed-an-online-ticket-booking-system/) 
 
+39. [How To Develop A Flight Booking Mobile App: Cost, Features & Tech Stack](https://www.emizentech.com/blog/how-to-develop-a-flight-booking-mobile-app.html) 
 <!---->
 <!-- ```SQL -->
 <!-- CREATE TABLE flights ( -->
