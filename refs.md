@@ -83,6 +83,17 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 39. [How To Develop A Flight Booking Mobile App: Cost, Features & Tech Stack](https://www.emizentech.com/blog/how-to-develop-a-flight-booking-mobile-app.html) 
 
 40. [faststore UI](https://evergreen.faststore.dev/) 
+
+41. [Broadleaf Commerce, an Inc. 5000 company, provides B2B and B2C eCommerce platform solutions to simplify the complexities of multi-channel commerce and digital experience management](https://www.broadleafcommerce.com/docs/core/current/broadleaf-concepts/key-aspects-and-configuration/features-and-architecture) 
+
+
+
+
+
+
+
+
+
 <!---->
 <!-- ```SQL -->
 <!-- CREATE TABLE flights ( -->
