@@ -81,6 +81,8 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 38. [How we have developed an online ticket booking system?](https://ddi-dev.com/blog/case/how-we-have-developed-an-online-ticket-booking-system/) 
 
 39. [How To Develop A Flight Booking Mobile App: Cost, Features & Tech Stack](https://www.emizentech.com/blog/how-to-develop-a-flight-booking-mobile-app.html) 
+
+40. [faststore UI](https://evergreen.faststore.dev/) 
 <!---->
 <!-- ```SQL -->
 <!-- CREATE TABLE flights ( -->
