@@ -86,6 +86,8 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 41. [Broadleaf Commerce, an Inc. 5000 company, provides B2B and B2C eCommerce platform solutions to simplify the complexities of multi-channel commerce and digital experience management](https://www.broadleafcommerce.com/docs/core/current/broadleaf-concepts/key-aspects-and-configuration/features-and-architecture) 
 
+42. [Engine can be used for everything from automating financial underwriting and checking transactions for compliance purposes to calculating commissions, risk management, fraud detection, and much more ](https://www.kredor.com/products/rules-engines/#try) 
+
 
 
 
