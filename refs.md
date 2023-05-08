@@ -88,6 +88,8 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 42. [Engine can be used for everything from automating financial underwriting and checking transactions for compliance purposes to calculating commissions, risk management, fraud detection, and much more ](https://www.kredor.com/products/rules-engines/#try) 
 
+43. [Osmanya scripts HTML and CSS codes](https://symbl.cc/en/alphabets/osmanya/) 
+
 
 
 
