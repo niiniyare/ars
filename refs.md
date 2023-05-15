@@ -94,6 +94,8 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 45. [Generating a PNR](./PNR_genetation.md) 
 
+46. [Building Customer-Facing Real-Time Dashboards with Postgres](https://www.crunchydata.com/blog/building-customer-facing-real-time-dashboards-with-postgres) 
+
 
 
 
