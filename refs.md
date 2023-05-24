@@ -96,6 +96,8 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 46. [Building Customer-Facing Real-Time Dashboards with Postgres](https://www.crunchydata.com/blog/building-customer-facing-real-time-dashboards-with-postgres) 
 
+47. [accounting wrapper for the Lightning Network.](https://github.com/getAlby/lndhub.go) 
+
 
 
 
