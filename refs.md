@@ -98,6 +98,8 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 47. [accounting wrapper for the Lightning Network.](https://github.com/getAlby/lndhub.go) 
 
+48. [Svelte Admin UI Template](https://github.com/hada0127/sadmin) 
+
 
 
 
