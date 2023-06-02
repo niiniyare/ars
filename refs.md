@@ -100,6 +100,10 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 48. [Svelte Admin UI Template](https://github.com/hada0127/sadmin) 
 
+49. [Hugo Clarity Theme](https://github.com/chipzoller/hugo-clarity#social-media) 
+
+50. [fli pricing algorithm](https://illumin.usc.edu/the-algorithm-behind-plane-ticket-prices-and-how-to-get-the-best-deal/) 
+
 
 
 
