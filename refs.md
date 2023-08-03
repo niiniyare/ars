@@ -106,8 +106,13 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 51. [web-based interface that works on top of your database.](https://mathesar.org/) 
 
+52. [Method and system for searching for travel itineraries with flexible travel dates](https://patents.google.com/patent/US20050086087A1/en) 
 
 
+
+```bash
+nix build github:NixOS/nixpkgs#packageName
+```
 
 
 <!---->
