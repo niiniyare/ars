@@ -108,6 +108,8 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 52. [Method and system for searching for travel itineraries with flexible travel dates](https://patents.google.com/patent/US20050086087A1/en) 
 
+53. [set of annotated slides ITA Software has prepared on the computational complexity of air travel planning. ](http://www.demarcken.org/carl/papers/ITA-software-travel-complexity) 
+
 
 
 ```bash
