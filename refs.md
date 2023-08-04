@@ -110,6 +110,8 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 53. [set of annotated slides ITA Software has prepared on the computational complexity of air travel planning. ](http://www.demarcken.org/carl/papers/ITA-software-travel-complexity) 
 
+54. [GDS/CRS discutions](https://hasbrouck.org/articles/PNR.html#CRS) 
+
 
 
 ```bash
