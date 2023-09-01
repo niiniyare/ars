@@ -112,6 +112,8 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 54. [GDS/CRS discutions](https://hasbrouck.org/articles/PNR.html#CRS) 
 
+55. [Go library for building event-driven applications](https://watermill.io/) 
+
 
 
 ```bash
