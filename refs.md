@@ -114,6 +114,7 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 55. [Go library for building event-driven applications](https://watermill.io/) 
 
+56. [Case Study: How we have developed an Online Ticket Booking System?](https://ddi-dev.com/blog/case/how-we-have-developed-an-online-ticket-booking-system/) 
 
 
 ```bash
