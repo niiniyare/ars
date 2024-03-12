@@ -117,9 +117,7 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 56. [Case Study: How we have developed an Online Ticket Booking System?](https://ddi-dev.com/blog/case/how-we-have-developed-an-online-ticket-booking-system/) 
 
 
-```bash
-nix build github:NixOS/nixpkgs#packageName
-```
+57. [Create beautiful designed seat maps 💺🗺️](https://seatchart.js.org/index.html)
 
 
 <!---->
