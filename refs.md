@@ -119,6 +119,8 @@ Luke Paireepinart, David Keyes, Jingtao Liu, Frank Medjo and Seth Orell, Softwar
 
 57. [Create beautiful designed seat maps 💺🗺️](https://seatchart.js.org/index.html)
 
+58. [User authentication and session management framework](https://github.com/zitadel/zitadel)
+
 
 <!---->
 <!-- ```SQL -->
